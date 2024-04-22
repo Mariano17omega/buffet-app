@@ -64,12 +64,7 @@ Em app/views/layouts/application.html.erb, adicionamos as flash mensagens
 </div>
 ```
 
-Geramos o modelo de usuario
 
-```
-rails generate devise user_owner name:string
-rails db:migrate 
-```
 Git do Setup
 
 Criando o Projeto no GitHub
@@ -115,7 +110,45 @@ describe '' do
 end
 
 ```
-### Solução
+#### Solução 
+
+
+Geramos o modelo de usuario
+
+```
+rails generate devise user_owner name:string
+rails db:migrate 
+```
+
+Criamos a tela inicial 
+
+```
+<h1>Bem-vindo ao Cadê Buffet?</h1>
+
+<p>Selecione o seu tipo de usuário:</p>
+
+<%= link_to "Sou Dono de Buffet", new_user_owner_session_path  %>
+
+<%= link_to "Sou Cliente", new_user_owner_session_path   %>
+```
+
+Adicionamos pt-BR.yml em config/locales e usamos a tradução de https://github.com/heartcombo/devise/wiki/I18n.
+
+Ativamos o i18n adicionano config/initializers/locale.rb com:
+
+```
+I18n.available_locales = [:en, :'pt-BR']
+
+I18n.default_locale = :'pt-BR'
+
+```
+Para traduzir as views, geramos as views usando `rails generate devise:views`
+
+
+
+
+
+
 
 
 
@@ -164,7 +197,8 @@ Um usuário dono de buffet deve, obrigatoriamente, cadastrar seu buffet logo ap�
   
   - A única rota que deve ser habilitada é a função de sair (sign out).
 
- 
+
+
 
 
 ## 3 - Tarefa 3: Adicionar tipos de eventos
