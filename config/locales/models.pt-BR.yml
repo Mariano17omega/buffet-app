@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      buffet: 'Buffet'
+      user_owner: 'Proprietário do Buffet'
+    attributes:
+      buffet:
+        brand_name: 'Nome fantasia'
+        corporate_name: 'Razão social'
+        cnpj: 'CNPJ'
+        contact_phone: 'Telefone para contato'
+        contact_email: 'E-mail para contato'
+        address: 'Endereço'
+        district: 'Bairro'
+        state: 'Estado'
+        city: 'Cidade'
+        cep: 'CEP'
+        description: 'Descrição'
+        playment_methods: 'Meios de pagamentos aceitos'

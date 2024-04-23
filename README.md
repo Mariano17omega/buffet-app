@@ -185,7 +185,7 @@ Um usuário dono de buffet deve, obrigatoriamente, cadastrar seu buffet logo ap�
 
   - O usuário dono de buffet deve ser o único capaz de editar os dados de seu próprio buffet.
 
-  - 0 usuário dono de buffet pode excluir um buffet.
+  - O usuário não deve ser possível excluir um buffet.
   
   - Cada usuário deve possuir somente um buffet cadastrado e o buffet deve estar diretamente vinculado ao usuário.
 
@@ -199,7 +199,13 @@ Um usuário dono de buffet deve, obrigatoriamente, cadastrar seu buffet logo ap�
 
 
 
+### Solução
 
+Criar modelo para cadastrar o buffet 
+
+```
+rails generate model buffet brand_name:string corporate_name:string cnpj:integer contact_phone:integer contact_email:string address:string  district:string state:string city:string cep:string description:string playment_methods:string user_owner:references
+```
 
 ## 3 - Tarefa 3: Adicionar tipos de eventos
 

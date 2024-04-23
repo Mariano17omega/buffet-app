@@ -1,0 +1,54 @@
+<%= form_with(model: @buffet ) do |f| %>
+  <div>
+    <%= f.label :corporate_name %>
+    <%= f.text_field :corporate_name%>
+  </div>
+  <div>
+    <%= f.label :brand_name %>
+    <%= f.text_field :brand_name%>
+  </div>
+  <div>
+    <%= f.label :cnpj %>
+    <%= f.number_field :cnpj%>
+  </div>
+  <div>
+    <%= f.label :contact_phone%>
+    <%= f.number_field :contact_phone%>
+  </div>
+  <div>
+    <%= f.label :contact_email%>
+    <%= f.email_field :contact_email%>
+  </div>
+  <div>
+    <%= f.label :address %>
+    <%= f.text_field :address%>
+  </div>
+  <div>
+    <%= f.label :district  %>
+    <%= f.text_field :district%>
+  </div>
+  <div>
+  <%= f.label :state  %>
+  <%= f.text_field :state%>
+  </div>
+  <div>
+    <%= f.label :city  %>
+    <%= f.text_field :city%>
+  </div>
+  <div>
+  <%= f.label :cep  %>
+  <%= f.text_field :cep%>
+  </div>
+  <div>
+    <%= f.label :description  %>
+    <%= f.text_field :description%>
+  </div>
+  <div>
+    <%= f.label :playment_methods  %>
+    <%= f.text_field :playment_methods%>
+  </div>
+  
+  <div>
+    <%= f.submit 'Cadastrar Buffet' %>
+  </div>
+<%end%>

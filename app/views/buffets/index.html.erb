@@ -1,0 +1,17 @@
+<h1>Buffets</h1>
+
+<% @buffets.each do |w|%>
+  <div>
+    <h3><%= link_to(w.corporate_name, buffet_path(w.id) )%></h3>
+    <dl>
+      <dt>Código</dt>
+      <dd><%= w.brand_name%></dd>
+      <dt>Cidade:</dt>
+      <dd><%= w.city%></dd>  
+    </dl>      
+  </div>
+<%end %>
+
+<% if @buffets.empty? %>
+  <p> Não existem Buffets cadastrados </p>
+<%end %>
