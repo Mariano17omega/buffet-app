@@ -15,6 +15,9 @@
 </div>
 
 <div>
-  <%= link_to 'Editar', edit_buffet_path( @buffet.id ) %> 
-  <%= link_to 'Voltar', buffets_path%>
+  <%if current_user_owner == @buffet.user_owner %>
+    <%= link_to 'Editar', edit_buffet_path( @buffet.id ) %> 
+  <%end%>
 </div>
+
+  

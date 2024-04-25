@@ -88,63 +88,31 @@ Um usuário pode criar sua conta como dono de um buffet informando seu e-mail e 
 
 ### Objetivos da Tarefa
 
-- Criar uma tela incial com dois botões para o usuário dizer se ele é um dono de buffet ou um cliente.
+- [x]  Criar uma tela incial com dois botões para o usuário dizer se ele é um dono de buffet ou um cliente.
 
-- Se o usuário for um dono de buffet, ele deve ser direcionado para uma tela de login com um formulario com e-mail e senha. 
+- [x] Se o usuário for um dono de buffet, ele deve ser direcionado para uma tela de login com um formulario com e-mail e senha. 
 
-- Depois criamos uma tela para o caso do usuário for um usuário cliente.
+- [x] Depois criamos uma tela para o caso do usuário for um usuário cliente.
 
-### Criando o primeiro Test
-
-Criar a pasta system e o arquivo em /spec:
-
-```
-require 'rails_helper'
-
-describe '' do
-  it '' do
-    # Arrange
-    # Act
-    # Assert
-  end 
-end
-
-```
+  
 #### Solução 
 
+describe 'Usuario visita tela inicial' do
+  context 'como dono de buffet' do
+    it 'e vê as opções de login de usuários' do
+    end
 
-Geramos o modelo de usuario
+    it 'e vê a página de inscrição para um dono de bufê' do
+    end
 
-```
-rails generate devise user_owner name:string
-rails db:migrate 
-```
+    it 'e faz a inscrição com sucesso como um dono de bufê' do 
+    end
 
-Criamos a tela inicial 
-
-```
-<h1>Bem-vindo ao Cadê Buffet?</h1>
-
-<p>Selecione o seu tipo de usuário:</p>
-
-<%= link_to "Sou Dono de Buffet", new_user_owner_session_path  %>
-
-<%= link_to "Sou Cliente", new_user_owner_session_path   %>
-```
-
-Adicionamos pt-BR.yml em config/locales e usamos a tradução de https://github.com/heartcombo/devise/wiki/I18n.
-
-Ativamos o i18n adicionano config/initializers/locale.rb com:
-
-```
-I18n.available_locales = [:en, :'pt-BR']
-
-I18n.default_locale = :'pt-BR'
-
-```
-Para traduzir as views, geramos as views usando `rails generate devise:views`
-
-
+    it 'e faz o login e depois o logout' do 
+    end
+ 
+  end
+end
 
 
 
@@ -165,9 +133,9 @@ Um usuário dono de buffet deve, obrigatoriamente, cadastrar seu buffet logo ap�
 
 ### Objetivos da Tarefa
 
-- Após fazer o cadastrado de usuário dono de buffet com sucesso, a aplicação deve redirecionar para a tela de cadastro do buffet.
+- [x] Após fazer o cadastrado de usuário dono de buffet com sucesso, a aplicação deve redirecionar para a tela de cadastro do buffet.
 
-- Criar tela para cadastrar seu buffet informando: 
+- [x] Criar tela para cadastrar seu buffet informando: 
   - nome fantasia
   - razão social
   - CNPJ
@@ -183,29 +151,54 @@ Um usuário dono de buffet deve, obrigatoriamente, cadastrar seu buffet logo ap�
 
 - Criar as validações:
 
-  - O usuário dono de buffet deve ser o único capaz de editar os dados de seu próprio buffet.
+  - [X] O usuário dono de buffet deve ser o único capaz de editar os dados de seu próprio buffet.
 
-  - O usuário não deve ser possível excluir um buffet.
+  - [x] O usuário não deve ser possível excluir um buffet.
   
-  - Cada usuário deve possuir somente um buffet cadastrado e o buffet deve estar diretamente vinculado ao usuário.
+  - [x] Cada usuário deve possuir somente um buffet cadastrado e o buffet deve estar diretamente vinculado ao usuário.
 
-  - Mesmo que o usuário tente acessar outras rotas, a aplicação deve sempre validar se é um login de dono de buffet que ainda não cadastrou seu buffet.
+  - [x] Mesmo que o usuário tente acessar outras rotas, a aplicação deve sempre validar se é um login de dono de buffet que ainda não cadastrou seu buffet.
 
-  - Um usuário dono de buffet deve, obrigatoriamente, cadastrar seu buffet logo após criar sua conta. Mesmo que o usuário tente acessar outras rotas, a aplicação deve sempre validar se é um login de dono de buffet que ainda não cadastrou seu buffet.
+  - [x] Um usuário dono de buffet deve, obrigatoriamente, cadastrar seu buffet logo após criar sua conta. Mesmo que o usuário tente acessar outras rotas, a aplicação deve sempre validar se é um login de dono de buffet que ainda não cadastrou seu buffet.
   
-  - Em caso afirmativo, a aplicação deve levar o usuário de volta para a tela de cadastro. 
+  - [x] Em caso afirmativo, a aplicação deve levar o usuário de volta para a tela de cadastro. 
   
-  - A única rota que deve ser habilitada é a função de sair (sign out).
+  - [x] A única rota que deve ser habilitada é a função de sair (sign out).
 
 
 
 ### Solução
 
-Criar modelo para cadastrar o buffet 
 
-```
-rails generate model buffet brand_name:string corporate_name:string cnpj:integer contact_phone:integer contact_email:string address:string  district:string state:string city:string cep:string description:string playment_methods:string user_owner:references
-```
+describe 'Usuario visita tela inicial' do
+  context 'como dono de buffet' do
+
+    it 'e faz a inscrição e depois vê o cadastro de bufet' do 
+    end
+
+    it 'e faz a inscrição e depois faz o cadastro de bufet com sucesso' do 
+    end
+
+    it 'e faz a inscrição e depois faz o cadastro de bufet faltando dados' do 
+    end
+
+    it 'e faz o login com sucesso' do 
+    end
+
+    it 'e faz o login sem cadastra o bufet e depois faz o login novamente e vê a tela de cadastro' do 
+    end
+
+    it 'e faz o login e editar seu buffet' do 
+    end
+
+    it 'e faz o login e editar outro buffet' do 
+    end
+
+
+  end
+end
+
+
 
 ## 3 - Tarefa 3: Adicionar tipos de eventos
 

@@ -1,10 +1,7 @@
 class BuffetsController < ApplicationController
-  before_action :authenticate_user_owner!, only: [:new, :edit, :update, :create]
+  before_action :authenticate_user_owner!
   before_action :set_buffet, only: [:show, :edit, :update]
 
-  def index
-    @buffets = Buffet.all
-  end
 
   def show
   end
@@ -13,22 +10,32 @@ class BuffetsController < ApplicationController
     @buffet = Buffet.new()
   end
 
-  def edit; end
+  def edit
+    unless current_user_owner == @buffet.user_owner
+      redirect_to buffet_path(@buffet), alert: 'Você não tem permissão para editar este buffet.'
+    end
+  end
 
   def update
-    if @buffet.update(buffet_params)
-      redirect_to buffet_path(  @buffet.id ), notice: 'Buffet editado com sucesso.'
+    if current_user_owner == @buffet.user_owner
+      if @buffet.update(buffet_params)
+        redirect_to buffet_path(@buffet), notice: 'Buffet editado com sucesso.'
+      else
+        flash.now[:notice] = 'Não foi possível editar o Buffet.'
+        render 'edit'
+      end
     else
-      flash[:notice] = 'Não foi possível editar o Buffet.'
-      render 'edit'
+      redirect_to buffet_path(@buffet), alert: 'Você não tem permissão para editar este buffet.'
     end
+
   end
 
   def create
     @buffet = Buffet.new(buffet_params)
     @buffet.user_owner = current_user_owner
+
     if @buffet.save
-      redirect_to buffets_path, notice: 'Buffet cadastrado com sucesso.'
+      redirect_to buffet_path(  @buffet.id ), notice:  'Buffet cadastrado com sucesso.'
     else
       flash.now[:notice] = 'Buffet não cadastrado.'
       render 'new'
@@ -46,4 +53,5 @@ class BuffetsController < ApplicationController
                                     :contact_email, :address, :district, :state, :city, :cep,
                                     :description, :playment_methods)
   end
+
 end
