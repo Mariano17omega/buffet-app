@@ -1,0 +1,27 @@
+<h1>Evento <%= @event.name%> do Buffet <%= @event.buffet.brand_name%>  </h1>
+
+
+<h3><%= @event.description%> </h3>
+<div> 
+  <strong>Quantidade mínima de convidados: </strong><%= @event.min_guests%><br>
+  <strong>Quantidade máxima de convidados: </strong><%= @event.max_guests%><br>
+  <strong>Duração: </strong><%= @event.duration%> min<br>
+  <strong>Cardápio: </strong><%= @event.menu%><br>
+  <strong>Bebidas alcoólicas: </strong><%= @event.alcoholic_beverages ? 'Sim' : 'Não' %><br> 
+  <strong>Decoração: </strong><%= @event.decoration ? 'Sim' : 'Não' %><br> 
+  
+  <strong>Exclusivo no endereço do buffet: </strong><%= @event.event_location ? 'Sim' : 'Não' %><br> 
+
+  <strong>Serviço: </strong><%= @event.decoration ? 'valet' : 'estacionamento' %><br>
+</div>
+
+<div>
+  <%if current_user_owner == @buffet.user_owner %>
+    <%= link_to 'Editar Evento', edit_buffet_event_path( @buffet, @event)%>  
+  <%end%>
+
+<%= link_to 'Voltar', buffet_path(@buffet)%>  
+
+</div>
+
+  

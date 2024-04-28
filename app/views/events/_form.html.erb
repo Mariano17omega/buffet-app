@@ -1,0 +1,49 @@
+<%= form_with model: [@buffet, @event]  do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description%>
+  </div>
+  <div>
+    <%= f.label :min_guests %>
+    <%= f.number_field :min_guests%>
+  </div>
+  <div>
+    <%= f.label :max_guests %>
+    <%= f.number_field :max_guests%>
+  </div>
+  <div>
+    <%= f.label :duration%> (min)
+    <%= f.number_field :duration%>
+  </div>
+  <div>
+    <%= f.label :menu%>
+    <%= f.text_area :menu%>
+  </div>
+  <div>
+    <%= f.label :alcoholic_beverages %> 
+    <%= f.check_box :alcoholic_beverages, {}, true, false %> 
+  </div>
+  <div>
+    <%= f.label :decoration %> 
+    <%= f.check_box :decoration, {}, true, false %> 
+  </div>
+  <div>
+    <%= f.label :parking_servise %> 
+    <%= f.check_box :parking_servise, {}, true, false %> 
+  </div>
+ 
+  <div>
+    <%= f.label :event_location, 'O evento deve ser realizado exclusivamente no endereço do buffet' %>
+    <%= f.check_box :event_location, {}, true, false %>
+  </div> 
+  
+  <div>
+    <%= f.submit 'Cadastrar Evento' %>
+  </div>
+<%end%>
+
+ 

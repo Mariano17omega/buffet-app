@@ -166,7 +166,7 @@ describe 'Usuario visita tela inicial' do
       fill_in 'E-mail', with: 'proprietario@example.com'
       fill_in 'Senha', with: 'senha123'
       click_button 'Entrar'
-      click_on 'Editar'
+      click_on 'Editar Buffet'
       # Assert
       expect(page).to have_content 'Editar Buffet'
       expect(page).to have_content 'Nome fantasia'
@@ -202,7 +202,7 @@ describe 'Usuario visita tela inicial' do
       # Assert
       expect(page).to have_content 'Buffet da C.C.'
       expect(page).to have_content 'Buffet Zero'
-      expect(page).not_to have_content 'Editar'
+      expect(page).not_to have_content 'Editar Buffet'
     end
   end
 end

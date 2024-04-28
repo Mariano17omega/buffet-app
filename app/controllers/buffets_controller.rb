@@ -4,6 +4,7 @@ class BuffetsController < ApplicationController
 
 
   def show
+    @events=@buffet.events
   end
 
   def new
@@ -27,7 +28,6 @@ class BuffetsController < ApplicationController
     else
       redirect_to buffet_path(@buffet), alert: 'Você não tem permissão para editar este buffet.'
     end
-
   end
 
   def create

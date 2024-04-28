@@ -147,7 +147,7 @@ Um usuário dono de buffet deve, obrigatoriamente, cadastrar seu buffet logo ap�
   - cidade
   - CEP
   - descrição de seu buffet 
-  - meios de pagamentos aceitos
+  - [ ] meios de pagamentos aceitos
 
 - Criar as validações:
 
@@ -170,6 +170,7 @@ Um usuário dono de buffet deve, obrigatoriamente, cadastrar seu buffet logo ap�
 ### Solução
 
 
+```
 describe 'Usuario visita tela inicial' do
   context 'como dono de buffet' do
 
@@ -193,12 +194,10 @@ describe 'Usuario visita tela inicial' do
 
     it 'e faz o login e editar outro buffet' do 
     end
-
-
   end
 end
 
-
+```
 
 ## 3 - Tarefa 3: Adicionar tipos de eventos
 
@@ -211,42 +210,65 @@ Ao cadastrar os tipos de evento de seu buffet, não faz sentido que o usuário a
 
 ### Objetivos da Tarefa
 
-- Um buffet pode oferecer diferentes tipos de eventos: 
+- [X] Um buffet pode oferecer diferentes tipos de eventos: 
   - festas de 15 anos
   - festas de casamento
   - serviço de buffet para conferências e congressos
   - festas corporativas
   - etc.
 
-- Cada dono de buffet deverá cadastrar os tipos de evento que realiza.
+- [X] Cada dono de buffet deverá cadastrar os tipos de evento que realiza.
 
-- Para cada tipo de evento deve informar: 
+- [X] Para cada tipo de evento deve informar: 
   - nome
   - descrição
   - quantidade mínima de pessoas que podem ser atendidas 
   - quantidade máxima de pessoas que podem ser atendidas
   - duração padrão do evento em minutos
 
+- [X] Cada tipo de evento deve possuir também um texto que indica o cardápio para o evento. 
 
-- Cada tipo de evento deve possuir também um texto que indica o cardápio para o evento. 
-
-- Deve ser informado se o evento possui opção de: 
+- [X] Deve ser informado se o evento possui opção de: 
   - bebidas alcoólicas
   - decoração
   - serviço de estacionamento ou  valet
 
-- Para cada tipo de evento, o dono do buffet precisa indicar se o evento deve ser realizado exclusivamente no endereço do buffet ou se pode ser feito em um endereço indicado pelo contratante.
+- [X] Para cada tipo de evento, o dono do buffet precisa indicar se o evento deve ser realizado exclusivamente no endereço do buffet ou se pode ser feito em um endereço indicado pelo contratante.
 
-- Ao cadastrar os tipos de evento de seu buffet, não faz sentido que o usuário atual precise indicar que o tipo de evento pertence ao seu buffet através do formulário. 
+- [X] Ao cadastrar os tipos de evento de seu buffet, não faz sentido que o usuário atual precise indicar que o tipo de evento pertence ao seu buffet através do formulário. 
 
-- Faça com que este vínculo seja feito automaticamente dentro de seu código. Garanta que um tipo de evento não pode ser vinculado a qualquer buffet de usuário diferente do autenticado no momento do cadastro.
+- [X] Faça com que este vínculo seja feito automaticamente dentro de seu código. Garanta que um tipo de evento não pode ser vinculado a qualquer buffet de usuário diferente do autenticado no momento do cadastro.
 
 
+### Solução
 
+
+```
+describe 'Usuario dono de buffet' do
+  context 'acessar seu buffet' do
+    it 'e acessar a tela para cadastra um evento' do
+    end
+    it 'e cadastra um evento com sucesso' do
+    end
+    it 'e tenta cadastra um evento faltando dados'  do
+    end
+    it 'e tenta cadastra um evento que já existe'  do
+    end
+    it 'e vê a sua lista de eventos' do
+    end
+    it 'e acessar os detalhes de um evento' do
+    end
+    it 'e editar um evento' do
+    end
+  end
+end
+
+
+```
 
 ## 4 - Tarefa 4: Preços por evento
 
-Um usuário autenticado como dono de um buffet pode, para cada tipo de evento, definir os preços-base daquele tipo de evento. Cada preço-base deve conter o valor mínimo (que está ligado com a quantidade mínima de pessoas) e deve haver um valor adicional por pessoa. Lembre-se que os valores aqui não são necessariamente lineares. Por exemplo: uma festa infantil com mínimo de 20 pessoas pode ter o preço-base de R$ 2.000,00, mas o valor adicional por pessoa pode ser de R$ 70,00.
+Um usuário autenticado como dono de um buffet pode, para cada tipo de evento, definir os preços-base daquele tipo de evento. Cada preço-base deve conter o valor mínimo (que está ligado com a quantidade mínima de pessoas) e deve haver um valor adicional por pessoa. Lembre-se que os valores aqui não são necessariamente lineares. Por exemplo: uma festa infantil com mínimo de 20 pessoas pode ter o preço-base de R\$ 2.000,00, mas o valor adicional por pessoa pode ser de R\$ 70,00.
 
 Pode ser cadastrado também o valor por hora extra do evento, caso o evento extrapole a duração-padrão.
 
@@ -254,6 +276,219 @@ Os preços por tipo de evento podem ser diferenciados caso a festa seja realizad
 
 Por exemplo:
 
-De segunda a sexta-feira, uma festa de casamento pode ter preço-base de R$ 10.000,00 (para 30 convidados), a taxa adicional por pessoa é de R$ 250,00 e a hora extra do evento é de R$ 1.000,00. Mas, aos fins de semana, a mesma festa tem o preço-base de R$ 14.000,00, taxa adicional por pessoa de R$ 300,00 e a hora extra de evento custa R$ 1.500,00.
+De segunda a sexta-feira, uma festa de casamento pode ter preço-base de R\$ 10.000,00 (para 30 convidados), a taxa adicional por pessoa é de R\$ 250,00 e a hora extra do evento é de R$ 1.000,00. Mas, aos fins de semana, a mesma festa tem o preço-base de R\$ 14.000,00, taxa adicional por pessoa de R\$ 300,00 e a hora extra de evento custa R\$ 1.500,00.
 
+
+### Objetivos da Tarefa
+
+- [ ] O usuário definir os preços-base daquele tipo de evento.
+
+- [ ] Cada preço-base deve conter o valor mínimo (que está ligado com a quantidade mínima de pessoas) e deve haver um valor adicional por pessoa.
+
+- [ ] Pode ser cadastrado também o valor por hora extra do evento, caso o evento extrapole a duração-padrão.
+
+- [ ] Deve ser possível cadastrar, para cada tipo de evento, duas configurações diferentes de preço. 
+  - Um preço caso a festa seja realizada durante os dias da semana 
+  - Outro preço durante o fim de semana
+
+
+
+### Solução
+
+
+```
+describe 'Usuario dono de buffet' do
+  context 'acessar os detalhes de um evento' do
+    it 'e adiciona preços para um evento' do 
+    end
+    it 'e vê os preços para um evento' do 
+    end
+  end
+end
+
+```
+
+
+### Objetivos da Tarefa
+
+## 5 - Tarefa 5: Listagem de buffets
+
+Um visitante, não autenticado, deve ser capaz de abrir a tela inicial da aplicação e ver todos os buffets cadastrados. Para cada buffet, deve ser exibido o nome, sua cidade e estado. Ao clicar no nome do buffet, o visitante é levado para uma página de detalhes contendo todas as informações cadastradas para o estabelecimento, exceto a razão social.
+
+### Objetivos da Tarefa
+
+- [ ] Um visitante, não autenticado, deve ser capaz de abrir a tela inicial da aplicação e ver todos os buffets cadastrados.
+
+- [ ] Na tela inicial, para cada buffet, deve ser exibido o nome, sua cidade e estado. 
+
+- [ ] Ao clicar no nome do buffet, o visitante é levado para uma página de detalhes contendo todas as informações cadastradas para o estabelecimento, exceto a razão social.
+
+
+### Solução
+
+
+```
+describe 'Usuario visitante' do
+  context 'visita tela inicial' do
+    
+    it 'e ver todos os buffets cadastrados' do 
+    end
+
+    it 'e vê o nome, a cidade e estado dos buffets cadastrados' do 
+    end
+
+    it 'e clicar no nome do buffet' do 
+    end
+  end
  
+  
+end
+
+```
+
+## 6 - Tarefa 6: Busca de buffets
+
+Um visitante, não autenticado, deve ter acesso, a partir de qualquer tela da aplicação, a um campo de busca de buffets. O usuário deve poder buscar um buffet pelo seu nome fantasia, pela cidade ou pelos tipos de festas realizadas. A busca deve ser feita por um único campo de texto, cujo valor informado será utilizado para consultar o banco de dados.
+
+A lista resultante da busca deve trazer os resultados sempre em ordem alfabética, considerando o nome fantasia. Ao clicar no nome do buffet, o visitante deve ser direcionado para a tela de detalhes de um buffet descrita na tarefa anterior.
+
+### Objetivos da Tarefa
+
+- [ ] Um visitante, não autenticado, deve ter acesso, a partir de qualquer tela da aplicação, a um campo de busca de buffets. 
+
+- [ ] A busca deve ser feita por um único campo de texto, cujo valor informado será utilizado para consultar o banco de dados.
+
+- [ ] O usuário deve poder buscar um buffet pelo seu nome fantasia, pela cidade ou pelos tipos de festas realizadas. 
+
+- [ ] A lista resultante da busca deve trazer os resultados sempre em ordem alfabética, considerando o nome fantasia.
+
+- [ ] Ao clicar no nome do buffet, o visitante deve ser direcionado para a tela de detalhes de um buffet descrita na tarefa anterior.
+
+
+### Solução
+
+
+```
+describe 'Usuario visitante' do
+  context 'vê um campo de busca de buffets' do
+
+    it 'em na tela inicial' do 
+    end
+    
+    it 'na tela de detalhes' do 
+    end
+    
+    it 'mas não vê na tela de login ' do 
+    end
+
+    it 'mas não vê na tela de cadastro ' do 
+    end
+
+    it 'e faz uma busca pelo nome fantasia' do 
+    end
+
+    it 'e faz uma busca pela cidade' do 
+    end
+
+    it 'e faz uma busca pelo tipo de festa' do 
+    end
+  end
+ 
+  context ' faz uma busca pela cidade' do
+
+    it 'e vê uma lista dos nomes fantasia' do 
+    end
+
+    it 'e vê uma lista dos nomes fantasia em ordem alfabética' do 
+    end
+
+    it 'e clicar no nome de um buffet' do 
+    end 
+
+  end
+  
+end
+
+```
+
+
+
+## 7 - Tarefa 7: Visitante vê tipos de eventos
+
+Um visitante, não autenticado, deve ser capaz de ver todos os tipos de festas disponíveis para um buffet. Dentro da tela de detalhes de um buffet devem ser listados todos os tipos de eventos que o buffet oferece. Para cada tipo de evento devem ser exibidas todas as informações cadastradas, inclusive os preços.
+
+### Objetivos da Tarefa
+
+- [ ] Dentro da tela de detalhes de um buffet devem ser listados todos os tipos de eventos que o buffet oferece.
+
+- [ ] Um visitante, não autenticado, deve ser capaz de ver todos os tipos de festas disponíveis para um buffet.
+
+- [ ] Para cada tipo de evento devem ser exibidas todas as informações cadastradas, inclusive os preços.
+
+
+### Solução
+
+
+```
+describe 'Usuario visitante' do
+  context 'visita tela detalhes de um buffet' do
+    it 'e a lista de todos os tipos de eventos que o buffet oferece' do 
+    end
+
+    it 'e ver todos os tipos de festas disponíveis para um buffet' do 
+    end
+
+    it 'e clicar em um tipo de evento e vê todas as informações cadastradas' do 
+    end
+  end
+
+end
+
+```
+
+## 8 - Tarefa 8: Visitante cria uma conta
+
+Um visitante deve ser capaz de criar uma conta informando seu nome, CPF, e-mail e senha. O CPF deve ser único e válido. A conta de um visitante não deve ser capaz de administrar nenhuma informação referente aos buffets. A partir de agora, vamos nos referir aos visitantes cadastrados como clientes.
+
+### Objetivos da Tarefa
+
+- [ ] Um visitante deve ser capaz de criar uma conta informando seu nome, CPF, e-mail e senha. 
+
+- [ ] O CPF deve ser único e válido.
+
+- [ ] A conta de um visitante não deve ser capaz de administrar nenhuma informação referente aos buffets.
+
+- [ ] A partir de agora, vamos nos referir aos visitantes cadastrados como clientes.
+
+
+### Solução
+
+
+```
+describe 'Usuario visita tela inicial' do
+  context 'como cliente' do
+
+    it 'e faz sua inscrição' do 
+    end
+    it  'e faz sua inscrição usando um CPF único e válido.' do 
+    end
+
+    it 'e faz o login'  do 
+    end
+  end
+
+  context 'e faz login como cliente' do
+
+    it 'e não vê links de edição para os buffets' do 
+    end
+    it  'e faz sua inscrição usando um CPF único e válido.' do 
+    end
+
+    it 'e vê seu nome no canto superior da tela'  do 
+    end
+
+  end
+
+end
+
+```
