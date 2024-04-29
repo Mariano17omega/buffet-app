@@ -1,5 +1,5 @@
 class BuffetsController < ApplicationController
-  before_action :authenticate_user_owner!
+  before_action :authenticate_user_owner!, only: [:new,:edit,:create, :update]
   before_action :set_buffet, only: [:show, :edit, :update]
 
 

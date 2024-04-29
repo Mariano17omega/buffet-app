@@ -1,7 +1,9 @@
 <h1>Buffet <%= @buffet.brand_name%></h1>
 <h3> <%= @buffet.description %> </h3>
 <div> 
-  <strong>Razão social: </strong><%= @buffet.corporate_name%><br>
+  <%if user_owner_signed_in? %>
+    <strong>Razão social: </strong><%= @buffet.corporate_name%><br>
+  <%end%>
   <strong>CNPJ: </strong><%= @buffet.cnpj%><br>
   <strong>Telefone para contato: </strong><%= @buffet.contact_phone%><br>
   <strong>E-mail para contato: </strong><%= @buffet.contact_email%><br>

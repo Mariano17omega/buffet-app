@@ -2,14 +2,12 @@
 
 <h2>Buffets</h2>
 
-<% @buffets.each do |w|%>
+<% @buffets.each do |buffet|%>
   <div>
-    <h3><%= link_to(w.corporate_name, buffet_path(w.id) )%></h3>
+    <h3><%= link_to(buffet.corporate_name, buffet_path(buffet.id) )%></h3>
     <dl>
-      <dt>Código</dt>
-      <dd><%= w.brand_name%></dd>
       <dt>Cidade:</dt>
-      <dd><%= w.city%></dd>  
+      <dd><%= buffet.city%> - <%=buffet.state%></dd>  
     </dl>      
   </div>
 <%end %>

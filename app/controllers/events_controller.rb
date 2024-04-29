@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user_owner!
+  before_action :authenticate_user_owner!, only: [:new, :create, :edit, :update]
   before_action :set_buffet, only: [:new, :show, :create, :edit, :update]
   before_action :set_event, only: [:show,  :edit, :update]
 

@@ -317,11 +317,11 @@ Um visitante, não autenticado, deve ser capaz de abrir a tela inicial da aplica
 
 ### Objetivos da Tarefa
 
-- [ ] Um visitante, não autenticado, deve ser capaz de abrir a tela inicial da aplicação e ver todos os buffets cadastrados.
+- [X] Um visitante, não autenticado, deve ser capaz de abrir a tela inicial da aplicação e ver todos os buffets cadastrados.
 
-- [ ] Na tela inicial, para cada buffet, deve ser exibido o nome, sua cidade e estado. 
+- [X] Na tela inicial, para cada buffet, deve ser exibido o nome, sua cidade e estado. 
 
-- [ ] Ao clicar no nome do buffet, o visitante é levado para uma página de detalhes contendo todas as informações cadastradas para o estabelecimento, exceto a razão social.
+- [X] Ao clicar no nome do buffet, o visitante é levado para uma página de detalhes contendo todas as informações cadastradas para o estabelecimento, exceto a razão social.
 
 
 ### Solução
@@ -331,13 +331,10 @@ Um visitante, não autenticado, deve ser capaz de abrir a tela inicial da aplica
 describe 'Usuario visitante' do
   context 'visita tela inicial' do
     
-    it 'e ver todos os buffets cadastrados' do 
+    it 'e vê o nome, a cidade e estado de todos os buffets cadastrados' do 
     end
 
-    it 'e vê o nome, a cidade e estado dos buffets cadastrados' do 
-    end
-
-    it 'e clicar no nome do buffet' do 
+    it 'clicar no nome do buffet e vê os detalhes' do 
     end
   end
  
@@ -419,11 +416,11 @@ Um visitante, não autenticado, deve ser capaz de ver todos os tipos de festas d
 
 ### Objetivos da Tarefa
 
-- [ ] Dentro da tela de detalhes de um buffet devem ser listados todos os tipos de eventos que o buffet oferece.
+- [X] Dentro da tela de detalhes de um buffet devem ser listados todos os tipos de eventos que o buffet oferece.
 
-- [ ] Um visitante, não autenticado, deve ser capaz de ver todos os tipos de festas disponíveis para um buffet.
+- [X] Um visitante, não autenticado, deve ser capaz de ver todos os tipos de festas disponíveis para um buffet.
 
-- [ ] Para cada tipo de evento devem ser exibidas todas as informações cadastradas, inclusive os preços.
+- [X] Para cada tipo de evento devem ser exibidas todas as informações cadastradas, inclusive os preços.
 
 
 ### Solução
@@ -432,16 +429,12 @@ Um visitante, não autenticado, deve ser capaz de ver todos os tipos de festas d
 ```
 describe 'Usuario visitante' do
   context 'visita tela detalhes de um buffet' do
-    it 'e a lista de todos os tipos de eventos que o buffet oferece' do 
+    it 'e vê a lista de todos os tipos de eventos que o buffet oferece' do 
     end
 
-    it 'e ver todos os tipos de festas disponíveis para um buffet' do 
-    end
-
-    it 'e clicar em um tipo de evento e vê todas as informações cadastradas' do 
+    it 'e vê os detalhes de um evento de um Buffet' do 
     end
   end
-
 end
 
 ```
