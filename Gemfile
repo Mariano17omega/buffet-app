@@ -19,7 +19,8 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 #
 gem "devise"
-
+gem "cpf_validator"
+#gem "cpf_cnpj"
 #
 
 group :development, :test do

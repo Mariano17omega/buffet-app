@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe 'Usuario visita tela inicial' do
   context 'como dono de buffet' do
-    it 'e vê as opções de login de usuários' do
+    it 'e vê as opções de inscrição de usuários' do
       # Arrange
       # Act
       visit root_path
-      click_on 'Entrar'
+      click_on 'Inscrição'
       # Assert
       expect(page).to have_content 'Sou Dono de Buffet'
       expect(page).to have_content 'Sou Cliente'
@@ -16,9 +16,8 @@ describe 'Usuario visita tela inicial' do
       # Arrange
       # Act
       visit root_path
-      click_on 'Entrar'
+      click_on 'Inscrição'
       click_on 'Sou Dono de Buffet'
-      click_on 'Inscrever-se'
 
       # Assert
       expect(page).to have_current_path(new_user_owner_registration_path)
@@ -31,32 +30,36 @@ describe 'Usuario visita tela inicial' do
       # Arrange
       # Act
       visit root_path
-      click_on 'Entrar'
+      click_on 'Inscrição'
       click_on 'Sou Dono de Buffet'
-      click_on 'Inscrever-se'
+
 
       fill_in 'E-mail', with: 'dono_de_bufe@ex.com'
       fill_in 'Senha', with: 'mypassword'
       fill_in 'Confirmar senha', with: 'mypassword'
-      click_button 'Inscrever-se'
+      within('form') do
+        click_button 'Inscrever-se'
+      end
 
       # Assert
       expect(page).to have_content('Bem vindo! Você se registrou com sucesso.')
     end
 
 
-    it 'e faz o login e depois o logout' do
+    it 'e faz a Inscrição e depois o logout' do
       # Arrange
       # Act
       visit root_path
-      click_on 'Entrar'
+      click_on 'Inscrição'
       click_on 'Sou Dono de Buffet'
-      click_on 'Inscrever-se'
+
 
       fill_in 'E-mail', with: 'dono_de_bufe@ex.com'
       fill_in 'Senha', with: 'mypassword'
       fill_in 'Confirmar senha', with: 'mypassword'
-      click_button 'Inscrever-se'
+      within('form') do
+        click_button 'Inscrever-se'
+      end
 
       # Assert
       click_button 'Sair'

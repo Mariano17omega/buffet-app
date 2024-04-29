@@ -7,4 +7,5 @@ class Buffet < ApplicationRecord
   :description, :playment_methods, presence: true
   validates :corporate_name, :brand_name, :cnpj, :contact_phone,
   :contact_email, :description, uniqueness: true
+
 end
