@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'login', to:  'home#login'
   get 'sign_up', to:  'home#sign_up'
+
   resources :buffets, only: [:index, :show, :new, :create, :edit, :update] do
     resources :events, only: [ :show, :new, :create, :edit, :update, :destroy], on: :collection
+    get 'search', on: :collection
   end
 
 end

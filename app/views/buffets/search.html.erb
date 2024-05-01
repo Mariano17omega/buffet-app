@@ -1,0 +1,11 @@
+ <h1>Resultados da Busca por: <%=@query %></h1>
+
+<% if @buffets %>
+  <% @buffets.each do |buffet|%>
+    <div> 
+      <h3><%= link_to(buffet.brand_name, buffet_path(buffet) )%></h3>
+    </div>
+  <% end %>
+<% else %>
+  <p>Nenhum resultado encontrado.</p>
+<% end %>

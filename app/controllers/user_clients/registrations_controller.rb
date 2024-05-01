@@ -13,8 +13,7 @@ class UserClients::RegistrationsController < Devise::RegistrationsController
 
   def configure_sign_up_params
     if resource.class == UserClient
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute,
-      profile_attributes:[:id, :name, :cpf]])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute, profile_attributes:[ :name, :cpf]])
     else
       devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
     end

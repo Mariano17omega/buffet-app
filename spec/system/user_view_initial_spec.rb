@@ -37,9 +37,9 @@ describe 'Usuario visita tela inicial' do
       fill_in 'E-mail', with: 'dono_de_bufe@ex.com'
       fill_in 'Senha', with: 'mypassword'
       fill_in 'Confirmar senha', with: 'mypassword'
-      within('form') do
-        click_button 'Inscrever-se'
-      end
+
+      click_button 'Inscrever-se'
+
 
       # Assert
       expect(page).to have_content('Bem vindo! Você se registrou com sucesso.')
@@ -57,9 +57,9 @@ describe 'Usuario visita tela inicial' do
       fill_in 'E-mail', with: 'dono_de_bufe@ex.com'
       fill_in 'Senha', with: 'mypassword'
       fill_in 'Confirmar senha', with: 'mypassword'
-      within('form') do
-        click_button 'Inscrever-se'
-      end
+
+      click_button 'Inscrever-se'
+
 
       # Assert
       click_button 'Sair'

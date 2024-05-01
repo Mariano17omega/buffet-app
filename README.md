@@ -351,15 +351,15 @@ A lista resultante da busca deve trazer os resultados sempre em ordem alfabétic
 
 ### Objetivos da Tarefa
 
-- [ ] Um visitante, não autenticado, deve ter acesso, a partir de qualquer tela da aplicação, a um campo de busca de buffets. 
+- [X] Um visitante, não autenticado, deve ter acesso, a partir de qualquer tela da aplicação, a um campo de busca de buffets. 
 
-- [ ] A busca deve ser feita por um único campo de texto, cujo valor informado será utilizado para consultar o banco de dados.
+- [X] A busca deve ser feita por um único campo de texto, cujo valor informado será utilizado para consultar o banco de dados.
 
-- [ ] O usuário deve poder buscar um buffet pelo seu nome fantasia, pela cidade ou pelos tipos de festas realizadas. 
+- [X] O usuário deve poder buscar um buffet pelo seu nome fantasia, pela cidade ou pelos tipos de festas realizadas. 
 
-- [ ] A lista resultante da busca deve trazer os resultados sempre em ordem alfabética, considerando o nome fantasia.
+- [X] A lista resultante da busca deve trazer os resultados sempre em ordem alfabética, considerando o nome fantasia.
 
-- [ ] Ao clicar no nome do buffet, o visitante deve ser direcionado para a tela de detalhes de um buffet descrita na tarefa anterior.
+- [X] Ao clicar no nome do buffet, o visitante deve ser direcionado para a tela de detalhes de um buffet descrita na tarefa anterior.
 
 
 ### Solução
@@ -367,43 +367,18 @@ A lista resultante da busca deve trazer os resultados sempre em ordem alfabétic
 
 ```
 describe 'Usuario visitante' do
-  context 'vê um campo de busca de buffets' do
-
-    it 'em na tela inicial' do 
-    end
-    
-    it 'na tela de detalhes' do 
-    end
-    
-    it 'mas não vê na tela de login ' do 
+  context 'visita tela inicial' do
+    it 'e vê o campo de busca' do
     end
 
-    it 'mas não vê na tela de cadastro ' do 
+    it 'e faz uma busca por evento' do
     end
 
-    it 'e faz uma busca pelo nome fantasia' do 
+    it 'e faz uma busca por Buffet' do
     end
-
-    it 'e faz uma busca pela cidade' do 
-    end
-
-    it 'e faz uma busca pelo tipo de festa' do 
+    it 'e faz uma busca por cidade' do
     end
   end
- 
-  context ' faz uma busca pela cidade' do
-
-    it 'e vê uma lista dos nomes fantasia' do 
-    end
-
-    it 'e vê uma lista dos nomes fantasia em ordem alfabética' do 
-    end
-
-    it 'e clicar no nome de um buffet' do 
-    end 
-
-  end
-  
 end
 
 ```
@@ -420,7 +395,9 @@ Um visitante, não autenticado, deve ser capaz de ver todos os tipos de festas d
 
 - [X] Um visitante, não autenticado, deve ser capaz de ver todos os tipos de festas disponíveis para um buffet.
 
-- [X] Para cada tipo de evento devem ser exibidas todas as informações cadastradas, inclusive os preços.
+- [X] Para cada tipo de evento devem ser exibidas todas as informações cadastradas,
+
+- [] inclusive os preços.
 
 
 ### Solução
