@@ -14,7 +14,7 @@ describe 'Usuario visitante' do
       Buffet.create!( brand_name: 'Buffet da C.C.', corporate_name: 'Buffet Zero' ,cnpj: '44715046000162',
                       contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
                       district: 'Bairro fantasia', state: 'PA', city: 'Belém', cep: '4522-9968',
-                      description: 'Buffet para festas unicas', playment_methods: 'PIX', user_owner: user_owner_1 )
+                      description: 'Buffet para festas unicas', playment_methods: 'PIX', user_owner: user_owner_1  )
 
       # Act
       visit root_path
@@ -66,10 +66,14 @@ describe 'Usuario visitante' do
 
       Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: buffet_0.id)
+                    event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa do ZERO' ,description:'Festa de Elevens', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: buffet_0.id)
+                    event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
       visit root_path
       click_on 'Buffet Fantasticos'
@@ -89,10 +93,14 @@ describe 'Usuario visitante' do
 
       Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: buffet_0.id)
+                    event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa do ZERO' ,description:'Festa de Elevens', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: buffet_0.id)
+                    event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
       visit root_path
       click_on 'Buffet Fantasticos'
@@ -132,10 +140,14 @@ describe 'Usuario visitante' do
                       description: 'Buffet para festas', playment_methods: 'PIX', user_owner: user_owner_0 )
       Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_0.id)
+                    event_location:'false', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa ABC' ,description:'Festa para muitas letras', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_0.id)
+                    event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200', price_add_weekdays: '100',
+                    price_overtime_weekdays: '150', price_base_weekend: '5000', price_add_weekend: '500.0',
+                    price_overtime_weekend: '400'})
 
       user_owner_1 = UserOwner.create!(email: 'b@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'Abc Buffets', corporate_name: 'Corporate abc' ,cnpj: '447150460540162',
@@ -144,10 +156,14 @@ describe 'Usuario visitante' do
                       description: 'Buffets unicos', playment_methods: 'PIX', user_owner: user_owner_1 )
       Event.create!(name:'Festa DFK' ,description:'Festa para letras As', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_1.id)
+                    event_location:'false', buffet_id: user_owner_1.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa FES' ,description:'Festa para muitas letras Bs', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_1.id)
+                    event_location:'true', buffet_id: user_owner_1.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
       user_owner_2 = UserOwner.create!(email: 'c@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'Bcd Buffets', corporate_name: 'Corporate bca' ,cnpj: '44235046000162',
@@ -156,10 +172,14 @@ describe 'Usuario visitante' do
                       description: 'Festas festas', playment_methods: 'PIX', user_owner: user_owner_2 )
       Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_0.id)
+                    event_location:'false', buffet_id: user_owner_0.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa AW' ,description:'Festa para muitas letras diferentes', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_2.id)
+                    event_location:'true', buffet_id: user_owner_2.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
       user_owner_3 = UserOwner.create!(email: 'd@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'Def Buffets', corporate_name: 'Corporate def' ,cnpj: '447150460001652',
@@ -168,10 +188,14 @@ describe 'Usuario visitante' do
                       description: 'Buffet Otimo', playment_methods: 'PIX', user_owner: user_owner_3 )
       Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_3.id)
+                    event_location:'false', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa E' ,description:'Festa para muitas letras Ds', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_3.id)
+                    event_location:'true', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
 
       user_owner_4 = UserOwner.create!(email: 'm@example.com', password: 'senha123' )
@@ -181,10 +205,14 @@ describe 'Usuario visitante' do
                       description: 'Buffet fantasia', playment_methods: 'PIX', user_owner: user_owner_4 )
       Event.create!(name:'Festa 4' ,description:'Festa para Numeros', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_4.id)
+                    event_location:'false', buffet_id: user_owner_4.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa A4' ,description:'Festa para muitas letras e numeros', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_4.id)
+                    event_location:'true', buffet_id: user_owner_4.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
       user_owner_5 = UserOwner.create!(email: 'z@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'zz Buffets', corporate_name: 'Corporate zz' ,cnpj: '44643046000162',
@@ -193,10 +221,14 @@ describe 'Usuario visitante' do
                       description: 'Buffet para eventos', playment_methods: 'PIX', user_owner: user_owner_5 )
       Event.create!(name:'Festa L' ,description:'Festa para letras Ls', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_5.id)
+                    event_location:'false', buffet_id: user_owner_5.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa ML' ,description:'Festa para letras Ms', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_5.id)
+                    event_location:'true', buffet_id: user_owner_5.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
       # Act
       visit root_path
@@ -224,10 +256,14 @@ describe 'Usuario visitante' do
                       description: 'Buffet para festas', playment_methods: 'PIX', user_owner: user_owner_0 )
       Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_0.id)
+                    event_location:'false', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa ABC' ,description:'Festa para muitas letras', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_0.id)
+                    event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200', price_add_weekdays: '100',
+                    price_overtime_weekdays: '150', price_base_weekend: '5000', price_add_weekend: '500.0',
+                    price_overtime_weekend: '400'})
 
       user_owner_1 = UserOwner.create!(email: 'b@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'Abc Buffets', corporate_name: 'Corporate abc' ,cnpj: '447150460540162',
@@ -236,10 +272,14 @@ describe 'Usuario visitante' do
                       description: 'Buffets unicos', playment_methods: 'PIX', user_owner: user_owner_1 )
       Event.create!(name:'Festa DFK' ,description:'Festa para letras As', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_1.id)
+                    event_location:'false', buffet_id: user_owner_1.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa FES' ,description:'Festa para muitas letras Bs', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_1.id)
+                    event_location:'true', buffet_id: user_owner_1.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
       user_owner_2 = UserOwner.create!(email: 'c@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'Bcd Buffets', corporate_name: 'Corporate bca' ,cnpj: '44235046000162',
@@ -248,10 +288,14 @@ describe 'Usuario visitante' do
                       description: 'Festas festas', playment_methods: 'PIX', user_owner: user_owner_2 )
       Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_0.id)
+                    event_location:'false', buffet_id: user_owner_0.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa AW' ,description:'Festa para muitas letras diferentes', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_2.id)
+                    event_location:'true', buffet_id: user_owner_2.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
       user_owner_3 = UserOwner.create!(email: 'd@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'Def Buffets', corporate_name: 'Corporate def' ,cnpj: '447150460001652',
@@ -260,10 +304,14 @@ describe 'Usuario visitante' do
                       description: 'Buffet Otimo', playment_methods: 'PIX', user_owner: user_owner_3 )
       Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_3.id)
+                    event_location:'false', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa E' ,description:'Festa para muitas letras Ds', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_3.id)
+                    event_location:'true', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
 
       user_owner_4 = UserOwner.create!(email: 'm@example.com', password: 'senha123' )
@@ -273,10 +321,14 @@ describe 'Usuario visitante' do
                       description: 'Buffet fantasia', playment_methods: 'PIX', user_owner: user_owner_4 )
       Event.create!(name:'Festa 4' ,description:'Festa para Numeros', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_4.id)
+                    event_location:'false', buffet_id: user_owner_4.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa A4' ,description:'Festa para muitas letras e numeros', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_4.id)
+                    event_location:'true', buffet_id: user_owner_4.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
       user_owner_5 = UserOwner.create!(email: 'z@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'zz Buffets', corporate_name: 'Corporate zz' ,cnpj: '44643046000162',
@@ -285,10 +337,15 @@ describe 'Usuario visitante' do
                       description: 'Buffet para eventos', playment_methods: 'PIX', user_owner: user_owner_5 )
       Event.create!(name:'Festa L' ,description:'Festa para letras Ls', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_5.id)
+                    event_location:'false', buffet_id: user_owner_5.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa ML' ,description:'Festa para letras Ms', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_5.id)
+                    event_location:'true', buffet_id: user_owner_5.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
+
 
       # Act
       visit root_path
@@ -315,10 +372,14 @@ describe 'Usuario visitante' do
                       description: 'Buffet para festas', playment_methods: 'PIX', user_owner: user_owner_0 )
       Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_0.id)
+                    event_location:'false', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa ABC' ,description:'Festa para muitas letras', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_0.id)
+                    event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200', price_add_weekdays: '100',
+                    price_overtime_weekdays: '150', price_base_weekend: '5000', price_add_weekend: '500.0',
+                    price_overtime_weekend: '400'})
 
       user_owner_1 = UserOwner.create!(email: 'b@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'Abc Buffets', corporate_name: 'Corporate abc' ,cnpj: '447150460540162',
@@ -327,10 +388,14 @@ describe 'Usuario visitante' do
                       description: 'Buffets unicos', playment_methods: 'PIX', user_owner: user_owner_1 )
       Event.create!(name:'Festa DFK' ,description:'Festa para letras As', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_1.id)
+                    event_location:'false', buffet_id: user_owner_1.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa FES' ,description:'Festa para muitas letras Bs', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_1.id)
+                    event_location:'true', buffet_id: user_owner_1.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
       user_owner_2 = UserOwner.create!(email: 'c@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'Bcd Buffets', corporate_name: 'Corporate bca' ,cnpj: '44235046000162',
@@ -339,10 +404,14 @@ describe 'Usuario visitante' do
                       description: 'Festas festas', playment_methods: 'PIX', user_owner: user_owner_2 )
       Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_0.id)
+                    event_location:'false', buffet_id: user_owner_0.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa AW' ,description:'Festa para muitas letras diferentes', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_2.id)
+                    event_location:'true', buffet_id: user_owner_2.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
       user_owner_3 = UserOwner.create!(email: 'd@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'Def Buffets', corporate_name: 'Corporate def' ,cnpj: '447150460001652',
@@ -351,10 +420,14 @@ describe 'Usuario visitante' do
                       description: 'Buffet Otimo', playment_methods: 'PIX', user_owner: user_owner_3 )
       Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_3.id)
+                    event_location:'false', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa E' ,description:'Festa para muitas letras Ds', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_3.id)
+                    event_location:'true', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
 
       user_owner_4 = UserOwner.create!(email: 'm@example.com', password: 'senha123' )
@@ -364,10 +437,14 @@ describe 'Usuario visitante' do
                       description: 'Buffet fantasia', playment_methods: 'PIX', user_owner: user_owner_4 )
       Event.create!(name:'Festa 4' ,description:'Festa para Numeros', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_4.id)
+                    event_location:'false', buffet_id: user_owner_4.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa A4' ,description:'Festa para muitas letras e numeros', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_4.id)
+                    event_location:'true', buffet_id: user_owner_4.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
       user_owner_5 = UserOwner.create!(email: 'z@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'zz Buffets', corporate_name: 'Corporate zz' ,cnpj: '44643046000162',
@@ -376,10 +453,15 @@ describe 'Usuario visitante' do
                       description: 'Buffet para eventos', playment_methods: 'PIX', user_owner: user_owner_5 )
       Event.create!(name:'Festa L' ,description:'Festa para letras Ls', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'false', buffet_id: user_owner_5.id)
+                    event_location:'false', buffet_id: user_owner_5.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
       Event.create!(name:'Festa ML' ,description:'Festa para letras Ms', min_guests:'10', max_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_5.id)
+                    event_location:'true', buffet_id: user_owner_5.id , price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
+
       # Act
       visit root_path
       within 'nav' do

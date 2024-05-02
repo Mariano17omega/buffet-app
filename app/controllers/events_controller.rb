@@ -8,9 +8,11 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event.build_price
   end
 
   def edit
+    @event.build_price unless @event.price
     unless current_user_owner == @buffet.user_owner
       redirect_to buffet_event_path(@buffet, @event), alert: 'Você não tem permissão para editar este evento.'
     end
@@ -50,8 +52,12 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit( :name,:description, :min_guests, :max_guests, :duration,
-                                   :menu, :alcoholic_beverages, :decoration, :parking_servise, :event_location  )
+                                   :menu, :alcoholic_beverages, :decoration, :parking_servise, :event_location ,
+                                   price_attributes:[ :id, :price_base_weekdays, :price_add_weekdays, :price_overtime_weekdays,
+                                   :price_base_weekend, :price_add_weekend, :price_overtime_weekend ])
   end
+
+
 
   def set_buffet
     @buffet = Buffet.find(params[:buffet_id])

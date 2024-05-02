@@ -281,13 +281,13 @@ De segunda a sexta-feira, uma festa de casamento pode ter preço-base de R\$ 10.
 
 ### Objetivos da Tarefa
 
-- [ ] O usuário definir os preços-base daquele tipo de evento.
+- [X] O usuário definir os preços-base daquele tipo de evento.
 
-- [ ] Cada preço-base deve conter o valor mínimo (que está ligado com a quantidade mínima de pessoas) e deve haver um valor adicional por pessoa.
+- [X] Cada preço-base deve conter o valor mínimo (que está ligado com a quantidade mínima de pessoas) e deve haver um valor adicional por pessoa.
 
-- [ ] Pode ser cadastrado também o valor por hora extra do evento, caso o evento extrapole a duração-padrão.
+- [X] Pode ser cadastrado também o valor por hora extra do evento, caso o evento extrapole a duração-padrão.
 
-- [ ] Deve ser possível cadastrar, para cada tipo de evento, duas configurações diferentes de preço. 
+- [X] Deve ser possível cadastrar, para cada tipo de evento, duas configurações diferentes de preço. 
   - Um preço caso a festa seja realizada durante os dias da semana 
   - Outro preço durante o fim de semana
 
@@ -298,10 +298,16 @@ De segunda a sexta-feira, uma festa de casamento pode ter preço-base de R\$ 10.
 
 ```
 describe 'Usuario dono de buffet' do
-  context 'acessar os detalhes de um evento' do
-    it 'e adiciona preços para um evento' do 
+  context 'acessar um evento' do
+    it 'e vê a tela para cadastra o preço de um evento' do
     end
-    it 'e vê os preços para um evento' do 
+    it  'e cadastra o preço para evento com sucesso'  do
+    end
+    it  'e vê o preço de um evento'  do
+    end
+    it  'e vê a tela para editar o preço para evento'  do
+    end
+    it  'e editar o preço do evento com sucesso'  do
     end
   end
 end
@@ -328,18 +334,7 @@ Um visitante, não autenticado, deve ser capaz de abrir a tela inicial da aplica
 
 
 ```
-describe 'Usuario visitante' do
-  context 'visita tela inicial' do
-    
-    it 'e vê o nome, a cidade e estado de todos os buffets cadastrados' do 
-    end
-
-    it 'clicar no nome do buffet e vê os detalhes' do 
-    end
-  end
- 
-  
-end
+Complementa os testes da Tarefa 3 com os novos campos
 
 ```
 

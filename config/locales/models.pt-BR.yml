@@ -3,6 +3,7 @@ pt-BR:
     models:
       buffet: 'Buffet'
       user_owner: 'Proprietário do Buffet'
+      price: 'Preço'
     attributes:
       buffet:
         brand_name: 'Nome fantasia'
@@ -28,3 +29,11 @@ pt-BR:
         parking_servise: 'Serviço de valet'
         event_location: 'Local do evento' 
         description: 'Descrição'
+      price:
+        price_base_weekdays: 'Preço-base durante a semana'
+        price_add_weekdays: 'Adicional por convidado durante a semana'
+        price_overtime_weekdays:  'Hora extra durante a semana'
+        price_base_weekend: 'Preço-base durante o fim de semana'
+        price_add_weekend: 'Adicional por convidado durante o fim de semana'
+        price_overtime_weekend: 'Hora extra durante o fim de semana'
+  

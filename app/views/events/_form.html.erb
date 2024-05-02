@@ -1,4 +1,4 @@
-<%= form_with model: [@buffet, @event]  do |f| %>
+<%= form_with model:  [@buffet, @event]   do |f| %>
   <div>
     <%= f.label :name %>
     <%= f.text_field :name%>
@@ -40,7 +40,32 @@
     <%= f.label :event_location, 'O evento deve ser realizado exclusivamente no endereço do buffet' %>
     <%= f.check_box :event_location, {}, true, false %>
   </div> 
-  
+
+  <div> 
+    <%= f.fields_for :price do |price_f| %> 
+
+      <p>Preços do Evento durante os dias da semana</p><br>
+      <%= price_f.label :price_base_weekdays %>
+      <%= price_f.number_field :price_base_weekdays %><br>
+
+      <%= price_f.label :price_add_weekdays %>
+      <%= price_f.number_field :price_add_weekdays %><br>
+
+      <%= price_f.label :price_overtime_weekdays%>
+      <%= price_f.number_field :price_overtime_weekdays %><br>
+
+      <p>Preços do Evento durante o fim de semana</p><br>
+      <%= price_f.label :price_base_weekend %>
+      <%= price_f.number_field :price_base_weekend %><br>
+
+      <%= price_f.label :price_add_weekend %>
+      <%= price_f.number_field :price_add_weekend %><br>
+
+      <%= price_f.label :price_overtime_weekend%>
+      <%= price_f.number_field :price_overtime_weekend %><br>
+    <% end %>
+  </div> 
+
   <div>
     <%= f.submit 'Cadastrar Evento' %>
   </div>

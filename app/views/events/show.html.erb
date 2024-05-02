@@ -16,6 +16,28 @@
 </div>
 
 <div>
+  <strong>  <%= t('activerecord.attributes.price.price_base_weekdays') %>:
+  </strong><%= @event.price.price_base_weekdays%><br>
+
+  <strong>  <%= t('activerecord.attributes.price.price_add_weekdays') %>:
+  </strong><%= @event.price.price_add_weekdays%><br>
+
+  <strong>  <%= t('activerecord.attributes.price.price_overtime_weekdays') %>:
+  </strong><%= @event.price.price_overtime_weekdays%><br>
+
+
+  <strong>  <%= t('activerecord.attributes.price.price_base_weekend') %>:
+  </strong><%= @event.price.price_base_weekend%><br>
+
+  <strong>  <%= t('activerecord.attributes.price.price_add_weekend') %>:
+  </strong><%= @event.price.price_add_weekend%><br>
+
+  <strong>  <%= t('activerecord.attributes.price.price_overtime_weekend') %>:
+  </strong><%= @event.price.price_overtime_weekend%><br>
+</div>
+
+
+<div>
   <%if current_user_owner == @buffet.user_owner %>
     <%= link_to 'Editar Evento', edit_buffet_event_path( @buffet, @event)%>  
   <%end%>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_29_120510) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_01_171315) do
   create_table "buffets", force: :cascade do |t|
     t.string "brand_name"
     t.string "corporate_name"
@@ -45,6 +45,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_120510) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buffet_id"], name: "index_events_on_buffet_id"
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.float "price_base_weekdays"
+    t.float "price_add_weekdays"
+    t.float "price_overtime_weekdays"
+    t.float "price_base_weekend"
+    t.float "price_add_weekend"
+    t.float "price_overtime_weekend"
+    t.integer "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_prices_on_event_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -82,5 +95,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_120510) do
 
   add_foreign_key "buffets", "user_owners"
   add_foreign_key "events", "buffets"
+  add_foreign_key "prices", "events"
   add_foreign_key "profiles", "user_clients"
 end
