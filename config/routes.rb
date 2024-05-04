@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
 
+  resources :profiles, only: [:new, :create]
+
 end

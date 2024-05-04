@@ -9,9 +9,9 @@
   <strong>E-mail para contato: </strong><%= @buffet.contact_email%><br>
   <strong>Endereço: </strong><%= @buffet.address%> <strong>CEP: </strong><%= @buffet.cep%><br>
   <strong>Bairro: </strong><%= @buffet.district%><br>
+  <strong>Cidade: </strong><%= @buffet.city%><br> 
   <strong>Estado: </strong><%= @buffet.state%><br>
   <strong>CEP: </strong><%= @buffet.cep%><br>
-  <strong>Cidade: </strong><%= @buffet.city%><br> 
   <strong>Meios de pagamentos aceitos: </strong><%= @buffet.playment_methods%>
 
 </div>
@@ -25,7 +25,7 @@
 </div>
 
 <div>
-  <h2>Eventos</h2>
+  <h2>Tipos de Eventos</h2>
   <dl>
   <% @events.each do |event| %>
       <dt> <%= link_to(event.name, buffet_event_path(@buffet, event) )%> </dt> <dd><%= event.description %></dd>

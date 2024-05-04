@@ -36,4 +36,7 @@ pt-BR:
         price_base_weekend: 'Preço-base durante o fim de semana'
         price_add_weekend: 'Adicional por convidado durante o fim de semana'
         price_overtime_weekend: 'Hora extra durante o fim de semana'
+      profile:
+        name: 'Nome'
+        cpf: 'CPF'
   

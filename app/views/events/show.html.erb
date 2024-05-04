@@ -12,28 +12,28 @@
   
   <strong>Exclusivo no endereço do buffet: </strong><%= @event.event_location ? 'Sim' : 'Não' %><br> 
 
-  <strong>Serviço: </strong><%= @event.decoration ? 'valet' : 'estacionamento' %><br>
+  <strong>Estacionamento: </strong><%= @event.decoration ? ' com serviço valet' : 'sem serviço valet' %><br>
 </div>
 
 <div>
   <strong>  <%= t('activerecord.attributes.price.price_base_weekdays') %>:
-  </strong><%= @event.price.price_base_weekdays%><br>
+  </strong><%= number_to_currency @event.price.price_base_weekdays%><br>
 
   <strong>  <%= t('activerecord.attributes.price.price_add_weekdays') %>:
-  </strong><%= @event.price.price_add_weekdays%><br>
+  </strong><%= number_to_currency @event.price.price_add_weekdays%><br>
 
   <strong>  <%= t('activerecord.attributes.price.price_overtime_weekdays') %>:
-  </strong><%= @event.price.price_overtime_weekdays%><br>
+  </strong><%= number_to_currency @event.price.price_overtime_weekdays%><br>
 
 
   <strong>  <%= t('activerecord.attributes.price.price_base_weekend') %>:
-  </strong><%= @event.price.price_base_weekend%><br>
+  </strong><%= number_to_currency @event.price.price_base_weekend%><br>
 
   <strong>  <%= t('activerecord.attributes.price.price_add_weekend') %>:
-  </strong><%= @event.price.price_add_weekend%><br>
+  </strong><%= number_to_currency @event.price.price_add_weekend%><br>
 
   <strong>  <%= t('activerecord.attributes.price.price_overtime_weekend') %>:
-  </strong><%= @event.price.price_overtime_weekend%><br>
+  </strong><%= number_to_currency @event.price.price_overtime_weekend%><br>
 </div>
 
 

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Usuario visita tela inicial' do
-  context 'como dono de buffet' do
+  context 'como visitante' do
     it 'e vê as opções de inscrição de usuários' do
       # Arrange
       # Act

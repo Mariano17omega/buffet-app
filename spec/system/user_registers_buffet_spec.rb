@@ -6,9 +6,8 @@ describe 'Usuario visita tela inicial' do
       # Arrange
       # Act
       visit root_path
-      click_on 'Entrar'
+      click_on 'Inscrição'
       click_on 'Sou Dono de Buffet'
-      click_on 'Inscrever-se'
 
       fill_in 'E-mail', with: 'dono_de_bufe@gmail.com'
       fill_in 'Senha', with: 'mypassword'
@@ -40,16 +39,14 @@ describe 'Usuario visita tela inicial' do
       # Arrange
       # Act
       visit root_path
-      click_on 'Entrar'
+      click_on 'Inscrição'
       click_on 'Sou Dono de Buffet'
-      click_on 'Inscrever-se'
 
       fill_in 'E-mail', with: 'dono_de_bufe@gmail.com'
       fill_in 'Senha', with: 'mypassword'
       fill_in 'Confirmar senha', with: 'mypassword'
 
       click_button 'Inscrever-se'
-
 
       fill_in 'Nome fantasia', with: 'Buffet Perfeito'
       fill_in 'Razão social', with: 'Buffet LTDA'
@@ -74,9 +71,8 @@ describe 'Usuario visita tela inicial' do
       # Arrange
       # Act
       visit root_path
-      click_on 'Entrar'
+      click_on 'Inscrição'
       click_on 'Sou Dono de Buffet'
-      click_on 'Inscrever-se'
 
       fill_in 'E-mail', with: 'dono_de_bufe@gmail.com'
       fill_in 'Senha', with: 'mypassword'

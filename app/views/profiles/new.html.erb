@@ -1,0 +1,12 @@
+<h1><h1>Cadastro de Perfil:</h1>
+
+<% if @profile.errors.any? %>
+<p> Verifique os erros abaixo: </p>
+<ul>
+  <%@profile.errors.full_messages.each do |msg|%>
+    <li> <%= msg %></li>
+  <%end%>
+</ul>
+<%end%>
+
+<%= render 'form'%>

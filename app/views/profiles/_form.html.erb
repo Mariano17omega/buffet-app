@@ -1,0 +1,13 @@
+<%= form_with(model: @profile ) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+  </div>
+  <div>
+    <%= f.label :cpf %>
+    <%= f.text_field :cpf%>
+  </div>
+  <div>
+    <%= f.submit 'Cadastrar' %>
+  </div>
+<%end%>

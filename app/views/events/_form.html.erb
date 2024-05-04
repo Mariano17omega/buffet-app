@@ -44,7 +44,9 @@
   <div> 
     <%= f.fields_for :price do |price_f| %> 
 
-      <p>Preços do Evento durante os dias da semana</p><br>
+      <strong> Preços do Evento durante os dias da semana</strong><br>
+
+        
       <%= price_f.label :price_base_weekdays %>
       <%= price_f.number_field :price_base_weekdays %><br>
 
@@ -54,7 +56,7 @@
       <%= price_f.label :price_overtime_weekdays%>
       <%= price_f.number_field :price_overtime_weekdays %><br>
 
-      <p>Preços do Evento durante o fim de semana</p><br>
+      <strong> Preços do Evento durante o fim de semana</strong><br>
       <%= price_f.label :price_base_weekend %>
       <%= price_f.number_field :price_base_weekend %><br>
 

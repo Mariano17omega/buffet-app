@@ -3,8 +3,8 @@ class CreateBuffets < ActiveRecord::Migration[7.1]
     create_table :buffets do |t|
       t.string :brand_name
       t.string :corporate_name
-      t.integer :cnpj
-      t.integer :contact_phone
+      t.string :cnpj
+      t.string :contact_phone
       t.string :contact_email
       t.string :address
       t.string :district

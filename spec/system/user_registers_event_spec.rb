@@ -77,7 +77,7 @@ describe 'Usuario dono de buffet' do
       expect(page).to have_content 'Festa da B2'
       expect(page).to have_content 'Quantidade mínima de convidados: 2'
       expect(page).to have_content 'Quantidade máxima de convidados: 5'
-      expect(page).to have_content 'Serviço: valet'
+      expect(page).to have_content 'Estacionamento: com serviço valet'
       expect(page).to have_content 'Exclusivo no endereço do buffet: Sim'
       expect(page).to have_content 'Decoração: Sim'
       expect(page).to have_content 'Bebidas alcoólicas: Sim'
@@ -201,7 +201,7 @@ describe 'Usuario dono de buffet' do
     it 'e acessar os detalhes de um evento' do
       # Arrange
       user_owner_0 = UserOwner.create!(email: 'proprietario@example.com', password: 'senha123' )
-      buffet_0 =Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '97990518000151',
+      buffet_0 =Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '07143123000120',
                       contact_phone: '55972662205', contact_email: 'buffetfantastico@gmail.com',  address: 'Rua dos Buffets',
                       district: 'Bairro do Buffet Bonito', state: 'AM', city: 'Manaus', cep: '2335-3434',
                       description: 'Buffet para festas fantasticas', playment_methods: 'PIX', user_owner: user_owner_0 )
@@ -231,7 +231,7 @@ describe 'Usuario dono de buffet' do
       expect(page).to have_content 'Quantidade máxima de convidados: 10'
       expect(page).to have_content 'Duração: 120 min'
       expect(page).to have_content 'Cardápio: Comida'
-      expect(page).to have_content 'Serviço: valet'
+      expect(page).to have_content 'Estacionamento: com serviço valet'
       expect(page).to have_content 'Exclusivo no endereço do buffet: Não'
       expect(page).to have_content 'Decoração: Sim'
       expect(page).to have_content 'Bebidas alcoólicas: Sim'
@@ -241,7 +241,7 @@ describe 'Usuario dono de buffet' do
     it 'e editar um evento' do
       # Arrange
       user_owner_0 = UserOwner.create!(email: 'proprietario@example.com', password: 'senha123' )
-      buffet_0 =Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '97990518000151',
+      buffet_0 =Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '41932876000153',
                       contact_phone: '55972662205', contact_email: 'buffetfantastico@gmail.com',  address: 'Rua dos Buffets',
                       district: 'Bairro do Buffet Bonito', state: 'AM', city: 'Manaus', cep: '2335-3434',
                       description: 'Buffet para festas fantasticas', playment_methods: 'PIX', user_owner: user_owner_0 )

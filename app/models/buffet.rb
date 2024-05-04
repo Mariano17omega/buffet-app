@@ -8,4 +8,6 @@ class Buffet < ApplicationRecord
   validates :corporate_name, :brand_name, :cnpj, :contact_phone,
   :contact_email, :description, uniqueness: true
 
+  validates  :cnpj, cnpj: true
+
 end

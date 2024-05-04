@@ -92,8 +92,6 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
-    cpf_validator (0.2.1)
-      activemodel (>= 3.0)
     crass (1.0.6)
     date (3.3.4)
     debug (1.9.2)
@@ -108,6 +106,8 @@ GEM
     diff-lcs (1.5.1)
     drb (2.2.1)
     erubi (1.12.0)
+    faker (3.3.1)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.4)
@@ -239,6 +239,8 @@ GEM
     timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    validates_cpf_cnpj (0.2.0)
+      activemodel (>= 3.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     webrick (1.8.1)
@@ -259,15 +261,16 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  cpf_validator
   debug
   devise
+  faker
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.2)
   rspec-rails
   sprockets-rails
   sqlite3 (~> 1.4)
   tzinfo-data
+  validates_cpf_cnpj
 
 RUBY VERSION
    ruby 3.3.0p0
