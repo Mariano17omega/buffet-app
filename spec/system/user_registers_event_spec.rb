@@ -8,7 +8,9 @@ describe 'Usuario dono de buffet' do
       Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '97990518000151',
                       contact_phone: '55972662205', contact_email: 'buffetfantastico@gmail.com',  address: 'Rua dos Buffets',
                       district: 'Bairro do Buffet Bonito', state: 'AM', city: 'Manaus', cep: '2335-3434',
-                      description: 'Buffet para festas fantasticas', playment_methods: 'PIX', user_owner: user_owner_0 )
+                      description: 'Buffet para festas fantasticas', user_owner: user_owner_0, payment_method_attributes:
+                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                      check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
 
       # Act
       login_as(user_owner_0, scope: :user_owner)
@@ -43,7 +45,9 @@ describe 'Usuario dono de buffet' do
       Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '97990518000151',
                       contact_phone: '55972662205', contact_email: 'buffetfantastico@gmail.com',  address: 'Rua dos Buffets',
                       district: 'Bairro do Buffet Bonito', state: 'AM', city: 'Manaus', cep: '2335-3434',
-                      description: 'Buffet para festas fantasticas', playment_methods: 'PIX', user_owner: user_owner_0 )
+                      description: 'Buffet para festas fantasticas', user_owner: user_owner_0 , payment_method_attributes:
+                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                      check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
 
       # Act
       login_as(user_owner_0, scope: :user_owner)
@@ -89,7 +93,9 @@ describe 'Usuario dono de buffet' do
       Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '97990518000151',
                       contact_phone: '55972662205', contact_email: 'buffetfantastico@gmail.com',  address: 'Rua dos Buffets',
                       district: 'Bairro do Buffet Bonito', state: 'AM', city: 'Manaus', cep: '2335-3434',
-                      description: 'Buffet para festas fantasticas', playment_methods: 'PIX', user_owner: user_owner_0 )
+                      description: 'Buffet para festas fantasticas', user_owner: user_owner_0 , payment_method_attributes:
+                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                      check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
 
       # Act
       login_as(user_owner_0, scope: :user_owner)
@@ -137,7 +143,9 @@ describe 'Usuario dono de buffet' do
       buffet_0 =Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '97990518000151',
                       contact_phone: '55972662205', contact_email: 'buffetfantastico@gmail.com',  address: 'Rua dos Buffets',
                       district: 'Bairro do Buffet Bonito', state: 'AM', city: 'Manaus', cep: '2335-3434',
-                      description: 'Buffet para festas fantasticas', playment_methods: 'PIX', user_owner: user_owner_0 )
+                      description: 'Buffet para festas fantasticas', user_owner: user_owner_0 , payment_method_attributes:
+                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                      check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
       Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
@@ -175,7 +183,9 @@ describe 'Usuario dono de buffet' do
       buffet_0 =Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '97990518000151',
                       contact_phone: '55972662205', contact_email: 'buffetfantastico@gmail.com',  address: 'Rua dos Buffets',
                       district: 'Bairro do Buffet Bonito', state: 'AM', city: 'Manaus', cep: '2335-3434',
-                      description: 'Buffet para festas fantasticas', playment_methods: 'PIX', user_owner: user_owner_0 )
+                      description: 'Buffet para festas fantasticas', user_owner: user_owner_0 , payment_method_attributes:
+                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                      check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
 
       Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
@@ -204,7 +214,9 @@ describe 'Usuario dono de buffet' do
       buffet_0 =Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '07143123000120',
                       contact_phone: '55972662205', contact_email: 'buffetfantastico@gmail.com',  address: 'Rua dos Buffets',
                       district: 'Bairro do Buffet Bonito', state: 'AM', city: 'Manaus', cep: '2335-3434',
-                      description: 'Buffet para festas fantasticas', playment_methods: 'PIX', user_owner: user_owner_0 )
+                      description: 'Buffet para festas fantasticas', user_owner: user_owner_0 , payment_method_attributes:
+                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                      check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
 
       Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
@@ -244,7 +256,9 @@ describe 'Usuario dono de buffet' do
       buffet_0 =Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '41932876000153',
                       contact_phone: '55972662205', contact_email: 'buffetfantastico@gmail.com',  address: 'Rua dos Buffets',
                       district: 'Bairro do Buffet Bonito', state: 'AM', city: 'Manaus', cep: '2335-3434',
-                      description: 'Buffet para festas fantasticas', playment_methods: 'PIX', user_owner: user_owner_0 )
+                      description: 'Buffet para festas fantasticas', user_owner: user_owner_0 , payment_method_attributes:
+                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                      check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
       Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',

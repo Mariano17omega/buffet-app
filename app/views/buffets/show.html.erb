@@ -12,7 +12,15 @@
   <strong>Cidade: </strong><%= @buffet.city%><br> 
   <strong>Estado: </strong><%= @buffet.state%><br>
   <strong>CEP: </strong><%= @buffet.cep%><br>
-  <strong>Meios de pagamentos aceitos: </strong><%= @buffet.playment_methods%>
+  <div>
+  <strong>Meios de pagamento:</strong> 
+    <% payment_methods = @buffet.payment_method.attributes.map do |name, value|
+      t("activerecord.attributes.payment_method.#{name}") if value == true
+    end %>
+
+<%= payment_methods.compact.join(", ") + "."%>
+  
+  </div><br>
 
 </div>
 

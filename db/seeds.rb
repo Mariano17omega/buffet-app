@@ -32,6 +32,18 @@ types_of_events = [
   brand_name = Faker::Restaurant.unique.name
   corporate_name = brand_name + " LTDA"
 
+  payment_method_attributes = {
+    cash:[true, false].sample,
+    credit_card: [true, false].sample,
+    debit_card: [true, false].sample,
+    bank_transfer: [true, false].sample,
+    paypal: [true, false].sample,
+    check: [true, false].sample,
+    pix: [true, false].sample,
+    bitcoin: [true, false].sample,
+    google_pay: [true, false].sample
+  }
+
   buffet_user_owner = Buffet.create!(
     brand_name: brand_name,
     corporate_name: corporate_name,
@@ -44,8 +56,8 @@ types_of_events = [
     city: Faker::Address.city,
     cep: Faker::Address.zip_code,
     description: Faker::Restaurant.unique.description,
-    playment_methods: 'PIX',
-    user_owner: user_owner
+    user_owner: user_owner,
+    payment_method_attributes: payment_method_attributes
   )
 
   # Seed para criar eventos de cada buffet

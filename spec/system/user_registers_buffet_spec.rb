@@ -30,7 +30,7 @@ describe 'Usuario visita tela inicial' do
       expect(page).to have_content 'Cidade'
       expect(page).to have_content 'CEP'
       expect(page).to have_content 'Descrição'
-      expect(page).to have_content 'Meios de pagamentos aceitos'
+      expect(page).to have_content 'Meios de Pagamento'
       expect(page).to have_button 'Cadastrar Buffet'
 
     end
@@ -59,7 +59,10 @@ describe 'Usuario visita tela inicial' do
       fill_in 'Cidade', with: 'Manaus'
       fill_in 'CEP', with: '2335-3434'
       fill_in 'Descrição', with: 'Buffet para festas perfeitas'
-      fill_in 'Meios de pagamentos aceitos', with: 'PIX'
+      check 'Dinheiro'
+      check 'Cartão de crédito'
+      check 'Cartão de débito'
+      check 'PIX'
 
       click_on 'Cadastrar Buffet'
       # Assert
@@ -89,7 +92,10 @@ describe 'Usuario visita tela inicial' do
       fill_in 'Cidade', with: 'Manaus'
       fill_in 'CEP', with: '2335-3434'
       fill_in 'Descrição', with: 'Buffet para festas perfeitas'
-      fill_in 'Meios de pagamentos aceitos', with: 'PIX'
+      check 'Dinheiro'
+      check 'Cartão de crédito'
+      check 'Cartão de débito'
+      check 'PIX'
 
       click_on 'Cadastrar Buffet'
       # Assert
@@ -104,7 +110,9 @@ describe 'Usuario visita tela inicial' do
       Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '97990518000151',
                       contact_phone: '55972662205', contact_email: 'buffetfantastico@gmail.com',  address: 'Rua dos Buffets',
                       district: 'Bairro do Buffet Bonito', state: 'AM', city: 'Manaus', cep: '2335-3434',
-                      description: 'Buffet para festas fantasticas', playment_methods: 'PIX', user_owner: user_owner_0 )
+                      description: 'Buffet para festas fantasticas',user_owner: user_owner_0, payment_method_attributes:
+                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
+                      check: 'false', pix: 'true', bitcoin: 'false', google_pay: 'false' }  )
 
 
       # Act
@@ -144,7 +152,7 @@ describe 'Usuario visita tela inicial' do
       expect(page).to have_content 'Cidade'
       expect(page).to have_content 'CEP'
       expect(page).to have_content 'Descrição'
-      expect(page).to have_content 'Meios de pagamentos aceitos'
+      expect(page).to have_content 'Meios de Pagamento'
       expect(page).to have_button 'Cadastrar Buffet'
     end
 
@@ -155,7 +163,9 @@ describe 'Usuario visita tela inicial' do
       Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '97990518000151',
                       contact_phone: '55972662205', contact_email: 'buffetfantastico@gmail.com',  address: 'Rua dos Buffets',
                       district: 'Bairro do Buffet Bonito', state: 'AM', city: 'Manaus', cep: '2335-3434',
-                      description: 'Buffet para festas fantasticas', playment_methods: 'PIX', user_owner: user_owner_0 )
+                      description: 'Buffet para festas fantasticas', user_owner: user_owner_0, payment_method_attributes:
+                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
+                      check: 'false', pix: 'true', bitcoin: 'false', google_pay: 'false' } )
 
 
       # Act
@@ -180,13 +190,17 @@ describe 'Usuario visita tela inicial' do
       Buffet.create!( brand_name: 'Buffet FFs', corporate_name: 'Buffet Fantasticos' ,cnpj: '97990518000151',
                       contact_phone: '55972662205', contact_email: 'buffetfantastico@gmail.com',  address: 'Rua dos Buffets',
                       district: 'Bairro do Buffet Bonito', state: 'AM', city: 'Manaus', cep: '2335-3434',
-                      description: 'Buffet para festas fantasticas', playment_methods: 'PIX', user_owner: user_owner_0 )
+                      description: 'Buffet para festas fantasticas', user_owner: user_owner_0,
+                      payment_method_attributes: { cash: 'true', credit_card: 'false', debit_card: 'false',
+                      bank_transfer: 'true', paypal: 'true', check: 'false', pix: 'true', bitcoin: 'false', google_pay: 'true' }  )
 
       user_owner_1 = UserOwner.create!(email: 'cc@example.com', password: 'senha123' )
       Buffet.create!( brand_name: 'Buffet da C.C.', corporate_name: 'Buffet Zero' ,cnpj: '44715046000162',
                       contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
                       district: 'Bairro fantasia', state: 'AM', city: 'Manaus', cep: '4522-9968',
-                      description: 'Buffet para festas unicas', playment_methods: 'PIX', user_owner: user_owner_1 )
+                      description: 'Buffet para festas unicas', user_owner: user_owner_1,
+                      payment_method_attributes: { cash: 'true', credit_card: 'false', debit_card: 'false',
+                      bank_transfer: 'true', paypal: 'false', check: 'false', pix: 'true', bitcoin: 'false', google_pay: 'false' }  )
 
       # Act
       visit root_path

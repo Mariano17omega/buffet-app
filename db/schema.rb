@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_01_171315) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_05_144557) do
   create_table "buffets", force: :cascade do |t|
     t.string "brand_name"
     t.string "corporate_name"
@@ -23,7 +23,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_01_171315) do
     t.string "city"
     t.string "cep"
     t.string "description"
-    t.string "playment_methods"
     t.integer "user_owner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,6 +44,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_01_171315) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buffet_id"], name: "index_events_on_buffet_id"
+  end
+
+  create_table "payment_methods", force: :cascade do |t|
+    t.boolean "cash"
+    t.boolean "credit_card"
+    t.boolean "debit_card"
+    t.boolean "bank_transfer"
+    t.boolean "paypal"
+    t.boolean "check"
+    t.boolean "pix"
+    t.boolean "bitcoin"
+    t.boolean "google_pay"
+    t.integer "buffet_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buffet_id"], name: "index_payment_methods_on_buffet_id"
   end
 
   create_table "prices", force: :cascade do |t|
@@ -95,6 +110,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_01_171315) do
 
   add_foreign_key "buffets", "user_owners"
   add_foreign_key "events", "buffets"
+  add_foreign_key "payment_methods", "buffets"
   add_foreign_key "prices", "events"
   add_foreign_key "profiles", "user_clients"
 end

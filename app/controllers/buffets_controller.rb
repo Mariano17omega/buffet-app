@@ -8,9 +8,11 @@ class BuffetsController < ApplicationController
 
   def new
     @buffet = Buffet.new()
+    @buffet.build_payment_method
   end
 
   def edit
+    @buffet.build_payment_method unless @buffet.payment_method
     unless current_user_owner == @buffet.user_owner
       redirect_to buffet_path(@buffet), alert: 'Você não tem permissão para editar este buffet.'
     end
@@ -56,7 +58,9 @@ class BuffetsController < ApplicationController
   def buffet_params
     params.require(:buffet).permit( :corporate_name, :brand_name, :cnpj, :contact_phone,
                                     :contact_email, :address, :district, :state, :city, :cep,
-                                    :description, :playment_methods)
+                                    :description,  payment_method_attributes: [ :id, :cash,
+                                    :credit_card, :debit_card, :bank_transfer, :paypal, :check,
+                                    :pix, :bitcoin, :google_pay ])
   end
 
 end

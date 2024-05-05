@@ -43,10 +43,57 @@
     <%= f.label :description  %>
     <%= f.text_field :description%>
   </div>
-  <div>
-    <%= f.label :playment_methods  %>
-    <%= f.text_field :playment_methods%>
-  </div>
+
+
+  <strong>Meios de Pagamento</strong><br>
+  <div> 
+  <%= f.fields_for :payment_method do |pm_f| %>
+    <div>
+      <%= pm_f.label :cash %>
+      <%= pm_f.check_box :cash, {}, true, false  %>
+    </div>
+
+    <div>
+      <%= pm_f.label :credit_card %>
+      <%= pm_f.check_box :credit_card, {}, true, false  %>
+    </div>
+
+    <div>
+      <%= pm_f.label :debit_card %>
+      <%= pm_f.check_box :debit_card, {}, true, false  %>
+    </div>
+
+    <div>
+      <%= pm_f.label :bank_transfer %>
+      <%= pm_f.check_box :bank_transfer, {}, true, false %>
+    </div>
+
+    <div>
+      <%= pm_f.label :paypal %>
+      <%= pm_f.check_box :paypal, {}, true, false  %>
+    </div>
+
+    <div>
+      <%= pm_f.label :check %>
+      <%= pm_f.check_box :check, {}, true, false  %>
+    </div>
+
+    <div>
+      <%= pm_f.label :pix %>
+      <%= pm_f.check_box :pix, {}, true, false  %>
+    </div>
+    
+    <div>
+      <%= pm_f.label :bitcoin %>
+      <%= pm_f.check_box :bitcoin, {}, true, false  %>
+    </div>
+
+    <div>
+      <%= pm_f.label :google_pay %>
+      <%= pm_f.check_box :google_pay, {}, true, false  %>
+    </div>
+  <% end %>
+  </div> 
   
   <div>
     <%= f.submit 'Cadastrar Buffet' %>

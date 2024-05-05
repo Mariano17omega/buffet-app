@@ -4,6 +4,7 @@ pt-BR:
       buffet: 'Buffet'
       user_owner: 'Proprietário do Buffet'
       price: 'Preço'
+      payment_method: 'Meios de pagamentos'
     attributes:
       buffet:
         brand_name: 'Nome fantasia'
@@ -17,7 +18,16 @@ pt-BR:
         city: 'Cidade'
         cep: 'CEP'
         description: 'Descrição'
-        playment_methods: 'Meios de pagamentos aceitos'
+      payment_method:
+        cash: 'Dinheiro'
+        credit_card: 'Cartão de crédito'
+        debit_card: 'Cartão de débito'
+        bank_transfer: 'Transferência bancária'
+        paypal: 'PayPal'
+        check: 'Cheque'
+        pix: 'PIX'
+        bitcoin: 'Bitcoin'
+        google_pay: 'Google Pay'
       event:
         name: 'Nome'
         min_guests: 'Quantidade mínima de convidados'
