@@ -5,4 +5,5 @@ class UserClient < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile, dependent: :destroy
+  has_many :orders
 end

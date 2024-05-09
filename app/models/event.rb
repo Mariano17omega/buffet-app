@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
   belongs_to :buffet
   has_one :price, dependent: :destroy
+  has_many :orders
+
   validates :name, :description, :min_guests, :max_guests, :duration, :menu, presence: true
   validates :name, uniqueness: true
 

@@ -1,0 +1,33 @@
+ <%= form_with model:  [@buffet, @event, @order]   do |f| %> 
+  <div>
+    <%= f.label :date_event %>
+    <%= f.date_field :date_event%>
+  </div>
+
+  <div>
+      
+    <%= f.label :num_guests, "Número de convidados (#{@event.min_guests}-#{@event.max_guests})" %>
+    <%= f.number_field :num_guests, in: 1..@event.max_guests%>
+  </div>
+
+  <div>
+    <%= f.label :details %>
+    <%= f.text_area :details%>
+  </div>
+ 
+    <div> 
+    <% unless @event.event_location %>
+      <div>
+        <p>Informe o endereço do evento se ele for em um local diferente do endereço do Bufeet:</p> 
+        <%= f.label :address_event %>
+        <%= f.text_field :address_event%>
+      </div>
+    <%else%>
+      <p>Este evento é exclusivo no endereço do buffet:</p><%=@buffet.address%>
+    <%end%>
+  </div>
+ 
+  <div>
+    <%= f.submit 'Enviar pedido' %>
+  </div>
+<%end%>

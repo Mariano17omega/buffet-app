@@ -1,0 +1,18 @@
+<h1>Pedido <%=@order.code%> - <%= t(@order.status)%> </h1>
+
+<h3>Custo total: <%= number_to_currency @total_cost%></h3>
+<h4>Adicional por hora extra: <%= number_to_currency  @cost_overtime%></h4>
+<div>
+    <strong>Evento: </strong><%= @order.event.name %><br>
+    <strong>Buffet: </strong><%= @order.event.buffet.brand_name%><br>
+    <strong>Número de convidados: </strong><%= @order.num_guests %><br>
+    <strong>Data do evento: </strong><%= l @order.date_event %><br>
+    <strong>Detalhes: </strong><%=  @order.details%><br>
+
+    <%if @order.address_event.nil? %>
+      <strong>Este evento é exclusivo no endereço do buffet: </strong><%=@buffet.address%>
+    <%else%>
+      <strong>Endereço do evento: </strong><%=@order.address_event%>
+    <%end%>
+
+</div>

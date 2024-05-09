@@ -6,9 +6,13 @@ Rails.application.routes.draw do
   get 'sign_up', to:  'home#sign_up'
 
   resources :buffets, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :events, only: [ :show, :new, :create, :edit, :update, :destroy], on: :collection
+    #resources :orders, only: [ :show, :new, :create, :edit, :update]
+    resources :events, only: [ :show, :new, :create, :edit, :update, :destroy], on: :collection do
+      resources :orders, only: [ :show, :new, :create, :edit, :update]
+    end
     get 'search', on: :collection
   end
+  get 'my_orders', to:  'orders#my_orders'
 
   resources :profiles, only: [:new, :create]
 

@@ -42,7 +42,11 @@
     <%= link_to 'Editar Evento', edit_buffet_event_path( @buffet, @event)%>  
   <%end%>
 
-<%= link_to 'Voltar', buffet_path(@buffet)%>  
+  <%if user_client_signed_in?%>
+    <%= link_to 'Fazer pedido',   new_buffet_event_order_path( @buffet, @event) %>  
+  <%end%>
+
+  <%= link_to 'Voltar', buffet_path(@buffet.id)%>  
 
 </div>
 

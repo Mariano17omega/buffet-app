@@ -1,10 +1,14 @@
 pt-BR:
+  awaiting_evaluation: 'Aguardando avaliação do buffet'
+  confirmed: 'Pedido confirmado'
+  canceled: 'Pedido cancelado'
   activerecord:
     models:
       buffet: 'Buffet'
       user_owner: 'Proprietário do Buffet'
       price: 'Preço'
       payment_method: 'Meios de pagamentos'
+      order: 'Pedido'
     attributes:
       buffet:
         brand_name: 'Nome fantasia'
@@ -49,4 +53,12 @@ pt-BR:
       profile:
         name: 'Nome'
         cpf: 'CPF'
-  
+      order:
+        date_event: 'Data do evento'
+        num_guests: 'Quantidade de convidados'
+        code: 'Código'
+        details: 'Detalhes sobre o evento'
+        address_event:  'Local do evento' 
+        status: 'Status'
+        created_at: 'Data do evento de criação do pedido'
+ 

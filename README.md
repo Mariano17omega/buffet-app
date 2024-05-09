@@ -100,7 +100,7 @@ Um usuário dono de buffet deve, obrigatoriamente, cadastrar seu buffet logo ap�
   - cidade
   - CEP
   - descrição de seu buffet 
-  - [ ] meios de pagamentos aceitos
+  - meios de pagamentos aceitos
 
 - Criar as validações:
 
@@ -410,3 +410,130 @@ end
 
 
 ```
+
+### 9 - Tarefa 9: Cliente faz um pedido
+
+Um cliente pode fazer um pedido para um buffet. Todos os pedidos serão avaliados pelo dono do buffet antes de se confirmar a execução do evento.
+
+Um novo pedido deve conter: o buffet, o tipo de evento escolhido, a data desejada, a quantidade estimada de convidados e um campo para informar mais detalhes sobre o evento. Cada pedido deve possuir também um código alfanumérico de 8 caracteres gerado automaticamente. Caso o tipo de evento escolhido tenha a opção de realizar em um endereço diferente do endereço do buffet, o cliente deve informar também o endereço desejado para o evento.
+
+Pedidos recém-cadastrados são criados com o status "Aguardando avaliação do buffet". Os outros status possíveis são: pedido confirmado e pedido cancelado.
+
+O cliente deve ter acesso a uma tela "Meus Pedidos" onde é possível acompanhar todos os seus pedidos realizados. Esta tela deve ser uma listagem com a data do evento e seu código. Ao clicar no código, é exibida uma tela com todos os detalhes do pedido.
+
+
+#### Objetivos da Tarefa
+
+- [X] Um cliente pode fazer um pedido para um buffet.
+- [ ] Todos os pedidos serão avaliados pelo dono do buffet antes de se confirmar a execução do evento.
+- [X] Um novo pedido deve conter: 
+  - o buffet
+  - o tipo de evento escolhido
+  - a data desejada
+  - a quantidade estimada de convidados
+  - um campo para informar mais detalhes sobre o evento
+  - um código alfanumérico de 8 caracteres gerado automaticamente
+  - endereço desejado para o evento
+
+- [X] Caso o tipo de evento escolhido tenha a opção de realizar em um endereço diferente do endereço do buffet, o cliente deve informar também o endereço desejado para o evento.
+
+- [X] Pedidos recém-cadastrados são criados com o status "Aguardando avaliação do buffet". 
+
+- [X] Os outros status possíveis são: "Pedido confirmado" e "Pedido cancelado."
+
+- [X] O cliente deve ter acesso a uma tela "Meus Pedidos" onde é possível acompanhar todos os seus pedidos realizados. 
+  - [X] Esta tela deve ser uma listagem com a data do evento e seu código. 
+  - [X] Ao clicar no código, é exibida uma tela com todos os detalhes do pedido.
+
+
+#### Solução
+
+```
+describe 'Um cliente visita tela inicial' do
+  context 'acessar um evento de um Buffet' do
+    it 'e vê o botão para fazer um pedido' do 
+    end
+
+    it 'e vê um formulario para fazer o pedido' do 
+    end
+
+    it 'e faz um pedido com sucesso' do 
+    end
+
+    it 'e faz um pedido com a data no passado' do
+    end
+  end
+
+  context 'acessar seus eventos' do
+    it 'e vê a lista de todos os seus pedidos' do
+    end
+
+    it 'e vê os detalhes de um pedido' do
+    end
+  end
+```
+
+
+### 10 - Tarefa 10: Dono de buffet avalia pedido
+
+Um dono de buffet, autenticado na app, deve ter acesso a uma tela chamada "Pedidos" onde são exibidos todos os pedidos realizados para seu buffet. Os pedidos "Aguardando avaliação" devem ser exibidos de forma separada dentro desta tela, antes dos demais pedidos.
+
+O dono de buffet pode acessar estes pedidos e avaliar as informações cadastradas pelo cliente antes de decidir se vai aceitar o pedido ou não.
+
+Ao visualizar a tela de detalhes de um pedido, o sistema deve notificar o dono de um buffet caso exista outro pedido para o mesmo dia.
+
+#### Objetivos da Tarefa
+
+- [ ] Um dono de buffet, autenticado na app, deve ter acesso a uma tela chamada "Pedidos" onde são exibidos todos os pedidos realizados para seu buffet. 
+
+- [ ] Os pedidos "Aguardando avaliação" devem ser exibidos de forma separada dentro desta tela, antes dos demais pedidos.
+
+- [ ] O dono de buffet pode acessar estes pedidos e avaliar as informações cadastradas pelo cliente antes de decidir se vai aceitar o pedido ou não.
+
+- [ ] Ao visualizar a tela de detalhes de um pedido, o sistema deve notificar o dono de um buffet caso exista outro pedido para o mesmo dia.
+
+
+#### Solução
+
+### 11 - Tarefa 11: Dono de buffet aprova pedido
+
+Caso o dono do buffet considere estar tudo ok, ele deve aprovar o pedido. Para aprovar o pedido, o dono do buffet deve registrar na app o valor final do pedido e data de validade daquele valor. Para calcular o valor final, a aplicação deve calcular automaticamente o valor-padrão a partir da data solicitada para o evento, da quantidade de convidados e do tipo de evento.
+
+Além do valor calculado automaticamente, o dono do buffet poderá acrescentar uma taxa extra ou conceder um desconto. Deve ser cadastrada uma descrição que explique o valor extra ou o desconto.
+
+O dono do buffet deve registrar também o meio de pagamento que será utilizado.
+
+#### Objetivos da Tarefa
+
+- [ ] Caso o dono do buffet considere estar tudo ok, ele deve aprovar o pedido. Para aprovar o pedido, o dono do buffet deve registrar na app o valor final do pedido e data de validade daquele valor. 
+
+- [ ] Para calcular o valor final, a aplicação deve calcular automaticamente o valor-padrão a partir da data solicitada para o evento, da quantidade de convidados e do tipo de evento.
+
+- [ ] Além do valor calculado automaticamente, o dono do buffet poderá acrescentar uma taxa extra ou conceder um desconto.
+
+- [ ] Deve ser cadastrada uma descrição que explique o valor extra ou o desconto.
+
+- [ ] O dono do buffet deve registrar também o meio de pagamento que será utilizado.
+
+OBS: Não faz mais sentido se for o Cliente quem decidi o  meio de pagamento que será utilizado?
+
+#### Solução
+
+### 12 - Tarefa 12: Cliente confirma pedido
+
+Pedidos aprovados pelo buffet devem ser confirmados pelo cliente em seguida. O cliente autenticado deve acessar o pedido através do menu "Meus Pedidos" e ver que o pedido está aguardando sua confirmação. Deve ser exibida também a data-limite para confirmação do pedido.
+
+Caso a data atual ainda seja anterior à data-limite, o cliente pode confirmar o pedido. Pedidos confirmados indicam que o evento será realizado. 
+
+#### Objetivos da Tarefa
+
+- [ ] Pedidos aprovados pelo buffet devem ser confirmados pelo cliente em seguida.
+
+- [ ] O cliente autenticado deve acessar o pedido através do menu "Meus Pedidos" e ver que o pedido está aguardando sua confirmação. 
+  - [ ] Deve ser exibida também a data-limite para confirmação do pedido.
+
+- [ ] Caso a data atual ainda seja anterior à data-limite, o cliente pode confirmar o pedido. Pedidos confirmados indicam que o evento será realizado. 
+
+
+#### Solução
+
