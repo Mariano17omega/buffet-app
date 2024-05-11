@@ -3,8 +3,7 @@
 
 <h3><%= @event.description%> </h3>
 <div> 
-  <strong>Quantidade mínima de convidados: </strong><%= @event.min_guests%><br>
-  <strong>Quantidade máxima de convidados: </strong><%= @event.max_guests%><br>
+  <strong>Quantidade de convidados: </strong><%= @event.min_guests%><br>
   <strong>Duração: </strong><%= @event.duration%> min<br>
   <strong>Cardápio: </strong><%= @event.menu%><br>
   <strong>Bebidas alcoólicas: </strong><%= @event.alcoholic_beverages ? 'Sim' : 'Não' %><br> 

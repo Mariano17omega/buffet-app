@@ -15,7 +15,7 @@ describe 'Um cliente visita tela inicial' do
                                 description: 'Buffet para festas fantasticas', user_owner: user_owner_0, payment_method_attributes:
                                 { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                                 check: 'false', pix: 'true', bitcoin: 'false', google_pay: 'false' }  )
-      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -44,7 +44,7 @@ describe 'Um cliente visita tela inicial' do
                                 description: 'Buffet para festas fantasticas', user_owner: user_owner_0, payment_method_attributes:
                                 { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                                 check: 'false', pix: 'true', bitcoin: 'false', google_pay: 'false' }  )
-      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -60,7 +60,7 @@ describe 'Um cliente visita tela inicial' do
       expect(page).to have_content 'Novo Pedido para Festa da B2'
       expect(page).to have_content 'Buffet Fantasticos BFs'
       expect(page).to have_field 'Data do evento'
-      expect(page).to have_field 'Número de convidados (1-10)'
+      expect(page).to have_field 'Quantidade de convidados'
       expect(page).to have_field 'Detalhes sobre o evento'
       expect(page).to have_content 'Informe o endereço do evento se ele for em um local diferente do endereço do Bufeet'
       expect(page).to have_field  'Local do evento'
@@ -79,7 +79,7 @@ describe 'Um cliente visita tela inicial' do
                                 description: 'Buffet para festas fantasticas', user_owner: user_owner_0, payment_method_attributes:
                                 { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                                 check: 'false', pix: 'true', bitcoin: 'false', google_pay: 'false' }  )
-      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -93,7 +93,7 @@ describe 'Um cliente visita tela inicial' do
       click_on 'Fazer pedido'
 
       fill_in 'Data do evento', with: 5.day.from_now.to_date
-      fill_in 'Número de convidados (1-10)', with: '40'
+      fill_in 'Quantidade de convidados', with: '40'
       fill_in 'Detalhes sobre o evento', with: 'Festa apenas para androids'
       fill_in 'Local do evento', with: 'Rua imaginaria, n. i'
       click_on 'Enviar pedido'
@@ -118,7 +118,7 @@ describe 'Um cliente visita tela inicial' do
                                 description: 'Buffet para festas fantasticas', user_owner: user_owner_0, payment_method_attributes:
                                 { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                                 check: 'false', pix: 'true', bitcoin: 'false', google_pay: 'false' }  )
-      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -132,7 +132,7 @@ describe 'Um cliente visita tela inicial' do
       click_on 'Fazer pedido'
 
       fill_in 'Data do evento', with: Date.today - 30
-      fill_in 'Número de convidados (1-10)', with: '40'
+      fill_in 'Quantidade de convidados', with: '40'
       fill_in 'Detalhes sobre o evento', with: 'Festa apenas para androids'
       fill_in 'Local do evento', with: 'Rua imaginaria, n. i'
       click_on 'Enviar pedido'
@@ -153,7 +153,7 @@ describe 'Um cliente visita tela inicial' do
                       description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
-      event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'1', max_guests:'10',
+      event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -166,7 +166,7 @@ describe 'Um cliente visita tela inicial' do
                       description: 'Festas festas',   user_owner: user_owner_2 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
-      event1 = Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'1', max_guests:'10',
+      event1 = Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_0.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -179,7 +179,7 @@ describe 'Um cliente visita tela inicial' do
                       description: 'Buffet Otimo',   user_owner: user_owner_3 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
-      event2 = Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'1', max_guests:'10',
+      event2 = Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -223,7 +223,7 @@ describe 'Um cliente visita tela inicial' do
                       description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
-      event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'1', max_guests:'10',
+      event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',

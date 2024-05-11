@@ -134,7 +134,7 @@ describe 'Usuario visita tela inicial' do
                                 description: 'Buffet para festas fantasticas', user_owner: user_owner_0, payment_method_attributes:
                                 { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                                 check: 'false', pix: 'true', bitcoin: 'false', google_pay: 'false' }  )
-      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -164,7 +164,7 @@ describe 'Usuario visita tela inicial' do
                                 description: 'Buffet para festas fantasticas', user_owner: user_owner_0 , payment_method_attributes:
                                 { cash: 'true', credit_card: 'true', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                                 check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
-      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',

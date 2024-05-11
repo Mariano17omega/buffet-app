@@ -20,8 +20,7 @@ describe 'Usuario dono de buffet' do
       # Assert
       expect(page).to have_content 'Nome'
       expect(page).to have_content 'Descrição'
-      expect(page).to have_content 'Quantidade mínima de convidados'
-      expect(page).to have_content 'Quantidade máxima de convidados'
+      expect(page).to have_content 'Quantidade de convidados'
       expect(page).to have_content 'Duração'
       expect(page).to have_content 'Cardápio'
       expect(page).to have_content 'Bebidas alcoólicas'
@@ -57,8 +56,7 @@ describe 'Usuario dono de buffet' do
       fill_in 'Nome', with: 'Festa da B2'
       fill_in 'Descrição', with: 'Festa de androids'
 
-      fill_in 'Quantidade mínima de convidados', with: '2'
-      fill_in 'Quantidade máxima de convidados', with: '5'
+      fill_in 'Quantidade de convidados', with: '2'
       fill_in 'Duração', with: '60'
       fill_in 'Cardápio', with: 'Muita comida'
       check 'Bebidas alcoólicas'
@@ -79,8 +77,7 @@ describe 'Usuario dono de buffet' do
       expect(page).to have_content 'Evento cadastrado com sucesso'
       expect(page).to have_content 'Buffet FFs'
       expect(page).to have_content 'Festa da B2'
-      expect(page).to have_content 'Quantidade mínima de convidados: 2'
-      expect(page).to have_content 'Quantidade máxima de convidados: 5'
+      expect(page).to have_content 'Quantidade de convidados: 2'
       expect(page).to have_content 'Estacionamento: com serviço valet'
       expect(page).to have_content 'Exclusivo no endereço do buffet: Sim'
       expect(page).to have_content 'Decoração: Sim'
@@ -104,8 +101,7 @@ describe 'Usuario dono de buffet' do
       click_on 'Novo Evento'
 
       fill_in 'Nome', with: ''
-      fill_in 'Quantidade mínima de convidados', with: '2'
-      fill_in 'Quantidade máxima de convidados', with: ''
+      fill_in 'Quantidade de convidados', with: ''
       fill_in 'Duração', with: ''
       fill_in 'Cardápio', with: 'Muita comida'
       check 'Bebidas alcoólicas'
@@ -128,8 +124,7 @@ describe 'Usuario dono de buffet' do
       expect(page).to have_content 'Nome não pode ficar em branco'
       expect(page).to have_content 'Nome'
       expect(page).to have_content 'Descrição'
-      expect(page).to have_content 'Quantidade mínima de convidados'
-      expect(page).to have_content 'Quantidade máxima de convidados'
+      expect(page).to have_content 'Quantidade de convidados'
 
       expect(page).to have_content 'Hora extra durante a semana não pode ficar em branco'
       expect(page).to have_content 'Preço-base durante o fim de semana não pode ficar em branco'
@@ -146,7 +141,7 @@ describe 'Usuario dono de buffet' do
                       description: 'Buffet para festas fantasticas', user_owner: user_owner_0 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
-      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'20',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -159,8 +154,7 @@ describe 'Usuario dono de buffet' do
 
       fill_in 'Nome', with: 'Festa da B2'
       fill_in 'Descrição', with: 'Festa de androids'
-      fill_in 'Quantidade mínima de convidados', with: '2'
-      fill_in 'Quantidade máxima de convidados', with: '5'
+      fill_in 'Quantidade de convidados', with: '10'
       fill_in 'Duração', with: '60'
       fill_in 'Cardápio', with: 'Muita comida'
       check 'Bebidas alcoólicas'
@@ -173,8 +167,7 @@ describe 'Usuario dono de buffet' do
       expect(page).to have_content 'Nome já está em uso'
       expect(page).to have_content 'Nome'
       expect(page).to have_content 'Descrição'
-      expect(page).to have_content 'Quantidade mínima de convidados'
-      expect(page).to have_content 'Quantidade máxima de convidados'
+      expect(page).to have_content 'Quantidade de convidados'
 
     end
     it 'e vê a sua lista de eventos' do
@@ -187,12 +180,12 @@ describe 'Usuario dono de buffet' do
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
 
-      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'10',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa do ZERO' ,description:'Festa de Elevens', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa do ZERO' ,description:'Festa de Elevens', min_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1900',
                     price_add_weekdays: '160', price_overtime_weekdays: '120', price_base_weekend: '2000',
@@ -218,12 +211,12 @@ describe 'Usuario dono de buffet' do
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
 
-      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '3200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '3000',
                     price_add_weekend: '200.0', price_overtime_weekend: '200'})
-      Event.create!(name:'Festa do ZERO' ,description:'Festa de Elevens', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa do ZERO' ,description:'Festa de Elevens', min_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '2000',
                     price_add_weekdays: '600', price_overtime_weekdays: '450', price_base_weekend: '4000',
@@ -239,8 +232,7 @@ describe 'Usuario dono de buffet' do
       expect(page).to have_content 'Buffet FFs'
       expect(page).to have_content 'Festa de androids'
 
-      expect(page).to have_content 'Quantidade mínima de convidados: 1'
-      expect(page).to have_content 'Quantidade máxima de convidados: 10'
+      expect(page).to have_content 'Quantidade de convidados: 110'
       expect(page).to have_content 'Duração: 120 min'
       expect(page).to have_content 'Cardápio: Comida'
       expect(page).to have_content 'Estacionamento: com serviço valet'
@@ -259,7 +251,7 @@ describe 'Usuario dono de buffet' do
                       description: 'Buffet para festas fantasticas', user_owner: user_owner_0 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
-      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'100',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -273,14 +265,12 @@ describe 'Usuario dono de buffet' do
 
       fill_in 'Nome', with: 'Festa da B2 e do 9S'
       fill_in 'Descrição', with: 'Festa para androids'
-      fill_in 'Quantidade mínima de convidados', with: '2'
-      fill_in 'Quantidade máxima de convidados', with: '20'
+      fill_in 'Quantidade de convidados', with: '200'
       click_button 'Cadastrar Evento'
       # Assert
       expect(page).to have_content 'Evento editado com sucesso'
       expect(page).to have_content 'Festa da B2 e do 9S'
-      expect(page).to have_content 'Quantidade mínima de convidados: 2'
-      expect(page).to have_content 'Quantidade máxima de convidados: 20'
+      expect(page).to have_content 'Quantidade de convidados: 200'
     end
   end
 end

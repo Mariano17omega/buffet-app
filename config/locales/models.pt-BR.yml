@@ -34,8 +34,7 @@ pt-BR:
         google_pay: 'Google Pay'
       event:
         name: 'Nome'
-        min_guests: 'Quantidade mínima de convidados'
-        max_guests: 'Quantidade máxima de convidados'
+        min_guests: 'Quantidade de convidados' 
         duration: 'Duração'
         menu: 'Cardápio'
         alcoholic_beverages: 'Bebidas alcoólicas'

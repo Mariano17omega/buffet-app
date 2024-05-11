@@ -74,12 +74,12 @@ describe 'Usuario visitante' do
                       { cash: 'false', credit_card: 'true', debit_card: 'true', bank_transfer: 'true', paypal: 'false',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
 
-      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa do ZERO' ,description:'Festa de Elevens', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa do ZERO' ,description:'Festa de Elevens', min_guests:'111',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -103,12 +103,12 @@ describe 'Usuario visitante' do
                       { cash: 'true', credit_card: 'true', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
 
-      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa da B2' ,description:'Festa de androids', min_guests:'111',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa do ZERO' ,description:'Festa de Elevens', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa do ZERO' ,description:'Festa de Elevens', min_guests:'110',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -120,8 +120,7 @@ describe 'Usuario visitante' do
       # Assert
       expect(page).to have_content 'Festa da B2'
       expect(page).to have_content 'Festa de androids'
-      expect(page).to have_content 'Quantidade mínima de convidados: 1'
-      expect(page).to have_content 'Quantidade máxima de convidados: 10'
+      expect(page).to have_content 'Quantidade de convidados: 111'
       expect(page).to have_content 'Duração: 120'
       expect(page).to have_content 'Cardápio: Comida'
       expect(page).to have_content 'Bebidas alcoólicas: Sim'
@@ -152,12 +151,12 @@ describe 'Usuario visitante' do
                       description: 'Buffet para festas', user_owner: user_owner_0 , payment_method_attributes:
                       { cash: 'true', credit_card: 'true', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
-      Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'20',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa ABC' ,description:'Festa para muitas letras', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa ABC' ,description:'Festa para muitas letras', min_guests:'60',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200', price_add_weekdays: '100',
                     price_overtime_weekdays: '150', price_base_weekend: '5000', price_add_weekend: '500.0',
@@ -170,12 +169,12 @@ describe 'Usuario visitante' do
                       description: 'Buffets unicos', user_owner: user_owner_1 , payment_method_attributes:
                       { cash: 'false', credit_card: 'true', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                       check: 'true', pix: 'true', bitcoin: 'false', google_pay: 'false' } )
-      Event.create!(name:'Festa DFK' ,description:'Festa para letras As', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa DFK' ,description:'Festa para letras As', min_guests:'90',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_1.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa FES' ,description:'Festa para muitas letras Bs', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa FES' ,description:'Festa para muitas letras Bs', min_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_1.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -188,12 +187,12 @@ describe 'Usuario visitante' do
                       description: 'Festas festas', user_owner: user_owner_2 , payment_method_attributes:
                       { cash: 'true', credit_card: 'true', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'true' })
-      Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'50',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_0.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa AW' ,description:'Festa para muitas letras diferentes', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa AW' ,description:'Festa para muitas letras diferentes', min_guests:'40',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_2.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -206,12 +205,12 @@ describe 'Usuario visitante' do
                       description: 'Buffet Otimo', user_owner: user_owner_3 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'false', paypal: 'false',
                       check: 'false', pix: 'true', bitcoin: 'true', google_pay: 'false' })
-      Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'77',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa E' ,description:'Festa para muitas letras Ds', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa E' ,description:'Festa para muitas letras Ds', min_guests:'222',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -225,12 +224,12 @@ describe 'Usuario visitante' do
                       description: 'Buffet fantasia',  user_owner: user_owner_4 , payment_method_attributes:
                       { cash: 'true', credit_card: 'true', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'true' })
-      Event.create!(name:'Festa 4' ,description:'Festa para Numeros', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa 4' ,description:'Festa para Numeros', min_guests:'100',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_4.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa A4' ,description:'Festa para muitas letras e numeros', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa A4' ,description:'Festa para muitas letras e numeros', min_guests:'102',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_4.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -243,12 +242,12 @@ describe 'Usuario visitante' do
                       description: 'Buffet para eventos',  user_owner: user_owner_5 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
-      Event.create!(name:'Festa L' ,description:'Festa para letras Ls', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa L' ,description:'Festa para letras Ls', min_guests:'100',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_5.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa ML' ,description:'Festa para letras Ms', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa ML' ,description:'Festa para letras Ms', min_guests:'130',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_5.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -280,12 +279,12 @@ describe 'Usuario visitante' do
                       description: 'Buffet para festas', user_owner: user_owner_0 , payment_method_attributes:
                       { cash: 'true', credit_card: 'true', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
-      Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'140',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa ABC' ,description:'Festa para muitas letras', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa ABC' ,description:'Festa para muitas letras', min_guests:'130',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200', price_add_weekdays: '100',
                     price_overtime_weekdays: '150', price_base_weekend: '5000', price_add_weekend: '500.0',
@@ -298,12 +297,12 @@ describe 'Usuario visitante' do
                       description: 'Buffets unicos', user_owner: user_owner_1 , payment_method_attributes:
                       { cash: 'false', credit_card: 'true', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                       check: 'true', pix: 'true', bitcoin: 'false', google_pay: 'false' } )
-      Event.create!(name:'Festa DFK' ,description:'Festa para letras As', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa DFK' ,description:'Festa para letras As', min_guests:'144',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_1.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa FES' ,description:'Festa para muitas letras Bs', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa FES' ,description:'Festa para muitas letras Bs', min_guests:'140',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_1.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -316,12 +315,12 @@ describe 'Usuario visitante' do
                       description: 'Festas festas', user_owner: user_owner_2 , payment_method_attributes:
                       { cash: 'true', credit_card: 'true', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'true' })
-      Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'155',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_0.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa AW' ,description:'Festa para muitas letras diferentes', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa AW' ,description:'Festa para muitas letras diferentes', min_guests:'107',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_2.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -334,12 +333,12 @@ describe 'Usuario visitante' do
                       description: 'Buffet Otimo', user_owner: user_owner_3 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'false', paypal: 'false',
                       check: 'false', pix: 'true', bitcoin: 'true', google_pay: 'false' })
-      Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'190',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa E' ,description:'Festa para muitas letras Ds', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa E' ,description:'Festa para muitas letras Ds', min_guests:'160',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -353,12 +352,12 @@ describe 'Usuario visitante' do
                       description: 'Buffet fantasia',  user_owner: user_owner_4 , payment_method_attributes:
                       { cash: 'true', credit_card: 'true', debit_card: 'false', bank_transfer: 'true', paypal: 'false',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'true' })
-      Event.create!(name:'Festa 4' ,description:'Festa para Numeros', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa 4' ,description:'Festa para Numeros', min_guests:'121',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_4.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa A4' ,description:'Festa para muitas letras e numeros', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa A4' ,description:'Festa para muitas letras e numeros', min_guests:'101',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_4.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -371,12 +370,12 @@ describe 'Usuario visitante' do
                       description: 'Buffet para eventos',  user_owner: user_owner_5 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
-      Event.create!(name:'Festa L' ,description:'Festa para letras Ls', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa L' ,description:'Festa para letras Ls', min_guests:'122',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_5.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa ML' ,description:'Festa para letras Ms', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa ML' ,description:'Festa para letras Ms', min_guests:'160',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_5.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -408,12 +407,12 @@ describe 'Usuario visitante' do
                       description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
-      Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa ABC' ,description:'Festa para muitas letras', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa ABC' ,description:'Festa para muitas letras', min_guests:'100',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200', price_add_weekdays: '100',
                     price_overtime_weekdays: '150', price_base_weekend: '5000', price_add_weekend: '500.0',
@@ -426,12 +425,12 @@ describe 'Usuario visitante' do
                       description: 'Buffets unicos',   user_owner: user_owner_1 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
-      Event.create!(name:'Festa DFK' ,description:'Festa para letras As', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa DFK' ,description:'Festa para letras As', min_guests:'100',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_1.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa FES' ,description:'Festa para muitas letras Bs', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa FES' ,description:'Festa para muitas letras Bs', min_guests:'120',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_1.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -444,12 +443,12 @@ describe 'Usuario visitante' do
                       description: 'Festas festas',   user_owner: user_owner_2 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' })
-      Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'50',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_0.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa AW' ,description:'Festa para muitas letras diferentes', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa AW' ,description:'Festa para muitas letras diferentes', min_guests:'70',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_2.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -462,12 +461,12 @@ describe 'Usuario visitante' do
                       description: 'Buffet Otimo',   user_owner: user_owner_3 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
-      Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'90',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa E' ,description:'Festa para muitas letras Ds', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa E' ,description:'Festa para muitas letras Ds', min_guests:'200',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -481,12 +480,12 @@ describe 'Usuario visitante' do
                       description: 'Buffet fantasia',   user_owner: user_owner_4 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
-      Event.create!(name:'Festa 4' ,description:'Festa para Numeros', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa 4' ,description:'Festa para Numeros', min_guests:'150',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_4.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa A4' ,description:'Festa para muitas letras e numeros', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa A4' ,description:'Festa para muitas letras e numeros', min_guests:'107',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_4.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
@@ -499,12 +498,12 @@ describe 'Usuario visitante' do
                       description: 'Buffet para eventos',   user_owner: user_owner_5 , payment_method_attributes:
                       { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
-      Event.create!(name:'Festa L' ,description:'Festa para letras Ls', min_guests:'1', max_guests:'10',
+      Event.create!(name:'Festa L' ,description:'Festa para letras Ls', min_guests:'130',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'false', buffet_id: user_owner_5.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
-      Event.create!(name:'Festa ML' ,description:'Festa para letras Ms', min_guests:'10', max_guests:'100',
+      Event.create!(name:'Festa ML' ,description:'Festa para letras Ms', min_guests:'150',
                     duration: '240', menu: 'Muita Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
                     event_location:'true', buffet_id: user_owner_5.id , price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',

@@ -476,7 +476,7 @@ describe 'Um cliente visita tela inicial' do
 
 ### 10 - Tarefa 10: Dono de buffet avalia pedido
 
-Um dono de buffet, autenticado na app, deve ter acesso a uma tela chamada "Pedidos" onde são exibidos todos os pedidos realizados para seu buffet. Os pedidos "Aguardando avaliação" devem ser exibidos de forma separada dentro desta tela, antes dos demais pedidos.
+Um dono de buffet, autenticado na app, deve ter acesso a uma tela chamada "Pedidos" onde são exibidos todos os pedidos realizados para seu buffet. Os pedidos "Aguardando avaliação" devem ser exibidos de forma separada dentro desta tela, antes dos demais pedidos. 
 
 O dono de buffet pode acessar estes pedidos e avaliar as informações cadastradas pelo cliente antes de decidir se vai aceitar o pedido ou não.
 

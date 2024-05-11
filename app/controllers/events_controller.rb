@@ -51,7 +51,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit( :name,:description, :min_guests, :max_guests, :duration,
+    params.require(:event).permit( :name,:description, :min_guests, :duration,
                                    :menu, :alcoholic_beverages, :decoration, :parking_servise, :event_location ,
                                    price_attributes:[ :id, :price_base_weekdays, :price_add_weekdays, :price_overtime_weekdays,
                                    :price_base_weekend, :price_add_weekend, :price_overtime_weekend ])

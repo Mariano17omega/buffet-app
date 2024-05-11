@@ -44,6 +44,10 @@ class OrdersController < ApplicationController
     @orders=current_user_client.orders
   end
 
+  def orders_buffet
+    @orders_awaiting_evaluation = Order.event#.awaiting_evaluation
+  end
+
   private
   def set_buffet_event
     @buffet = Buffet.find(params[:buffet_id])

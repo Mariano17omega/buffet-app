@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_08_184120) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_10_195306) do
   create_table "buffets", force: :cascade do |t|
     t.string "brand_name"
     t.string "corporate_name"
@@ -33,7 +33,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_184120) do
     t.string "name"
     t.string "description"
     t.integer "min_guests"
-    t.integer "max_guests"
     t.integer "duration"
     t.string "menu"
     t.boolean "alcoholic_beverages"

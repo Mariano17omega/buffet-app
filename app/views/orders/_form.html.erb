@@ -6,8 +6,8 @@
 
   <div>
       
-    <%= f.label :num_guests, "Número de convidados (#{@event.min_guests}-#{@event.max_guests})" %>
-    <%= f.number_field :num_guests, in: 1..@event.max_guests%>
+    <%= f.label :num_guests %>
+    <%= f.number_field :num_guests %>
   </div>
 
   <div>
