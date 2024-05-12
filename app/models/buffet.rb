@@ -3,6 +3,8 @@ class Buffet < ApplicationRecord
   has_many :events
   has_one :payment_method
 
+  #has_many :ordes, through: :events
+
   validates :corporate_name, :brand_name, :cnpj, :contact_phone,
   :contact_email, :address, :district, :state, :city, :cep,
   :description, presence: true
@@ -12,4 +14,6 @@ class Buffet < ApplicationRecord
   validates  :cnpj, cnpj: true
 
   accepts_nested_attributes_for :payment_method
+
+
 end

@@ -24,11 +24,17 @@ types_of_events = [
   "Festa de Aniversario"
 ]
 
+clients = []
+5.times do
+    client_i = UserClient.create!(email:Faker::Internet.unique.email , password: 'senha123' )
+    Profile.create!(name:  Faker::Name.name , cpf: Faker::IdNumber.brazilian_citizen_number , user_client: client_i)
+    clients << client_i
+end
+
 # Seed para criar os donos de buffets
-10.times do
+5.times do
   email= Faker::Internet.unique.email
   user_owner = UserOwner.create!(email: email, password: 'senha123')
-
   brand_name = Faker::Restaurant.unique.name
   corporate_name = brand_name + " LTDA"
 
@@ -55,7 +61,7 @@ types_of_events = [
     state: Faker::Address.state,
     city: Faker::Address.city,
     cep: Faker::Address.zip_code,
-    description: Faker::Restaurant.unique.description,
+    description:  Faker::Lorem.unique.paragraph,#Faker::Restaurant.unique.description,
     user_owner: user_owner,
     payment_method_attributes: payment_method_attributes
   )
@@ -72,19 +78,30 @@ types_of_events = [
       price_overtime_weekend: Faker::Commerce.price(range: 800..1500)
     }
 
-    Event.create!(
-      name: types_of_events.sample + ' - ' +Faker::Coffee.blend_name + ' ' + Faker::Restaurant.type,
-      description: Faker::Lorem.unique.paragraph,
-      min_guests: Faker::Number.between(from: 10, to: 50),
-      max_guests: Faker::Number.between(from: 60, to: 200),
-      duration: Faker::Number.between(from: 60, to: 720),
-      menu: Array.new(10) { Faker::Food.dish }.join(', '),
-      decoration: [true, false].sample,
-      alcoholic_beverages: [true, false].sample,
-      parking_servise: [true, false].sample,
-      event_location: [true, false].sample,
-      buffet: buffet_user_owner,
-      price_attributes: price_attributes
-    )
+    Event.create!(name: types_of_events.sample + ' - ' +Faker::Coffee.blend_name + ' ' + Faker::Restaurant.type,
+                          description: Faker::Lorem.unique.paragraph,
+                          min_guests: Faker::Number.between(from: 10, to: 50),
+                          duration: Faker::Number.between(from: 60, to: 720),
+                          menu: Array.new(10) { Faker::Food.dish }.join(', '),
+                          decoration: [true, false].sample,
+                          alcoholic_beverages: [true, false].sample,
+                          parking_servise: [true, false].sample,
+                          event_location: [true, false].sample,
+                          buffet: buffet_user_owner,
+                          price_attributes: price_attributes
+                        )
+
+  end
+end
+
+
+clients.each do |client|
+  7.times do
+    Order.create!(date_event: Random.new.rand(10..200).day.from_now,
+    num_guests: Faker::Number.between(from: 10, to: 200),
+    details:Faker::Lorem.unique.paragraph,
+    event:Event.all.sample,
+    user_client:client,
+    status: [:awaiting_evaluation, :confirmed, :canceled ].sample)
   end
 end

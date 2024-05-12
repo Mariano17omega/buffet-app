@@ -7,6 +7,8 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @repeat_orders = Order.joins(:event).where(events: { id: @buffet.events.select(:id) }).where(date_event: @order.date_event).where.not(id: @order.id)
+
     if @event.min_guests >= @order.num_guests
 
       if @order.date_event.saturday? || @order.date_event.sunday?
@@ -45,7 +47,9 @@ class OrdersController < ApplicationController
   end
 
   def orders_buffet
-    @orders_awaiting_evaluation = Order.event#.awaiting_evaluation
+    @buffet=current_user_owner.buffet
+    @orders_awaiting_evaluation = Order.joins(:event).where(events: { id: @buffet.events.select(:id) }).awaiting_evaluation
+    @orders_confirmed_canceled = Order.joins(:event).where(events: { id: @buffet.events.select(:id) }, status: [:confirmed, :canceled])
   end
 
   private

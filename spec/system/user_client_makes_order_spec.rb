@@ -189,15 +189,15 @@ describe 'Um cliente visita tela inicial' do
       Profile.create!(name: 'Cliente0', cpf: '71779672063' , user_client: client0)
       # Act
       allow(SecureRandom).to receive(:alphanumeric).and_return('ABCF1111')
-      Order.create!(date_event: 5.day.from_now, num_guests: '40', code:'ABCF1111', details:'Festa 1',
+      Order.create!(date_event: 5.day.from_now, num_guests: '40',  details:'Festa 1',
       event:event0, user_client:client0)
 
       allow(SecureRandom).to receive(:alphanumeric).and_return('ABCF2222')
-      Order.create!(date_event: 15.day.from_now, num_guests: '40', code:'ABCF2222', details:'Festa 2',
+      Order.create!(date_event: 15.day.from_now, num_guests: '40', details:'Festa 2',
       event:event1, user_client:client0)
 
       allow(SecureRandom).to receive(:alphanumeric).and_return('ABCF3333')
-      Order.create!(date_event: 20.day.from_now, num_guests: '40', code:'ABCF3333', details:'Festa 3',
+      Order.create!(date_event: 20.day.from_now, num_guests: '40', details:'Festa 3',
       address_event:'Rua imaginaria 3',  event: event2, user_client:client0)
 
       login_as(client0, scope: :user_client)
@@ -234,7 +234,7 @@ describe 'Um cliente visita tela inicial' do
       Profile.create!(name: 'Cliente0', cpf: '71779672063' , user_client: client0)
       # Act
       allow(SecureRandom).to receive(:alphanumeric).and_return('ABCF1111')
-      Order.create!(date_event: 5.day.from_now, num_guests: '40', code:'ABCF1111', details:'Festa 1',
+      Order.create!(date_event: 5.day.from_now, num_guests: '40',  details:'Festa 1',
       event:event0, user_client:client0)
 
       login_as(client0, scope: :user_client)

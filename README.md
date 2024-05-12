@@ -345,7 +345,7 @@ Um visitante, não autenticado, deve ser capaz de ver todos os tipos de festas d
 
 - [X] Para cada tipo de evento devem ser exibidas todas as informações cadastradas,
 
-- [] inclusive os preços.
+- [X] inclusive os preços.
 
 
 #### Solução
@@ -484,13 +484,13 @@ Ao visualizar a tela de detalhes de um pedido, o sistema deve notificar o dono d
 
 #### Objetivos da Tarefa
 
-- [ ] Um dono de buffet, autenticado na app, deve ter acesso a uma tela chamada "Pedidos" onde são exibidos todos os pedidos realizados para seu buffet. 
+- [X] Um dono de buffet, autenticado na app, deve ter acesso a uma tela chamada "Pedidos" onde são exibidos todos os pedidos realizados para seu buffet. 
 
-- [ ] Os pedidos "Aguardando avaliação" devem ser exibidos de forma separada dentro desta tela, antes dos demais pedidos.
+- [X] Os pedidos "Aguardando avaliação" devem ser exibidos de forma separada dentro desta tela, antes dos demais pedidos.
 
-- [ ] O dono de buffet pode acessar estes pedidos e avaliar as informações cadastradas pelo cliente antes de decidir se vai aceitar o pedido ou não.
+- [X] O dono de buffet pode acessar estes pedidos e avaliar as informações cadastradas pelo cliente antes de decidir se vai aceitar o pedido ou não.
 
-- [ ] Ao visualizar a tela de detalhes de um pedido, o sistema deve notificar o dono de um buffet caso exista outro pedido para o mesmo dia.
+- [X] Ao visualizar a tela de detalhes de um pedido, o sistema deve notificar o dono de um buffet caso exista outro pedido para o mesmo dia.
 
 
 #### Solução

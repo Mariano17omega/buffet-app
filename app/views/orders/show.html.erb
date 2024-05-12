@@ -1,5 +1,21 @@
 <h1>Pedido <%=@order.code%> - <%= t(@order.status)%> </h1>
 
+ 
+
+  
+<div>
+  <% if user_owner_signed_in?  && @repeat_orders.any? %>
+  <p>Há <%= @repeat_orders.count %> pedidos agendados para o dia <%= @order.date_event.to_date.to_date.strftime("%d/%m/%Y")%>: </p>
+    <ul>
+    <% @repeat_orders.map do |order| %>
+      <li><%= link_to order.code , buffet_event_order_path(order.event.buffet, order.event, order ) %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+ 
+
+
 <h3>Custo total: <%= number_to_currency @total_cost%></h3>
 <h4>Adicional por hora extra: <%= number_to_currency  @cost_overtime%></h4>
 <div>
