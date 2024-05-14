@@ -1,0 +1,14 @@
+=> 
+{[31m[1m"[0m[31mid[0m[31m[1m"[0m=>[34m[1m10[0m,
+ [31m[1m"[0m[31mcash[0m[31m[1m"[0m=>[36m[1mfalse[0m,
+ [31m[1m"[0m[31mcredit_card[0m[31m[1m"[0m=>[36m[1mtrue[0m,
+ [31m[1m"[0m[31mdebit_card[0m[31m[1m"[0m=>[36m[1mfalse[0m,
+ [31m[1m"[0m[31mbank_transfer[0m[31m[1m"[0m=>[36m[1mfalse[0m,
+ [31m[1m"[0m[31mpaypal[0m[31m[1m"[0m=>[36m[1mtrue[0m,
+ [31m[1m"[0m[31mcheck[0m[31m[1m"[0m=>[36m[1mtrue[0m,
+ [31m[1m"[0m[31mpix[0m[31m[1m"[0m=>[36m[1mfalse[0m,
+ [31m[1m"[0m[31mbitcoin[0m[31m[1m"[0m=>[36m[1mfalse[0m,
+ [31m[1m"[0m[31mgoogle_pay[0m[31m[1m"[0m=>[36m[1mtrue[0m,
+ [31m[1m"[0m[31mbuffet_id[0m[31m[1m"[0m=>[34m[1m10[0m,
+ [31m[1m"[0m[31mcreated_at[0m[31m[1m"[0m=>Mon, 13 May 2024 07:15:17.258500000 UTC +00:00,
+ [31m[1m"[0m[31mupdated_at[0m[31m[1m"[0m=>Mon, 13 May 2024 07:15:17.258500000 UTC +00:00}

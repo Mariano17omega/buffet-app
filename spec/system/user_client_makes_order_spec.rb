@@ -243,7 +243,7 @@ describe 'Um cliente visita tela inicial' do
       click_on 'ABCF1111'
 
       # Assert
-      expect(page).to have_content 'Pedido ABCF1111'
+      expect(page).to have_content 'ABCF1111'
       expect(page).to have_content 'Festa AB'
       expect(page).to have_content 5.days.from_now.to_date.to_date.strftime("%d/%m/%Y")
       expect(page).to have_content 'Detalhes: Festa 1'

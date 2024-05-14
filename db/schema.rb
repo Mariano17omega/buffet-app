@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_10_195306) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_13_015715) do
   create_table "buffets", force: :cascade do |t|
     t.string "brand_name"
     t.string "corporate_name"
@@ -56,6 +56,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_195306) do
     t.integer "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "extra_fee_discount"
+    t.string "extra_fee_discount_description"
+    t.string "payment_method_used"
+    t.date "expiration_date"
     t.index ["event_id"], name: "index_orders_on_event_id"
     t.index ["user_client_id"], name: "index_orders_on_user_client_id"
   end

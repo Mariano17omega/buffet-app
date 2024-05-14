@@ -102,6 +102,6 @@ clients.each do |client|
     details:Faker::Lorem.unique.paragraph,
     event:Event.all.sample,
     user_client:client,
-    status: [:awaiting_evaluation, :confirmed, :canceled ].sample)
+    status: [:awaiting_evaluation, :confirmed_buffet, :confirmed_client, :canceled ].sample)
   end
 end

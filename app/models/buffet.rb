@@ -3,11 +3,10 @@ class Buffet < ApplicationRecord
   has_many :events
   has_one :payment_method
 
-  #has_many :ordes, through: :events
-
   validates :corporate_name, :brand_name, :cnpj, :contact_phone,
   :contact_email, :address, :district, :state, :city, :cep,
   :description, presence: true
+
   validates :corporate_name, :brand_name, :cnpj, :contact_phone,
   :contact_email, :description, uniqueness: true
 

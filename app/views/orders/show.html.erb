@@ -1,10 +1,7 @@
-<h1>Pedido <%=@order.code%> - <%= t(@order.status)%> </h1>
-
- 
-
+<h1><%=@order.code%> - <%= t(@order.status)%> </h1>
   
 <div>
-  <% if user_owner_signed_in?  && @repeat_orders.any? %>
+  <% if user_owner_signed_in?  && @repeat_orders.present? %>
   <p>Há <%= @repeat_orders.count %> pedidos agendados para o dia <%= @order.date_event.to_date.to_date.strftime("%d/%m/%Y")%>: </p>
     <ul>
     <% @repeat_orders.map do |order| %>
@@ -14,21 +11,36 @@
   <% end %>
 </div>
  
-
-
-<h3>Custo total: <%= number_to_currency @total_cost%></h3>
-<h4>Adicional por hora extra: <%= number_to_currency  @cost_overtime%></h4>
 <div>
     <strong>Evento: </strong><%= @order.event.name %><br>
     <strong>Buffet: </strong><%= @order.event.buffet.brand_name%><br>
     <strong>Número de convidados: </strong><%= @order.num_guests %><br>
     <strong>Data do evento: </strong><%= l @order.date_event %><br>
     <strong>Detalhes: </strong><%=  @order.details%><br>
+    <strong>Valor padrão do pedido:</strong> <%= number_to_currency @base_cost %><br>
+    <strong>Adicional por hora extra: </strong><%= number_to_currency  @overtime_cost%><br>
 
     <%if @order.address_event.nil? %>
       <strong>Este evento é exclusivo no endereço do buffet: </strong><%=@buffet.address%>
     <%else%>
       <strong>Endereço do evento: </strong><%=@order.address_event%>
     <%end%>
-
+ 
+    <div>
+      <%unless @order.awaiting_evaluation? && @order.extra_fee_discount.nil? %>
+        <strong>Taxa extra/Desconto: </strong><%= number_to_currency @order.extra_fee_discount %><br>
+        <strong>Descrição da Taxa extra/Desconto: </strong><%= @order.extra_fee_discount_description %><br>
+        <strong>Data de validade da Taxa extra/Desconto: </strong><%= @order.expiration_date.to_date.strftime("%d/%m/%Y") %><br>
+        <strong>Meio de pagamento utilizado: </strong><%= @order.payment_method_used %><br>
+        <strong>Valor final do pedido: </strong><%= number_to_currency (@base_cost + @order.extra_fee_discount ) %>
+ 
+      <%end%>
+    </div>
 </div>
+
+<div>
+  <% if user_owner_signed_in?  && @order.awaiting_evaluation? %>
+    <%= render 'form_confirmed_buffet'%>
+  <%end%>
+</div>
+ 

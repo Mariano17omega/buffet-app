@@ -1,6 +1,7 @@
 pt-BR:
   awaiting_evaluation: 'Aguardando avaliação do buffet'
-  confirmed: 'Pedido confirmado'
+  confirmed_buffet: 'Pedido confirmado pelo Buffet'
+  confirmed_client: 'Pedido confirmado pelo Cliente'
   canceled: 'Pedido cancelado'
   activerecord:
     models:
@@ -60,4 +61,7 @@ pt-BR:
         address_event:  'Local do evento' 
         status: 'Status'
         created_at: 'Data do evento de criação do pedido'
- 
+        extra_fee_discount: 'Taxa extra/Desconto'
+        extra_fee_discount_description: 'Descrição da Taxa extra/Desconto'
+        expiration_date: 'Data de validade da Taxa extra/Desconto'
+        payment_method_used: 'Meio de pagamento utilizado'

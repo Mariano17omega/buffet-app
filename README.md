@@ -495,6 +495,32 @@ Ao visualizar a tela de detalhes de um pedido, o sistema deve notificar o dono d
 
 #### Solução
 
+ 
+```
+describe 'Um cliente visita tela inicial' do
+  context 'acessar um evento de um Buffet' do
+    it 'e vê o botão para fazer um pedido' do
+    end
+    
+    it 'e vê um formulario para fazer o pedido' do
+    end
+    
+    it 'e faz um pedido com sucesso' do
+    end
+
+    it 'e faz um pedido com a data no passado' do
+    end 
+  end
+
+  context 'acessar seus eventos' do
+    it 'e vê a lista de todos os seus pedidos' do
+    end
+
+    it 'e vê os detalhes de um pedido' do
+    end
+
+end
+```
 ### 11 - Tarefa 11: Dono de buffet aprova pedido
 
 Caso o dono do buffet considere estar tudo ok, ele deve aprovar o pedido. Para aprovar o pedido, o dono do buffet deve registrar na app o valor final do pedido e data de validade daquele valor. Para calcular o valor final, a aplicação deve calcular automaticamente o valor-padrão a partir da data solicitada para o evento, da quantidade de convidados e do tipo de evento.
@@ -505,19 +531,48 @@ O dono do buffet deve registrar também o meio de pagamento que será utilizado.
 
 #### Objetivos da Tarefa
 
-- [ ] Caso o dono do buffet considere estar tudo ok, ele deve aprovar o pedido. Para aprovar o pedido, o dono do buffet deve registrar na app o valor final do pedido e data de validade daquele valor. 
+- [X] Caso o dono do buffet considere estar tudo ok, ele deve aprovar o pedido. Para aprovar o pedido, o dono do buffet deve registrar na app o valor final do pedido e data de validade daquele valor. 
 
-- [ ] Para calcular o valor final, a aplicação deve calcular automaticamente o valor-padrão a partir da data solicitada para o evento, da quantidade de convidados e do tipo de evento.
+- [X] Para calcular o valor final, a aplicação deve calcular automaticamente o valor-padrão a partir da data solicitada para o evento, da quantidade de convidados e do tipo de evento.
 
-- [ ] Além do valor calculado automaticamente, o dono do buffet poderá acrescentar uma taxa extra ou conceder um desconto.
+- [X] Além do valor calculado automaticamente, o dono do buffet poderá acrescentar uma taxa extra ou conceder um desconto.
 
-- [ ] Deve ser cadastrada uma descrição que explique o valor extra ou o desconto.
+- [X] Deve ser cadastrada uma descrição que explique o valor extra ou o desconto.
 
-- [ ] O dono do buffet deve registrar também o meio de pagamento que será utilizado.
-
-OBS: Não faz mais sentido se for o Cliente quem decidi o  meio de pagamento que será utilizado?
+- [X] O dono do buffet deve registrar também o meio de pagamento que será utilizado.
 
 #### Solução
+
+ 
+```
+
+describe 'Um Dono de Buffet visita a tela inicial' do
+  it 'e vê o botão de Pedidos' do
+  end
+
+  it 'e acessar a pagina de Pedidos' do
+  end
+
+  it 'e vê notificação de mais de um Pedido no mesmo dia na pagina de detalhes do pedido' do
+  end
+end
+
+describe 'Um Dono de Buffet visita a tela inicial' do
+  context  'acessar os detalhes de um pedido a partir pagina de Pedidos' do
+    it 'e vê os campos de de desconto/taxa e descrição' do
+    end
+
+    it 'e e confirma o pedido com sucesso' do
+    end
+
+    it 'e e confirma o pedido faltando informações' do
+    end
+    
+  end
+end
+
+ 
+```
 
 ### 12 - Tarefa 12: Cliente confirma pedido
 

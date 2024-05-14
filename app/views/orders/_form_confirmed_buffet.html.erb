@@ -1,0 +1,28 @@
+ <%= form_with model:  [@buffet, @event, @order]   do |f| %> 
+
+  <div>
+      
+    <%= f.label :extra_fee_discount %>
+    <%= f.number_field :extra_fee_discount %>
+  </div>
+
+  <div>
+    <%= f.label :extra_fee_discount_description %>
+    <%= f.text_area :extra_fee_discount_description%>
+  </div>
+
+  <div>
+    <%= f.label :payment_method_used %> 
+    <%= f.collection_select :payment_method_used, @buffet.payment_method.attributes.select { |name, value| value == true }.keys.map { |name|  t("activerecord.attributes.payment_method.#{name}") } , :to_s, :humanize %>
+  </div>
+
+  <div>
+    <%= f.label :expiration_date %>
+    <%= f.date_field :expiration_date%>
+  </div>
+   
+ 
+  <div>
+    <%= f.submit 'Aprovar pedido' %>
+  </div>
+<%end%>
