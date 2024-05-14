@@ -1,5 +1,15 @@
 <h1><%=@order.code%> - <%= t(@order.status)%> </h1>
   
+<%
+    if @event.min_guests >= @order.num_guests
+      @base_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @event.price.price_base_weekend : @event.price.price_base_weekdays
+      @overtime_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @event.price.price_overtime_weekend : @event.price.price_overtime_weekdays
+    else
+      @base_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @event.price.price_base_weekend + @event.price.price_add_weekend * @order.num_guests : @event.price.price_base_weekdays + @event.price.price_add_weekdays * @order.num_guests
+      @overtime_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @event.price.price_overtime_weekend : @event.price.price_overtime_weekdays
+    end
+%>
+
 <div>
   <% if user_owner_signed_in?  && @repeat_orders.present? %>
   <p>Há <%= @repeat_orders.count %> pedidos agendados para o dia <%= @order.date_event.to_date.to_date.strftime("%d/%m/%Y")%>: </p>
@@ -27,7 +37,7 @@
     <%end%>
  
     <div>
-      <%unless @order.awaiting_evaluation? && @order.extra_fee_discount.nil? %>
+      <%if @order.extra_fee_discount.present? && @order.extra_fee_discount_description.present? && @order.expiration_date.present?  %>
         <strong>Taxa extra/Desconto: </strong><%= number_to_currency @order.extra_fee_discount %><br>
         <strong>Descrição da Taxa extra/Desconto: </strong><%= @order.extra_fee_discount_description %><br>
         <strong>Data de validade da Taxa extra/Desconto: </strong><%= @order.expiration_date.to_date.strftime("%d/%m/%Y") %><br>
@@ -39,8 +49,20 @@
 </div>
 
 <div>
-  <% if user_owner_signed_in?  && @order.awaiting_evaluation? %>
+  <% if user_owner_signed_in? && @order.awaiting_evaluation? %>
     <%= render 'form_confirmed_buffet'%>
   <%end%>
+
+  <% if user_client_signed_in? && @order.confirmed_buffet?%>
+    <% if @order.expiration_date.to_date  > Date.today.to_date %>
+      <%= form_with model:  [@buffet, @event, @order] , method: :put do |f| %>  
+        <%= f.hidden_field :status, value: :confirmed_client %>
+        <%= f.submit 'Confirmar pedido' %>
+      <% end %>
+    <%else%>
+      <strong>A data-limite para a confirmação já passou!</strong>
+    <% end %>
+  <% end %>
+
 </div>
  

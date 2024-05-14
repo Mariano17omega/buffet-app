@@ -582,13 +582,33 @@ Caso a data atual ainda seja anterior à data-limite, o cliente pode confirmar o
 
 #### Objetivos da Tarefa
 
-- [ ] Pedidos aprovados pelo buffet devem ser confirmados pelo cliente em seguida.
+- [X] Pedidos aprovados pelo buffet devem ser confirmados pelo cliente em seguida.
 
-- [ ] O cliente autenticado deve acessar o pedido através do menu "Meus Pedidos" e ver que o pedido está aguardando sua confirmação. 
-  - [ ] Deve ser exibida também a data-limite para confirmação do pedido.
+- [X] O cliente autenticado deve acessar o pedido através do menu "Meus Pedidos" e ver que o pedido está aguardando sua confirmação. 
+  - [X] Deve ser exibida também a data-limite para confirmação do pedido.
 
-- [ ] Caso a data atual ainda seja anterior à data-limite, o cliente pode confirmar o pedido. Pedidos confirmados indicam que o evento será realizado. 
+- [X] Caso a data atual ainda seja anterior à data-limite, o cliente pode confirmar o pedido. Pedidos confirmados indicam que o evento será realizado. 
 
 
 #### Solução
+
+
+```
+describe 'Um cliente visita tela inicial' do
+  context 'acessar Seus Pedidos' do
+
+    it 'e vê os detalhes de um pedido que aguardar sua Confirmação' do
+    end
+
+    it 'e Confirma seu pedido com sucesso' do
+    end
+
+    it 'e tenta Confirma um pedido fora da data limite' do
+    end
+
+    it 'e cancelar um pedido que aguardar sua Confirmação' do
+    end
+  end
+end
+```
 

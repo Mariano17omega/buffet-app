@@ -230,7 +230,6 @@ describe 'Um Dono de Buffet visita a tela inicial' do
       # Assert
       expect(page).to have_content 'Pedido confirmado com sucesso'
 
-      click_on 'ABCF1111'
       expect(page).to have_content 'Taxa extra/Desconto: R$ 150'
       expect(page).to have_content 'Descrição da Taxa extra/Desconto: Devido as chuvas'
       expect(page).to have_content 'Data de validade da Taxa extra/Desconto: '+ 3.days.from_now.to_date.to_date.strftime("%d/%m/%Y")

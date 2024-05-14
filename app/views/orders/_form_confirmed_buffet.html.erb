@@ -20,8 +20,11 @@
     <%= f.label :expiration_date %>
     <%= f.date_field :expiration_date%>
   </div>
-   
- 
+
+  <div>
+  <%= f.hidden_field :status, value: :confirmed_buffet %>
+  </div>
+
   <div>
     <%= f.submit 'Aprovar pedido' %>
   </div>

@@ -6,12 +6,13 @@ class Order < ApplicationRecord
 
   before_validation :generate_code, on: :create
   validates :code, uniqueness: true
+  validates :date_event,:num_guests, :details, presence: true, on: :create
 
   validate  :date_event_is_future
-  validates :num_guests, :details, presence: true
 
-  validates :extra_fee_discount, :extra_fee_discount_description, :payment_method_used, presence: true, on: :update
+  validates :expiration_date, :extra_fee_discount, :extra_fee_discount_description, :payment_method_used, presence: true, on: :update
 
+  validate  :expiration_date_is_future, on: :update
 
   private
   def generate_code
@@ -22,6 +23,14 @@ class Order < ApplicationRecord
     if self.date_event.present? && self.date_event < Date.today
       self.errors.add(:date_event, 'deve ser futura.')
     elsif self.date_event.blank?
+      self.errors.add(:date_event, 'não deve ser vazia.')
+    end
+  end
+
+  def expiration_date_is_future
+    if self.expiration_date.present? && self.expiration_date < Date.today
+      self.errors.add(:date_event, 'deve ser futura.')
+    elsif self.expiration_date.blank?
       self.errors.add(:date_event, 'não deve ser vazia.')
     end
   end

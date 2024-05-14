@@ -1,7 +1,7 @@
 pt-BR:
   awaiting_evaluation: 'Aguardando avaliação do buffet'
-  confirmed_buffet: 'Pedido confirmado pelo Buffet'
-  confirmed_client: 'Pedido confirmado pelo Cliente'
+  confirmed_buffet: 'Pedido aprovado pelo buffet'
+  confirmed_client: 'Pedido confirmado'
   canceled: 'Pedido cancelado'
   activerecord:
     models:

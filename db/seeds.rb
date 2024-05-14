@@ -96,12 +96,26 @@ end
 
 
 clients.each do |client|
-  7.times do
+  3.times do
     Order.create!(date_event: Random.new.rand(10..200).day.from_now,
     num_guests: Faker::Number.between(from: 10, to: 200),
     details:Faker::Lorem.unique.paragraph,
     event:Event.all.sample,
     user_client:client,
-    status: [:awaiting_evaluation, :confirmed_buffet, :confirmed_client, :canceled ].sample)
+    status: :awaiting_evaluation)
+
+    Order.create!(date_event: Random.new.rand(10..200).day.from_now,
+    num_guests: Faker::Number.between(from: 10, to: 200),
+    details:Faker::Lorem.unique.paragraph,
+    event:Event.all.sample,
+    user_client:client,
+    status: :confirmed_buffet)
+
+    Order.create!(date_event: Random.new.rand(10..200).day.from_now,
+    num_guests: Faker::Number.between(from: 10, to: 200),
+    details:Faker::Lorem.unique.paragraph,
+    event:Event.all.sample,
+    user_client:client,
+    status: :canceled )
   end
 end

@@ -245,7 +245,7 @@ describe 'Um cliente visita tela inicial' do
       # Assert
       expect(page).to have_content 'ABCF1111'
       expect(page).to have_content 'Festa AB'
-      expect(page).to have_content 5.days.from_now.to_date.to_date.strftime("%d/%m/%Y")
+      expect(page).to have_content "Data do evento: #{5.days.from_now.to_date.to_date.strftime("%d/%m/%Y")}"
       expect(page).to have_content 'Detalhes: Festa 1'
       expect(page).to have_content 'Número de convidados: 40'
     end
