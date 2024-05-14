@@ -131,7 +131,7 @@ describe 'Um cliente visita tela inicial' do
       click_on 'Festa da B2'
       click_on 'Fazer pedido'
 
-      fill_in 'Data do evento', with: Date.today - 30
+     fill_in 'Data do evento', with: Date.today - 30
       fill_in 'Quantidade de convidados', with: '40'
       fill_in 'Detalhes sobre o evento', with: 'Festa apenas para androids'
       fill_in 'Local do evento', with: 'Rua imaginaria, n. i'

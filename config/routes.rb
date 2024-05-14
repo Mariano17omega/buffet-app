@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   resources :buffets, only: [:index, :show, :new, :create, :edit, :update] do
     resources :events, only: [:show, :new, :create, :edit, :update, :destroy], on: :collection do
-      resources :orders, only: [:show, :new, :create, :edit, :update]
+      #resources :orders, only: [:show, :new, :create, :edit, :update]
+      resources :orders, only: [:show, :new, :create, :edit, :update], shallow: true
     end
     get 'search', on: :collection
   end

@@ -1,5 +1,6 @@
 class UserOwner < ApplicationRecord
-  has_one :buffet # associação de um-para-um,pq o usuario só pode ter um buffet
+  has_one :buffet
+  has_many :orders, through: :buffet
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

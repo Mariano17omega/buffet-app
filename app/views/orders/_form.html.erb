@@ -1,12 +1,11 @@
- <%= form_with model:  [@buffet, @event, @order]   do |f| %> 
+ <%= form_with model: @order, url: buffet_event_orders_path(@event.buffet, @event) do |f| %> 
   <div>
     <%= f.label :date_event %>
     <%= f.date_field :date_event%>
   </div>
 
   <div>
-      
-    <%= f.label :num_guests %>
+    <%= f.label :num_guests %>orders_path
     <%= f.number_field :num_guests %>
   </div>
 
@@ -23,7 +22,7 @@
         <%= f.text_field :address_event%>
       </div>
     <%else%>
-      <p>Este evento é exclusivo no endereço do buffet:</p><%=@buffet.address%>
+      <p>Este evento é exclusivo no endereço do buffet:</p><%=@event.buffet.address%>
     <%end%>
   </div>
  

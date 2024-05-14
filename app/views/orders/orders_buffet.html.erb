@@ -5,7 +5,7 @@
 <% @orders_awaiting_evaluation.each do |order| %>
   <div>
     <dl> 
-      <dt><h3><%= link_to order.code , buffet_event_order_path(order.event.buffet, order.event, order )  %></h3></dt>
+      <dt><h3><%= link_to order.code , order_path( order )  %></h3></dt>
       <dd><strong>Evento: </strong><%=   order.event.name  %></dd>  
       <dd><strong>Status: </strong><%= t(order.status)  %></dd>  
       <dd><strong>Data: </strong><%=  l(order.date_event)  %></dd>   
@@ -20,7 +20,7 @@
 <% @orders_confirmed_canceled.each do |order| %>
   <div>
     <dl> 
-      <dt><h3><%= link_to order.code , buffet_event_order_path(order.event.buffet, order.event, order )  %></h3></dt>
+      <dt><h3><%= link_to order.code , order_path( order )  %></h3></dt>
       <dd><strong>Evento: </strong><%=   order.event.name  %></dd>  
       <dd><strong>Status: </strong><%= t(order.status)  %></dd>  
       <dd><strong>Data: </strong><%=  l(order.date_event)  %></dd>   
