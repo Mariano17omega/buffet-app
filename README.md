@@ -610,5 +610,10 @@ describe 'Um cliente visita tela inicial' do
     end
   end
 end
+
+describe 'Um Visitante visita a tela inicial' do
+  it 'e tenta vê os pedidos dos clientes' do
+  end
+end
 ```
 

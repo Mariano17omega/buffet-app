@@ -89,7 +89,7 @@ end
                           event_location: [true, false].sample,
                           buffet: buffet_user_owner,
                           price_attributes: price_attributes
-                        )
+                          )
 
   end
 end
@@ -98,24 +98,66 @@ end
 clients.each do |client|
   3.times do
     Order.create!(date_event: Random.new.rand(10..200).day.from_now,
-    num_guests: Faker::Number.between(from: 10, to: 200),
-    details:Faker::Lorem.unique.paragraph,
-    event:Event.all.sample,
-    user_client:client,
-    status: :awaiting_evaluation)
+                  num_guests: Faker::Number.between(from: 10, to: 200),
+                  details:Faker::Lorem.unique.paragraph,
+                  event:Event.all.sample,
+                  user_client:client,
+                  status: :awaiting_evaluation
+                  )
+
+
+    Order.create!(date_event: Random.new.rand(20..100).day.from_now,
+                  num_guests: Faker::Number.between(from: 10, to: 200),
+                  details:Faker::Lorem.unique.paragraph,
+                  event:Event.all.sample,
+                  user_client:client,
+                  status: :confirmed_client,
+                  extra_fee_discount:Faker::Number.between(from: -500, to: 500),
+                  extra_fee_discount_description: Faker::Lorem.unique.paragraph,
+                  payment_method_used: ['Dinheiro',  'Cartão de crédito', 'Cartão de débito', 'Transferência bancária', 'PayPal', 'Cheque', 'PIX',  'Bitcoin', 'Google Pay'].sample,
+                  expiration_date: Random.new.rand(2..20).day.from_now
+                  )
+
+    Order.create!(date_event: Random.new.rand(20..100).day.from_now,
+                  num_guests: Faker::Number.between(from: 10, to: 200),
+                  details:Faker::Lorem.unique.paragraph,
+                  event:Event.all.sample,
+                  user_client:client,
+                  status: :confirmed_buffet,
+                  extra_fee_discount:Faker::Number.between(from: -500, to: 500),
+                  extra_fee_discount_description: Faker::Lorem.unique.paragraph,
+                  payment_method_used: ['Dinheiro',  'Cartão de crédito', 'Cartão de débito', 'Transferência bancária', 'PayPal', 'Cheque', 'PIX',  'Bitcoin', 'Google Pay'].sample,
+                  expiration_date: Random.new.rand(2..20).day.from_now
+                  )
+
+    Order.create!(date_event: Random.new.rand(20..100).day.from_now,
+                  num_guests: Faker::Number.between(from: 10, to: 200),
+                  details:Faker::Lorem.unique.paragraph,
+                  event:Event.all.sample,
+                  user_client:client,
+                  status: :canceled,
+                  extra_fee_discount:Faker::Number.between(from: -500, to: 500),
+                  extra_fee_discount_description: Faker::Lorem.unique.paragraph,
+                  payment_method_used: ['Dinheiro',  'Cartão de crédito', 'Cartão de débito', 'Transferência bancária', 'PayPal', 'Cheque', 'PIX',  'Bitcoin', 'Google Pay'].sample,
+                  expiration_date: Random.new.rand(2..20).day.from_now
+                  )
 
     Order.create!(date_event: Random.new.rand(10..200).day.from_now,
-    num_guests: Faker::Number.between(from: 10, to: 200),
-    details:Faker::Lorem.unique.paragraph,
-    event:Event.all.sample,
-    user_client:client,
-    status: :confirmed_buffet)
+                  num_guests: Faker::Number.between(from: 10, to: 200),
+                  details:Faker::Lorem.unique.paragraph,
+                  event:Event.all.sample,
+                  user_client:client,
+                  status: :canceled
+                  )
 
-    Order.create!(date_event: Random.new.rand(10..200).day.from_now,
-    num_guests: Faker::Number.between(from: 10, to: 200),
-    details:Faker::Lorem.unique.paragraph,
-    event:Event.all.sample,
-    user_client:client,
-    status: :canceled )
+    # Para varios eventos no mesmo dia
+    Order.create!(date_event: 10.day.from_now,
+                  num_guests: Faker::Number.between(from: 10, to: 200),
+                  details:Faker::Lorem.unique.paragraph,
+                  event:Event.all.sample,
+                  user_client:client,
+                  status: :awaiting_evaluation
+                  )
+
   end
 end

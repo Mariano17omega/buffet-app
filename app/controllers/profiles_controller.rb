@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_user_client!, only: [:new,:create]
 
   def new
     @profile = current_user_client.build_profile

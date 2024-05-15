@@ -149,7 +149,7 @@ describe 'Um Dono de Buffet visita a tela inicial' do
     click_on 'ABCF1111'
     # Assert
     expect(page).to have_content 'ABCF1111 - Aguardando avaliação do buffet'
-    expect(page).to have_content "Há 2 pedidos agendados para o dia #{ 5.days.from_now.to_date.to_date.strftime("%d/%m/%Y")}:"
+    expect(page).to have_content "Há mais 2 pedidos agendados para o dia #{ 5.days.from_now.to_date.to_date.strftime("%d/%m/%Y")}:"
     expect(page).to have_content 'ABCF2222'
     expect(page).to have_content 'MWXY3333'
     expect(page).not_to have_content 'MWXY4444'
@@ -213,8 +213,8 @@ describe 'Um Dono de Buffet visita a tela inicial' do
       Profile.create!(name: 'Cliente0', cpf: '71779672063' , user_client: client0)
 
       allow(SecureRandom).to receive(:alphanumeric).and_return('ABCF1111')
-      Order.create!(date_event: 5.day.from_now, num_guests: '40', details:'Festa 1',
-      event:event0, user_client:client0, status: :awaiting_evaluation)
+      order = Order.create!(date_event: 5.day.from_now, num_guests: '40', details:'Festa 1',
+                            event:event0, user_client:client0, status: :awaiting_evaluation)
 
       # Act
       login_as(user_owner_0, scope: :user_owner)
@@ -225,16 +225,21 @@ describe 'Um Dono de Buffet visita a tela inicial' do
       fill_in 'Descrição da Taxa extra/Desconto',	with: 'Devido as chuvas'
       fill_in  'Data de validade da Taxa extra/Desconto',	with: 3.day.from_now
       select 'Dinheiro', :from =>  'Meio de pagamento utilizado'
-      #fill_in 'Meio de pagamento utilizado',	with: 'PIX'
       click_on 'Aprovar pedido'
+
       # Assert
       expect(page).to have_content 'Pedido confirmado com sucesso'
 
-      expect(page).to have_content 'Taxa extra/Desconto: R$ 150'
+      expect(page).to have_content "Taxa extra/Desconto: R$ 150,00"
       expect(page).to have_content 'Descrição da Taxa extra/Desconto: Devido as chuvas'
       expect(page).to have_content 'Data de validade da Taxa extra/Desconto: '+ 3.days.from_now.to_date.to_date.strftime("%d/%m/%Y")
       expect(page).to have_content 'Meio de pagamento utilizado: Dinheiro'
-      expect(page).to have_content 'Valor final do pedido: R$ 5.150,00'
+
+      if order.date_event.saturday? || order.date_event.sunday?
+        expect(page).to have_content "Valor final do pedido: R$ 1.200,00"
+      else
+        expect(page).to have_content "Valor final do pedido: R$ 1.350,00"
+      end
 
     end
 

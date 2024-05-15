@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_users, only: [:show, :update]
+  before_action :authenticate_user_client!, only: [:new,:create, :my_orders]
+  before_action :authenticate_user_owner!, only: [:orders_buffet]
+
   before_action :set_order, only: [:show, :update]
   before_action :set_event, only: [:new,  :create]
 
@@ -63,4 +67,9 @@ class OrdersController < ApplicationController
     @event =  Event.find(params[:event_id])
   end
 
+  def authenticate_users
+    unless current_user_owner.present? || current_user_client.present?
+      redirect_to root_path, notice: 'Você não tem autorização para acessar esta página.'
+    end
+  end
 end

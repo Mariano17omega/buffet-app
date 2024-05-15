@@ -5,14 +5,14 @@
       @base_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @order.event.price.price_base_weekend : @order.event.price.price_base_weekdays
       @overtime_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @order.event.price.price_overtime_weekend : @order.event.price.price_overtime_weekdays
     else
-      @base_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @order.event.price.price_base_weekend + @order.event.price.price_add_weekend * @order.event.num_guests : @order.event.price.price_base_weekdays + @order.event.price.price_add_weekdays * @order.num_guests
+      @base_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @order.event.price.price_base_weekend + @order.event.price.price_add_weekend * @order.num_guests : @order.event.price.price_base_weekdays + @order.event.price.price_add_weekdays * @order.num_guests
       @overtime_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @order.event.price.price_overtime_weekend : @order.event.price.price_overtime_weekdays
     end
 %>
 
 <div>
   <% if user_owner_signed_in?  && @repeat_orders.present? %>
-  <p>Há <%= @repeat_orders.count %> pedidos agendados para o dia <%= @order.date_event.to_date.to_date.strftime("%d/%m/%Y")%>: </p>
+  <p>Há mais <%= @repeat_orders.count %> pedidos agendados para o dia <%= @order.date_event.to_date.to_date.strftime("%d/%m/%Y")%>: </p>
     <ul>
     <% @repeat_orders.map do |order| %>
       <li><%= link_to order.code , order_path( order ) %></li>
