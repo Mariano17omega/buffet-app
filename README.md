@@ -52,8 +52,114 @@ Para fazer login como dono de um Buffet, use o email de um dos Buffets. Esses em
 
 Para obter os emails dos clientes e fazer login como cliente, execute o comando `UserClient.all` no console do Rails para listar os clientes. A senha padrão para clientes também é `senha123`.
 
+## Documentação da API da aplicação
 
-## Tarefas para a Criação do Projeto
+ Esta API foi desenvolvida para integrar o sistema da aplicação Cadê Buffet com outras outras aplicações.
+ 
+ A API está disponível via requisições HTTP e retorna respostas em formato JSON.
+
+### Endpoints
+Após execute o projeto com `rails s`, temos os seguintes Endpoints disponíveis:
+
+#### 1. Listagem e busca de Buffets
+
+**URL:** `/api/v1/buffets`
+
+**Método HTTP:** `GET`
+
+**Descrição:** Fornece uma listagem completa de buffets cadastrados na plataforma em ordem alfabética, com a opção de buscar por nome.
+
+
+**Parâmetros:**
+- `search?query` (opcional): Parâmetro de query para filtrar a listagem pelo nome do buffet.
+
+**Exemplo de Requisição:**
+```
+GET /api/v1/buffets/search?query=orange
+```
+
+
+**Resposta de Sucesso (200):** Retorna um array, com cada elemento sendo um JSON com todos os detalhes de um Buffet exceto CNPJ e razão social.. Se não tiver buffes no banco de dados, o array retornado será vazio.
+
+#### 2. Listagem de Tipos de Eventos de um Buffet
+
+**URL:** `/api/v1/buffets/:buffet_id/events`
+
+**Método HTTP:** `GET`
+
+**Descrição:** A partir do ID de um buffet, fornece uma lista com informações sobre os tipos de eventos disponíveis no buffet.
+
+**Parâmetros:**
+- `buffet_id` (obrigatório): ID do buffet.
+
+**Exemplo de Requisição:**
+
+```
+GET /api/v1/buffets/1/events
+```
+
+**Resposta de Sucesso (200):** Retorna um array, com cada elemento sendo um JSON com todos os detalhes de um tipo de evento. 
+
+
+#### 3. Detalhes de um Buffet
+
+**URL:** `/api/v1/buffets/:buffet_id`
+
+**Método HTTP:** `GET`
+
+**Descrição:** A partir do ID de um buffet, fornece todos os detalhes do buffet exceto CNPJ e razão social.
+
+**Parâmetros:**
+- `buffet_id` (obrigatório): ID do buffet.
+
+**Exemplo de Requisição:**
+```
+GET /api/v1/buffets/1
+```
+
+**Resposta de Sucesso (200):** Retorna um JSON com os detalhes do Buffet.
+
+**Resposta de falha (404):**  Se não encontra o buffet.
+
+
+#### 4. Consulta de Disponibilidade
+
+**URL:** `/api/v1/events/availability`
+
+**Método HTTP:** `POST`
+
+**Descrição:** Informando um ID de um tipo de evento, a data do evento e a quantidade de convidados, verifica a disponibilidade para realizar um evento. Em caso positivo, retorna o valor prévio do pedido, em caso negativo, uma mensagem de erro.
+
+**Parâmetros:** 
+
+- `event_id` (obrigatório): ID do tipo de evento.
+- `date_event` (obrigatório): Data do evento no formato dd-mm-aaaa.
+- `num_guests` (obrigatório): Quantidade de convidados.
+
+**Exemplo de Requisição:**
+```
+POST  /api/v1/events/availability
+
+{ event_id: 1, 
+  date_event: 21-05-2024, 
+  num_guests: 200
+}
+```
+
+**Resposta de Sucesso (200):** Retorna apenas o valor prévio do pedido.
+
+**Resposta de Erro (404):** Retorna uma mensagem de erro se o evento não existir.
+
+``` { errors: { event: 'Evento não encontrado' }  ```
+
+**Resposta de Erro (422):** Retorna uma mensagem de erro se o parametro não for valido.
+
+``` { errors: { date_event: 'A data do evento deve ser no futuro' } } ```
+
+``` { errors: { num_guests: 'O número de convidados deve ser maior que zero' } } ```
+
+
+## Banco de dados
 
 Os models da aplicação estão organizados com as seguintes associações:
 
@@ -430,7 +536,7 @@ O cliente deve ter acesso a uma tela "Meus Pedidos" onde é possível acompanhar
 #### Objetivos da Tarefa
 
 - [X] Um cliente pode fazer um pedido para um buffet.
-- [ ] Todos os pedidos serão avaliados pelo dono do buffet antes de se confirmar a execução do evento.
+- [X] Todos os pedidos serão avaliados pelo dono do buffet antes de se confirmar a execução do evento.
 - [X] Um novo pedido deve conter: 
   - o buffet
   - o tipo de evento escolhido
@@ -625,8 +731,81 @@ A Cadê Buffet? está avaliando a criação de outras aplicações integradas ao
 
   - [X] A partir do ID de um buffet, fornece uma lista com informações sobre os tipos de eventos disponíveis no buffet.
   - [X] A partir do ID de um buffet, fornece todos os detalhes do buffet exceto CNPJ e razão social.
-  - [ ] Informando um ID de um evento, a data do evento e a quantidade de convidados, deve ser possível verificar a disponibilidade para realizar um evento. 
+  - [X] Informando um ID de um evento, a data do evento e a quantidade de convidados, deve ser possível verificar a disponibilidade para realizar um evento. 
     - [X] Em caso positivo, deve ser retornado o valor prévio do pedido
-    - [ ] em caso negativo, deve haver uma mensagem de erro no corpo da resposta.
+    - [X] Em caso negativo, deve haver uma mensagem de erro no corpo da resposta.
 
-- [ ] Documenta a API 
+- [X] Documenta a API 
+
+
+#### Solução
+
+
+```
+describe 'Cadê o Buffet API' do
+  context 'GET /api/v1/buffets/:id -  A partir do ID de um buffet, 
+           fornece todos os detalhes do buffet exceto CNPJ e razão social' do
+    it 'fornece todos os detalhes do buffet com sucesso' do
+    end
+    it 'falha se não encontra o buffet' do
+    end
+  end
+
+  context 'GET /api/v1/buffets/ -  Fornece uma 
+           listagem completa de buffets cadastrados na plataforma. ' do
+    it 'lista os buffets em ordem alfabetica' do 
+    end
+    it 'retornar vazio se não houver buffet' do 
+    end
+    it 'GET /api/v1/buffets/search?query=:brand_name - 
+        retornar a busca pelo nome de um buffet' do
+    end
+  end
+
+  context 'GET /api/v1/buffets/:id/events - A partir do ID de um buffet, 
+            fornece uma lista com informações sobre os tipos de eventos disponíveis no buffet.' do
+    it 'lista dos eventos de um buffet' do
+    end
+  end
+
+  context 'POST /api/v1/events/availability - Informando um ID de um evento, 
+           a data do evento e a quantidade de convidados, deve ser possível 
+           verificar a disponibilidade para realizar um evento. ' do
+    it 'em caso de sucesso, deve ser retornado o valor prévio do pedido' do
+    end
+    it 'falha, se quantidade de convidados estiver faltando' do
+    end
+    it 'falha, se a quantidade de convidados for negativa' do
+    end
+    it 'falha, se quantidade de convidados for zero' do
+    end
+    it 'falha, se a data for no passado' do
+    end
+    it 'falha, data estiver faltando' do
+    end
+  end
+end
+
+```
+
+## Autoanálise e Melhorias Futuras
+
+Todas as Tarefas obrigadoras do Projeto Crash Course foram concluídas, mas no futuro, quanto tiver mais tempo, vou melhorar o projeto com:
+
+ - Os recursos das Tarefas Bonus:
+   - Fotos para tipos de eventos
+   - Troca de mensagens
+   - Desativar buffets e tipos de eventos 
+   - Avaliar buffets
+   - Promoções
+   -  Multa por cancelamento
+  - Melhorar a semântica do html das views
+  - Fazer a estilização com Tailwind CSS
+  - Completar o I18N nos textos views. Porque vários textos que não estão associados diretamente aos model ficaram sem a tradução.
+  - Corrigir o bug do salvamento da forma de pagamento do pedido. Porque quando um pedido é salvo, a forma de pagamento fica registrada com o nome traduzido em português com I18N, mas o correto seria está em inglês, conforme os nomes dos atributos do model referente a forma de pagamento.
+  - Criar testes unitários. (Nota: Foquei muito nos testes de sistema e esqueci de fazer os unitários, então alguns testes que poderiam melhor escritos como unitários, foram feitos como testes de sistema.)
+
+
+## Agradecimentos
+
+Gostaria de agradecer a Campus Code pelos ensinamentos no TreinaDev 12.
