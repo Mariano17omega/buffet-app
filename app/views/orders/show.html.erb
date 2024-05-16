@@ -5,10 +5,10 @@
       @base_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @order.event.price.price_base_weekend : @order.event.price.price_base_weekdays
       @overtime_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @order.event.price.price_overtime_weekend : @order.event.price.price_overtime_weekdays
     else
-      @base_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @order.event.price.price_base_weekend + @order.event.price.price_add_weekend * @order.num_guests : @order.event.price.price_base_weekdays + @order.event.price.price_add_weekdays * @order.num_guests
+      @base_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @order.event.price.price_base_weekend + @order.event.price.price_add_weekend * ( @order.num_guests - @order.event.min_guests ) : @order.event.price.price_base_weekdays + @order.event.price.price_add_weekdays * ( @order.num_guests - @order.event.min_guests )
       @overtime_cost = @order.date_event.saturday? || @order.date_event.sunday? ? @order.event.price.price_overtime_weekend : @order.event.price.price_overtime_weekdays
     end
-%>
+%>  
 
 <div>
   <% if user_owner_signed_in?  && @repeat_orders.present? %>
@@ -49,6 +49,7 @@
 </div>
 
 <div>
+
   <% if user_owner_signed_in? && @order.awaiting_evaluation? %>
     <%= render 'form_confirmed_buffet'%>
   <%end%>
@@ -64,11 +65,16 @@
     <% end %>
   <% end %>
 
-  <% if user_client_signed_in?  && !@order.canceled?%>
-    <%= button_to order_path(@order), method: :put, params: { order: { status: :canceled } }, data: { confirm: 'Tem certeza que deseja cancelar este pedido?' } do %>
-      Cancelar pedido
-    <% end %>
+  <% if (user_client_signed_in?  && !@order.canceled? ) || (user_owner_signed_in?  && !@order.canceled? )%>
+      <div> 
+        <%= form_with(url: canceled_status_order_path(@order), method: :put)   do |f| %> 
+          <%= f.hidden_field :status, value: :canceled %>
+          <%= f.submit 'Cancelar pedido' %>
+        <%end%>
+      </div> 
   <% end %>
+
+  
 
 </div>
  

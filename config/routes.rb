@@ -7,8 +7,11 @@ Rails.application.routes.draw do
 
   resources :buffets, only: [:index, :show, :new, :create, :edit, :update] do
     resources :events, only: [:show, :new, :create, :edit, :update, :destroy], on: :collection do
-      #resources :orders, only: [:show, :new, :create, :edit, :update]
-      resources :orders, only: [:show, :new, :create, :edit, :update], shallow: true
+      resources :orders, only: [:show, :new, :create, :edit, :update], shallow: true do
+        member do
+          put :canceled_status
+        end
+      end
     end
     get 'search', on: :collection
   end
@@ -16,5 +19,15 @@ Rails.application.routes.draw do
   get 'orders_buffet', to: 'orders#orders_buffet'
 
   resources :profiles, only: [:new, :create]
+
+  namespace :api do
+    namespace :v1 do
+      get '/buffets/search', to: 'buffets#search'
+      resources :buffets, only: [:show, :index] do
+        resources :events, only:  [ :index]
+      end
+      post '/events/availability', to: 'events#availability'
+    end
+  end
 
 end

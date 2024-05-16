@@ -39,6 +39,17 @@ class OrdersController < ApplicationController
     end
   end
 
+  #Desativa a validação "presence: true, on: :update" para atualizar apenas o Status
+  def canceled_status
+    @order = Order.find(params[:id])
+    if @order.update_attribute!(:status, params[:status])
+      redirect_to order_path(@order), notice: 'Pedido cancelado com sucesso.'
+    else
+      flash[:alert] = 'Erro ao Cancelado o pedido.'
+      render :show
+    end
+  end
+
   def my_orders
     @orders=current_user_client.orders
   end

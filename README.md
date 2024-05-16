@@ -1,29 +1,42 @@
 # Projeto Crash Course - Cadê Buffet?
 
-O projeto **Cadê Buffet?** visa oferecer uma solução abrangente para a busca e contratação de serviços de buffet, proporcionando uma experiência simplificada e eficiente para os usuários.
+Projeto desenvolvido para o Crash Course do TreinaDev 12 da Campus Code.
+
+A aplicação **Cadê Buffet?** visa oferecer uma solução abrangente para a busca e contratação de serviços de buffet, proporcionando uma experiência simplificada e eficiente para os usuários.
 
 Este projeto é uma plataforma onde donos de buffets podem cadastrar suas empresas e serviços, enquanto os usuários regulares podem encontrar e solicitar os serviços de buffet de acordo com suas preferências.
 
-## Principais Funcionalidades:
+## Tecnologias Utilizadas
+
+A aplicação é construida usando TDD com Ruby on Rails
+
+- Ruby: 3.3.0
+ 
+- Rails: 7.1.3 
+
+
+## Principais Funcionalidades da Aplicação
 
 - **Cadastro de Buffets:** Donos de buffets podem: 
-  - cadastrar suas empresas
-  - listar os serviços oferecidos
-  - cadastrar cardápios e seus respectivos valores
-  - receber contatos de pessoas interessadas em realizar uma festa
+  - Cadastrar suas empresas
+  - Listar os serviços oferecidos
+  - Cadastrar eventos e seus respectivos valores
+  - Receber pedidos de clientes interessadas em realizar uma festa
+  - Listar os pedidos dos clientes
   
-- **Busca de Buffets:** Usuários regulares podem:
-  - buscar buffets de acordo com: 
-    - o tipo de evento
-    - quantidade de convidados
-    - localização
-  - fazer um pedido
-  - fazer avaliações (caso a festa seja realizada)
+- **Busca de Buffets:** Visitantes podem:
+  - Buscar buffets de acordo com: 
+    - o nome de evento
+    - o nome de buffet
+    - a cidade
+  - Visualizar detalhes de eventos
+- **Fazer um pedido:** Clientes podem:
+  - Fazer um pedido
+  - Listar os pedidos
 
 ## Executando o Projeto
 
-
-Para iniciar o projeto, siga as etapas abaixo:
+Para iniciar o projeto usando dados fake, siga as etapas abaixo:
 
 
 - Instale as gemas necessárias usando `bundle install`.
@@ -33,12 +46,22 @@ Para iniciar o projeto, siga as etapas abaixo:
 - Execute o projeto `rails s`.
 
  
-Os Buffets são gerados usando a gem Faker.
+O banco de dados é populado usando a `gem Faker`.
 
-Para fazer login como um dono de Buffet, use o email de um dos Buffets que pode ser obtido vendo os detalhes de um Buffet como um Visitante. A senha será também o proprio email do usuário.
+Para fazer login como dono de um Buffet, use o email de um dos Buffets. Esses emails podem ser obtidos visualizando os detalhes de um Buffet como Visitante. A senha padrão é `senha123`.
+
+Para obter os emails dos clientes e fazer login como cliente, execute o comando `UserClient.all` no console do Rails para listar os clientes. A senha padrão para clientes também é `senha123`.
+
 
 ## Tarefas para a Criação do Projeto
 
+Os models da aplicação estão organizados com as seguintes associações:
+
+<img src='/UML.png'>
+
+## Tarefas para a construção projeto
+
+Para organizar a construção da aplicação, as tarefas de cada sprint foram reformuladas como uma lista de **Objetivos da Tarefa**. Com base nessa lista de objetivos, são construídos os testes de TDD. Os testes são detalhados na subseção **Solução**.
 
 ### 1 - Tarefa 1: Criar conta como dono de buffet
 
@@ -54,24 +77,20 @@ Um usuário pode criar sua conta como dono de um buffet informando seu e-mail e 
 
   
 ##### Solução 
-
+```
 describe 'Usuario visita tela inicial' do
   context 'como dono de buffet' do
     it 'e vê as opções de login de usuários' do
     end
-
     it 'e vê a página de inscrição para um dono de bufê' do
     end
-
     it 'e faz a inscrição com sucesso como um dono de bufê' do 
     end
-
     it 'e faz o login e depois o logout' do 
     end
- 
   end
 end
-
+```
 
 ### 2 - Tarefa 2: Cadastrar buffet
 
@@ -126,25 +145,18 @@ Um usuário dono de buffet deve, obrigatoriamente, cadastrar seu buffet logo ap�
 ```
 describe 'Usuario visita tela inicial' do
   context 'como dono de buffet' do
-
     it 'e faz a inscrição e depois vê o cadastro de bufet' do 
     end
-
     it 'e faz a inscrição e depois faz o cadastro de bufet com sucesso' do 
     end
-
     it 'e faz a inscrição e depois faz o cadastro de bufet faltando dados' do 
     end
-
     it 'e faz o login com sucesso' do 
     end
-
     it 'e faz o login sem cadastra o bufet e depois faz o login novamente e vê a tela de cadastro' do 
     end
-
     it 'e faz o login e editar seu buffet' do 
     end
-
     it 'e faz o login e editar outro buffet' do 
     end
   end
@@ -285,11 +297,8 @@ Um visitante, não autenticado, deve ser capaz de abrir a tela inicial da aplica
 
 #### Solução
 
+Complementavamos os testes da Tarefa 3 para os novos campos.
 
-```
-Complementa os testes da Tarefa 3 com os novos campos
-
-```
 
 ### 6 - Tarefa 6: Busca de buffets
 
@@ -318,10 +327,8 @@ describe 'Usuario visitante' do
   context 'visita tela inicial' do
     it 'e vê o campo de busca' do
     end
-
     it 'e faz uma busca por evento' do
     end
-
     it 'e faz uma busca por Buffet' do
     end
     it 'e faz uma busca por cidade' do
@@ -380,7 +387,7 @@ Um visitante deve ser capaz de criar uma conta informando seu nome, CPF, e-mail 
 
 #### Solução
 
-Para a validação é do cpf do cliente e o CNPJ do dono do Buffet é feita usando a gem 'cpf_cnpj' https://github.com/fnando/cpf_cnpj
+Para a validação é do cpf do cliente e o CNPJ do dono do Buffet é feita usando a [gem 'cpf_cnpj'](https://github.com/fnando/cpf_cnpj)
 
 ```
 
@@ -407,8 +414,6 @@ describe 'Usuario visita tela inicial' do
     end
   end
 end
-
-
 ```
 
 ### 9 - Tarefa 9: Cliente faz um pedido
@@ -453,13 +458,10 @@ describe 'Um cliente visita tela inicial' do
   context 'acessar um evento de um Buffet' do
     it 'e vê o botão para fazer um pedido' do 
     end
-
     it 'e vê um formulario para fazer o pedido' do 
     end
-
     it 'e faz um pedido com sucesso' do 
     end
-
     it 'e faz um pedido com a data no passado' do
     end
   end
@@ -467,7 +469,6 @@ describe 'Um cliente visita tela inicial' do
   context 'acessar seus eventos' do
     it 'e vê a lista de todos os seus pedidos' do
     end
-
     it 'e vê os detalhes de um pedido' do
     end
   end
@@ -501,13 +502,10 @@ describe 'Um cliente visita tela inicial' do
   context 'acessar um evento de um Buffet' do
     it 'e vê o botão para fazer um pedido' do
     end
-    
     it 'e vê um formulario para fazer o pedido' do
     end
-    
     it 'e faz um pedido com sucesso' do
     end
-
     it 'e faz um pedido com a data no passado' do
     end 
   end
@@ -515,10 +513,9 @@ describe 'Um cliente visita tela inicial' do
   context 'acessar seus eventos' do
     it 'e vê a lista de todos os seus pedidos' do
     end
-
     it 'e vê os detalhes de um pedido' do
     end
-
+  end
 end
 ```
 ### 11 - Tarefa 11: Dono de buffet aprova pedido
@@ -549,10 +546,8 @@ O dono do buffet deve registrar também o meio de pagamento que será utilizado.
 describe 'Um Dono de Buffet visita a tela inicial' do
   it 'e vê o botão de Pedidos' do
   end
-
   it 'e acessar a pagina de Pedidos' do
   end
-
   it 'e vê notificação de mais de um Pedido no mesmo dia na pagina de detalhes do pedido' do
   end
 end
@@ -561,17 +556,12 @@ describe 'Um Dono de Buffet visita a tela inicial' do
   context  'acessar os detalhes de um pedido a partir pagina de Pedidos' do
     it 'e vê os campos de de desconto/taxa e descrição' do
     end
-
     it 'e e confirma o pedido com sucesso' do
     end
-
     it 'e e confirma o pedido faltando informações' do
     end
-    
   end
 end
-
- 
 ```
 
 ### 12 - Tarefa 12: Cliente confirma pedido
@@ -596,16 +586,12 @@ Caso a data atual ainda seja anterior à data-limite, o cliente pode confirmar o
 ```
 describe 'Um cliente visita tela inicial' do
   context 'acessar Seus Pedidos' do
-
     it 'e vê os detalhes de um pedido que aguardar sua Confirmação' do
     end
-
     it 'e Confirma seu pedido com sucesso' do
     end
-
     it 'e tenta Confirma um pedido fora da data limite' do
     end
-
     it 'e cancelar um pedido que aguardar sua Confirmação' do
     end
   end
@@ -617,3 +603,30 @@ describe 'Um Visitante visita a tela inicial' do
 end
 ```
 
+
+### 13 - Tarefa 13: API de buffets
+
+A Cadê Buffet? está avaliando a criação de outras aplicações integradas ao sistema de gestão de buffets e reservas, para isto, precisamos começar a construir uma API acessível via requisições HTTP e com retornos em formato JSON. Toda API deve ser documentada e, abaixo, segue uma relação dos endpoints esperados neste momento:
+
+- Listagem de buffets: fornece uma listagem completa de buffets cadastrados na plataforma. Deve haver uma opção de informar um texto e usar como filtro de busca pelo nome do buffet.
+
+- Listagem de tipos de eventos de um buffet: a partir do ID de um buffet, fornece uma lista com informações sobre os tipos de eventos disponíveis no buffet.
+  
+- Detalhes de um buffet: a partir do ID de um buffet, fornece todos os detalhes do buffet exceto CNPJ e razão social.
+  
+- Consulta de disponibilidade: informando um ID de um tipo de evento, a data do evento e a quantidade de convidados, deve ser possível verificar a disponibilidade para realizar um evento. Em caso positivo, deve ser retornado o valor prévio do pedido, em caso negativo, deve haver uma mensagem de erro no corpo da resposta.
+
+
+#### Objetivos da Tarefa
+
+- Criar os endpoints para:
+  - [X] Fornece uma listagem completa de buffets cadastrados na plataforma. 
+    - [X] Deve haver uma opção de informar um texto e usar como filtro de busca pelo nome do buffet.
+
+  - [X] A partir do ID de um buffet, fornece uma lista com informações sobre os tipos de eventos disponíveis no buffet.
+  - [X] A partir do ID de um buffet, fornece todos os detalhes do buffet exceto CNPJ e razão social.
+  - [ ] Informando um ID de um evento, a data do evento e a quantidade de convidados, deve ser possível verificar a disponibilidade para realizar um evento. 
+    - [X] Em caso positivo, deve ser retornado o valor prévio do pedido
+    - [ ] em caso negativo, deve haver uma mensagem de erro no corpo da resposta.
+
+- [ ] Documenta a API 

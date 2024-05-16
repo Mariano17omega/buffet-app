@@ -14,27 +14,27 @@ describe 'Um Dono de Buffet visita a tela inicial' do
   it 'e acessar a pagina de Pedidos' do
     # Arrange
     user_owner_0 = UserOwner.create!(email: 'a110@example.com', password: 'senha123' )
-    Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
-                    contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
-                    district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
-                    description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
-                    { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
-                    check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
+    buffet_0 = Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
+                              contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
+                              district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
+                              description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
+                              { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                              check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
     event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'160',
                   duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                  event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                  event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                   price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                   price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
     event1 = Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'140',
                   duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                  event_location:'true', buffet_id: user_owner_0.id , price_attributes: {price_base_weekdays: '1200',
+                  event_location:'true', buffet_id: buffet_0.id , price_attributes: {price_base_weekdays: '1200',
                   price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                   price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
     event2 = Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'180',
                   duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                  event_location:'false', buffet_id: user_owner_0.id , price_attributes: {price_base_weekdays: '1200',
+                  event_location:'false', buffet_id: buffet_0.id , price_attributes: {price_base_weekdays: '1200',
                   price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                   price_add_weekend: '500.0', price_overtime_weekend: '400'})
     #################
@@ -81,39 +81,39 @@ describe 'Um Dono de Buffet visita a tela inicial' do
   it 'e vê notificação de mais de um Pedido no mesmo dia na pagina de detalhes do pedido' do
     # Arrange
     user_owner_0 = UserOwner.create!(email: 'a110@example.com', password: 'senha123' )
-    Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
-                    contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
-                    district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
-                    description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
-                    { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
-                    check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
+    buffet_0 = Buffet.create!(brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
+                              contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
+                              district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
+                              description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
+                              { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                              check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
     event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'160',
                   duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                  event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                  event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                   price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                   price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
     event1 = Event.create!(name:'Festa CDEFS' ,description:'Festa para letras diferentes ', min_guests:'140',
                   duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                  event_location:'true', buffet_id: user_owner_0.id , price_attributes: {price_base_weekdays: '1200',
+                  event_location:'true', buffet_id: buffet_0.id , price_attributes: {price_base_weekdays: '1200',
                   price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                   price_add_weekend: '500.0', price_overtime_weekend: '400'})
     event2 = Event.create!(name:'Festa DEF' ,description:'Festa para letras D', min_guests:'180',
               duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-              event_location:'false', buffet_id: user_owner_0.id , price_attributes: {price_base_weekdays: '1200',
+              event_location:'false', buffet_id: buffet_0.id , price_attributes: {price_base_weekdays: '1200',
               price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
               price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
     user_owner_3 = UserOwner.create!(email: 'd@example.com', password: 'senha123' )
-    Buffet.create!( brand_name: 'Def Buffets', corporate_name: 'Corporate def' ,cnpj: '94595685000100',
-                    contact_phone: '88969777936', contact_email: 'd@gmail.com',  address: 'Rua dos dois',
-                    district: 'Bairro fantasia', state: 'AM', city: 'Manaus', cep: '4022-9968',
-                    description: 'Buffet Otimo',   user_owner: user_owner_3 , payment_method_attributes:
-                    { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
-                    check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
+    buffet_3 = Buffet.create!(brand_name: 'Def Buffets', corporate_name: 'Corporate def' ,cnpj: '94595685000100',
+                              contact_phone: '88969777936', contact_email: 'd@gmail.com',  address: 'Rua dos dois',
+                              district: 'Bairro fantasia', state: 'AM', city: 'Manaus', cep: '4022-9968',
+                              description: 'Buffet Otimo',   user_owner: user_owner_3 , payment_method_attributes:
+                              { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                              check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
     event3 = Event.create!(name:'Festa DFW' ,description:'Festa para letras DWs', min_guests:'170',
                   duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                  event_location:'false', buffet_id: user_owner_3.id , price_attributes: {price_base_weekdays: '1200',
+                  event_location:'false', buffet_id: buffet_3.id , price_attributes: {price_base_weekdays: '1200',
                   price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                   price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
@@ -162,15 +162,15 @@ describe 'Um Dono de Buffet visita a tela inicial' do
     it 'e vê os campos de de desconto/taxa e descrição' do
       # Arrange
       user_owner_0 = UserOwner.create!(email: 'a110@example.com', password: 'senha123' )
-      Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
-                      contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
-                      district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
-                      description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
-                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
-                      check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
+      buffet_0 = Buffet.create!(brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
+                                contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
+                                district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
+                                description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
+                                { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                                check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
       event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'160',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                    event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
       client0 = UserClient.create!(email: 'cliente0@example.com', password: 'mypassword' )
@@ -198,15 +198,15 @@ describe 'Um Dono de Buffet visita a tela inicial' do
     it 'e e confirma o pedido com sucesso' do
       # Arrange
       user_owner_0 = UserOwner.create!(email: 'a110@example.com', password: 'senha123' )
-      Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
-                      contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
-                      district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
-                      description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
-                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
-                      check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
+      buffet_0 = Buffet.create!(brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
+                                contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
+                                district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
+                                description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
+                                { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                                check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
       event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'160',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                    event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
       client0 = UserClient.create!(email: 'cliente0@example.com', password: 'mypassword' )
@@ -246,15 +246,15 @@ describe 'Um Dono de Buffet visita a tela inicial' do
     it 'e e confirma o pedido faltando informações' do
       # Arrange
       user_owner_0 = UserOwner.create!(email: 'a110@example.com', password: 'senha123' )
-      Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
-                      contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
-                      district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
-                      description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
-                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
-                      check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
+      buffet_0 = Buffet.create!(brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
+                                contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
+                                district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
+                                description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
+                                { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                                check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
       event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'160',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                    event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
       client0 = UserClient.create!(email: 'cliente0@example.com', password: 'mypassword' )

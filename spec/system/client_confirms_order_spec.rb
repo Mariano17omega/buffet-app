@@ -5,7 +5,7 @@ describe 'Um cliente visita tela inicial' do
     it 'e vê os detalhes de um pedido que aguardar sua Confirmação' do
       # Arrange
       user_owner_0 = UserOwner.create!(email: 'a@example.com', password: 'senha123' )
-      Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
+      buffet_0 = Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
                       contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
                       district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
                       description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
@@ -13,7 +13,7 @@ describe 'Um cliente visita tela inicial' do
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
       event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                    event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
@@ -51,7 +51,7 @@ describe 'Um cliente visita tela inicial' do
     it 'e Confirma seu pedido com sucesso' do
       # Arrange
       user_owner_0 = UserOwner.create!(email: 'a@example.com', password: 'senha123' )
-      Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
+      buffet_0 = Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
                       contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
                       district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
                       description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
@@ -59,7 +59,7 @@ describe 'Um cliente visita tela inicial' do
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
       event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                    event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
@@ -89,7 +89,7 @@ describe 'Um cliente visita tela inicial' do
     it 'e tenta Confirma um pedido fora da data limite' do
       # Arrange
       user_owner_0 = UserOwner.create!(email: 'a@example.com', password: 'senha123' )
-      Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
+      buffet_0 =Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
                       contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
                       district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
                       description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
@@ -97,7 +97,7 @@ describe 'Um cliente visita tela inicial' do
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
       event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                    event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
@@ -123,7 +123,7 @@ describe 'Um cliente visita tela inicial' do
     it 'e cancelar um pedido que aguardar sua Confirmação' do
       # Arrange
       user_owner_0 = UserOwner.create!(email: 'a@example.com', password: 'senha123' )
-      Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
+      buffet_0 = Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
                       contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
                       district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
                       description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
@@ -131,7 +131,7 @@ describe 'Um cliente visita tela inicial' do
                       check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
       event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'110',
                     duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                    event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                    event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                     price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                     price_add_weekend: '500.0', price_overtime_weekend: '400'})
 
@@ -150,11 +150,13 @@ describe 'Um cliente visita tela inicial' do
       visit root_path
       click_on 'Meus Pedidos'
       click_on 'ABCF1111'
-      click_on 'Cancelar pedido'
+      click_button 'Cancelar pedido'
 
       # Assert
-      expect(page).to have_content 'Pedido cancelado com sucesso'
+      expect(page).to have_content 'Pedido cancelado com sucesso.'
       expect(page).to have_content 'ABCF1111 - Pedido cancelado'
+      expect(page).not_to have_button 'Cancelar pedido'
+
     end
   end
 end
@@ -165,7 +167,7 @@ describe 'Um Visitante visita a tela inicial' do
   it 'e tenta vê os pedidos dos clientes' do
     # Arrange
     user_owner_0 = UserOwner.create!(email: 'a110@example.com', password: 'senha123' )
-    Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
+    buffet_0 = Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
                     contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
                     district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
                     description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
@@ -173,7 +175,7 @@ describe 'Um Visitante visita a tela inicial' do
                     check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
     event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'160',
                   duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
-                  event_location:'true', buffet_id: user_owner_0.id, price_attributes: {price_base_weekdays: '1200',
+                  event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
                   price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                   price_add_weekend: '500.0', price_overtime_weekend: '400'})
     client0 = UserClient.create!(email: 'cliente0@example.com', password: 'mypassword' )
@@ -190,5 +192,49 @@ describe 'Um Visitante visita a tela inicial' do
     # Assert
     expect(page).to have_content 'Você não tem autorização para acessar esta página.'
 
+  end
+end
+
+
+describe 'Um Dono do buffet visita tela inicial' do
+  context 'acessar Seus Pedidos' do
+    it 'e cancelar um pedido que aguardar sua Confirmação' do
+      # Arrange
+      user_owner_0 = UserOwner.create!(email: 'a@example.com', password: 'senha123' )
+      buffet_0 = Buffet.create!( brand_name: 'C.C. Buffets', corporate_name: 'Buffet Zero' ,cnpj: '88802612000149',
+                      contact_phone: '88969721936', contact_email: 'buffetcc@gmail.com',  address: 'Rua dos dois',
+                      district: 'Bairro fantasia', state: 'SP', city: 'São Paulo', cep: '4522-9968',
+                      description: 'Buffet para festas',  user_owner: user_owner_0 , payment_method_attributes:
+                      { cash: 'true', credit_card: 'false', debit_card: 'false', bank_transfer: 'true', paypal: 'true',
+                      check: 'true', pix: 'true', bitcoin: 'true', google_pay: 'false' } )
+      event0 = Event.create!(name:'Festa AB' ,description:'Festa para letras', min_guests:'110',
+                    duration: '120', menu: 'Comida',decoration:  'true', alcoholic_beverages: 'true', parking_servise: 'true',
+                    event_location:'true', buffet_id: buffet_0.id, price_attributes: {price_base_weekdays: '1200',
+                    price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
+                    price_add_weekend: '500.0', price_overtime_weekend: '400'})
+
+
+      client0 = UserClient.create!(email: 'cliente0@example.com', password: 'mypassword' )
+      Profile.create!(name: 'Cliente0', cpf: '71779672063' , user_client: client0)
+      # Act
+      allow(SecureRandom).to receive(:alphanumeric).and_return('ABCF1111')
+      Order.create!(date_event: 5.day.from_now, num_guests: '40',  details:'Festa 1',
+      event:event0, user_client:client0, extra_fee_discount: '200', extra_fee_discount_description: 'Clima Ruim',
+      payment_method_used: 'PIX', expiration_date: 4.day.from_now , status: :awaiting_evaluation)
+
+
+
+      login_as(user_owner_0, scope: :user_owner)
+      visit root_path
+      click_on 'Pedidos'
+      click_on 'ABCF1111'
+      click_button 'Cancelar pedido'
+
+      # Assert
+      expect(page).to have_content 'Pedido cancelado com sucesso.'
+      expect(page).to have_content 'ABCF1111 - Pedido cancelado'
+      expect(page).not_to have_button 'Cancelar pedido'
+
+    end
   end
 end
