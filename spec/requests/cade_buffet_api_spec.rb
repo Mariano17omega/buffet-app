@@ -178,15 +178,16 @@ describe 'Cadê o Buffet API' do
                                 price_add_weekdays: '100', price_overtime_weekdays: '150', price_base_weekend: '5000',
                                 price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
-      date_event = 5.day.from_now.to_date#.strftime("%d-%m-%Y")
-      get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '200' }
+      date_event = 5.day.from_now.to_date.strftime("%d-%m-%Y")
+      #get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '200' }
 
+      get "/api/v1/events/availability?event_id=#{event_0.id}&date_event=#{date_event}&num_guests=200"
       # Assert
       expect(response).to have_http_status(200)
       expect(response.content_type).to include 'application/json'
       json_response = JSON.parse(response.body)
 
-      if date_event.saturday? || date_event.sunday?
+      if date_event.to_date.saturday? || date_event.to_date.sunday?
         expect(json_response).to eq 45000.0
       else
         expect(json_response).to eq 9200.0
@@ -209,7 +210,9 @@ describe 'Cadê o Buffet API' do
                                 price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
       date_event = 5.day.from_now.to_date.strftime("%d-%m-%Y")
-      get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event  }
+      #get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event  }
+
+      get "/api/v1/events/availability?event_id=#{event_0.id}&date_event=#{date_event}"
 
       # Assert
       expect(response).to have_http_status(422)
@@ -236,8 +239,8 @@ describe 'Cadê o Buffet API' do
                                 price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
       date_event = 5.day.from_now.to_date.strftime("%d-%m-%Y")
-      get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '-100' }
-
+      #get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '-100' }
+      get "/api/v1/events/availability?event_id=#{event_0.id}&date_event=#{date_event}&num_guests=-100"
       # Assert
       expect(response).to have_http_status(422)
       expect(response.content_type).to include 'application/json'
@@ -263,8 +266,9 @@ describe 'Cadê o Buffet API' do
                                 price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
       date_event = 5.day.from_now.to_date.strftime("%d-%m-%Y")
-      get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '0' }
+      #get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '0' }
 
+      get "/api/v1/events/availability?event_id=#{event_0.id}&date_event=#{date_event}&num_guests=0"
       # Assert
       expect(response).to have_http_status(422)
       expect(response.content_type).to include 'application/json'
@@ -291,8 +295,9 @@ describe 'Cadê o Buffet API' do
                                 price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
       date_event = -5.day.from_now.to_date.strftime("%d-%m-%Y")
-      get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '100' }
+      #get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '100' }
 
+      get "/api/v1/events/availability?event_id=#{event_0.id}&date_event=#{date_event}&num_guests=100"
       # Assert
       expect(response).to have_http_status(422)
       expect(response.content_type).to include 'application/json'
@@ -319,7 +324,9 @@ describe 'Cadê o Buffet API' do
                                 price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
 
-      get "/api/v1/events/availability", params:{event_id: event_0.id, num_guests: '100' }
+#      get "/api/v1/events/availability", params:{event_id: event_0.id, num_guests: '100' }
+
+      get "/api/v1/events/availability?event_id=#{event_0.id}&num_guests=200"
 
       # Assert
       expect(response).to have_http_status(422)
