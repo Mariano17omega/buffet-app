@@ -124,9 +124,9 @@ GET /api/v1/buffets/1
 
 #### 4. Consulta de Disponibilidade
 
-**URL:** `/api/v1/events/availability`
-
-**Método HTTP:** `POST`
+**URL:** `get "/api/v1/events/availability?event_id=:event_id&date_event=:date_event&num_guests=:num_guests"`
+ 
+**Método HTTP:** `GET`
 
 **Descrição:** Informando um ID de um tipo de evento, a data do evento e a quantidade de convidados, verifica a disponibilidade para realizar um evento. Em caso positivo, retorna o valor prévio do pedido, em caso negativo, uma mensagem de erro.
 
@@ -137,14 +137,7 @@ GET /api/v1/buffets/1
 - `num_guests` (obrigatório): Quantidade de convidados.
 
 **Exemplo de Requisição:**
-```
-POST  /api/v1/events/availability
-
-{ event_id: 1, 
-  date_event: 21-05-2024, 
-  num_guests: 200
-}
-```
+``` GET /api/v1/events/availability?event_id=1&date_event=11-11-2025&num_guests=11```
 
 **Resposta de Sucesso (200):** Retorna apenas o valor prévio do pedido.
 
