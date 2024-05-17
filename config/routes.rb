@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       resources :buffets, only: [:show, :index] do
         resources :events, only:  [ :index]
       end
-      post '/events/availability', to: 'events#availability'
+      get '/events/availability', to: 'events#availability'
     end
   end
 

@@ -162,7 +162,7 @@ describe 'Cadê o Buffet API' do
   end
 
 
-  context 'POST /api/v1/events/availability - Informando um ID de um evento, a data do evento e a quantidade de convidados, deve ser possível verificar a disponibilidade para realizar um evento. ' do
+  context 'GET /api/v1/events/availability - Informando um ID de um evento, a data do evento e a quantidade de convidados, deve ser possível verificar a disponibilidade para realizar um evento. ' do
     it 'em caso de sucesso, deve ser retornado o valor prévio do pedido' do
       # Arrange
       user_owner_1 = UserOwner.create!(email: 'b@example.com', password: 'senha123' )
@@ -179,7 +179,7 @@ describe 'Cadê o Buffet API' do
                                 price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
       date_event = 5.day.from_now.to_date#.strftime("%d-%m-%Y")
-      post "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '200' }
+      get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '200' }
 
       # Assert
       expect(response).to have_http_status(200)
@@ -209,7 +209,7 @@ describe 'Cadê o Buffet API' do
                                 price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
       date_event = 5.day.from_now.to_date.strftime("%d-%m-%Y")
-      post "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event  }
+      get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event  }
 
       # Assert
       expect(response).to have_http_status(422)
@@ -236,7 +236,7 @@ describe 'Cadê o Buffet API' do
                                 price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
       date_event = 5.day.from_now.to_date.strftime("%d-%m-%Y")
-      post "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '-100' }
+      get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '-100' }
 
       # Assert
       expect(response).to have_http_status(422)
@@ -263,7 +263,7 @@ describe 'Cadê o Buffet API' do
                                 price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
       date_event = 5.day.from_now.to_date.strftime("%d-%m-%Y")
-      post "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '0' }
+      get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '0' }
 
       # Assert
       expect(response).to have_http_status(422)
@@ -291,7 +291,7 @@ describe 'Cadê o Buffet API' do
                                 price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
       date_event = -5.day.from_now.to_date.strftime("%d-%m-%Y")
-      post "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '100' }
+      get "/api/v1/events/availability", params:{event_id: event_0.id, date_event: date_event, num_guests: '100' }
 
       # Assert
       expect(response).to have_http_status(422)
@@ -319,7 +319,7 @@ describe 'Cadê o Buffet API' do
                                 price_add_weekend: '500.0', price_overtime_weekend: '400'})
       # Act
 
-      post "/api/v1/events/availability", params:{event_id: event_0.id, num_guests: '100' }
+      get "/api/v1/events/availability", params:{event_id: event_0.id, num_guests: '100' }
 
       # Assert
       expect(response).to have_http_status(422)

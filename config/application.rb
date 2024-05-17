@@ -40,7 +40,7 @@ module BuffetApp
     config.generators.system_tests = nil
 
     config.action_dispatch.default_headers = {
-      'Access-Control-Allow-Origin' => '*'
+      'Access-Control-Allow-Origin' => '*'#, 'Access-Control-Allow-Methods' => 'POST, GET, OPTIONS'
     }
   end
 end
