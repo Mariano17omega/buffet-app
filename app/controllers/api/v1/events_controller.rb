@@ -29,10 +29,9 @@ class Api::V1::EventsController < Api::V1::ApiController
   def availability_params_valid?
     if !params.key?(:event_id) ||  Event.find(params[:event_id]).nil?
       return render status: 404, json: { errors: { event: 'Evento não encontrado' } }
-    #elsif !params.key?(:date_event) ||  !(Date.parse(params[:date_event]).strftime("%d-%m-%Y")  > Date.today.strftime("%d-%m-%Y") )
-    elsif !params.key?(:date_event) ||  ( params[:date_event] > Date.today.strftime("%d-%m-%Y") )
-
+    elsif !params.key?(:date_event) ||  !( (params[:date_event]).to_date > Date.today  )
       return render status: 422, json: { errors: { date_event: 'A data do evento deve ser no futuro' } }
+
     elsif !params.key?(:num_guests) ||  !(params[:num_guests].to_i > 0)
       return render status: 422, json: { errors: { num_guests: 'O número de convidados deve ser maior que zero' } }
     end
